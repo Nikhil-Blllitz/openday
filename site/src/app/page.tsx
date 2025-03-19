@@ -26,9 +26,6 @@ export default function Home() {
       {/* Speakers Section */}
       <Speakers />
       
-      {/* Sponsors Section */}
-      <Sponsors />
-      
       <Footer />
     </main>
   );
