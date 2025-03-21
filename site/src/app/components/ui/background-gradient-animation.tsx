@@ -12,7 +12,7 @@ export const BackgroundGradientAnimation = ({
     fourthColor = "200, 50, 50",
     fifthColor = "180, 180, 50",
     size = "80%",
-    blendingValue = "hard-light",
+    blendingValue = "hard-light" as const, // Use literal type
     children,
     className,
     interactive = true,
@@ -26,7 +26,9 @@ export const BackgroundGradientAnimation = ({
     fourthColor?: string;
     fifthColor?: string;
     size?: string;
-    blendingValue?: string;
+    blendingValue?: "normal" | "multiply" | "screen" | "overlay" | "darken" | "lighten" | 
+                    "color-dodge" | "color-burn" | "hard-light" | "soft-light" | "difference" | 
+                    "exclusion" | "hue" | "saturation" | "color" | "luminosity"; // Union type
     children?: React.ReactNode;
     className?: string;
     interactive?: boolean;
@@ -123,7 +125,7 @@ export const BackgroundGradientAnimation = ({
                 )}
                 style={{
                     opacity: 0.3,
-                    mixBlendMode: 'hard-light',
+                    mixBlendMode: blendingValue, // Works with union type
                 }}
             >
                 <div
@@ -137,7 +139,6 @@ export const BackgroundGradientAnimation = ({
                             aspectRatio: "1/1",
                         }}
                     >
-                        {/* Gradient circles */}
                         <div
                             className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#4090ff]"
                             style={{
