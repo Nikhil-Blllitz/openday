@@ -123,7 +123,7 @@ export const BackgroundGradientAnimation = ({
                 )}
                 style={{
                     opacity: 0.3,
-                    mixBlendMode: blendingValue,
+                    mixBlendMode: 'hard-light',
                 }}
             >
                 <div
