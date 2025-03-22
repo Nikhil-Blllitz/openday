@@ -285,16 +285,16 @@
 
 // export default Hero;
 
-'use client';
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { Space_Grotesk, Orbitron, Audiowide } from 'next/font/google';
+import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { Space_Grotesk, Orbitron, Audiowide } from "next/font/google";
 
-const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
-const orbitron = Orbitron({ subsets: ['latin'] });
-const audiowide = Audiowide({ weight: '400', subsets: ['latin'] });
+const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
+const orbitron = Orbitron({ subsets: ["latin"] });
+const audiowide = Audiowide({ weight: "400", subsets: ["latin"] });
 
 const Hero: React.FC = () => {
   return (
@@ -305,8 +305,9 @@ const Hero: React.FC = () => {
           <Image
             src="/campus.jpg"
             alt="Campus Background"
-            fill
-            className="object-cover opacity-20"
+            layout="fill"
+            objectFit="cover"
+            className="opacity-20"
             priority
           />
         </div>
@@ -331,9 +332,10 @@ const Hero: React.FC = () => {
           <Image
             src="/robot.png"
             alt="Robot"
-            fill
+            layout="intrinsic"
+            width={500}
+            height={500}
             className="object-contain drop-shadow-2xl"
-            style={{ objectPosition: 'right center' }}
             priority
           />
         </div>
@@ -354,7 +356,7 @@ const Hero: React.FC = () => {
                 <motion.span
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.7, ease: 'easeOut' }}
+                  transition={{ duration: 0.7, ease: "easeOut" }}
                   className={`${orbitron.className} text-[2.5rem] md:text-[4rem] leading-tight font-bold mb-2 tracking-wider bg-gradient-to-r from-white via-white/60 to-white/80 bg-clip-text text-transparent`}
                 >
                   CAMBRIAN
@@ -385,7 +387,7 @@ const Hero: React.FC = () => {
               >
                 <div className="flex items-center">
                   <p className={`${orbitron.className} text-2xl md:text-3xl text-white font-bold tracking-wide`}>
-                    19<sup>th</sup> APR '25 | 9:30 AM <span className="text-white/80">TO</span> 5:00 PM
+                    19<sup>th</sup> APR &apos;25 | 9:30 AM <span className="text-white/80">TO</span> 5:00 PM
                   </p>
                 </div>
                 <p className={`${spaceGrotesk.className} text-xl md:text-2xl text-white/90 tracking-wide`}>
@@ -410,26 +412,6 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Robot Image (visible only on small screens) - Adjusted to the right */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.5 }}
-        className="absolute bottom-0 right-0 z-10 md:hidden pointer-events-none"
-        style={{ height: '45%', width: '85%' }}
-      >
-        <div className="relative h-full w-full">
-          <Image
-            src="/robot.png"
-            alt="Robot"
-            fill
-            className="object-contain drop-shadow-2xl"
-            style={{ objectPosition: 'bottom right' }}
-            priority
-          />
-        </div>
-      </motion.div>
-
       {/* Floating Icons */}
       <div className="absolute inset-0 z-10 pointer-events-none">
         <div className="absolute top-40 right-20">
@@ -447,4 +429,3 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
-
