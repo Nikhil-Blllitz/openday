@@ -301,14 +301,15 @@ const Hero: React.FC = () => {
     <div className={`relative min-h-screen w-full overflow-hidden bg-[#141414] ${spaceGrotesk.className}`}>
       {/* Background Image with Gradient Overlay */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/campus.jpg"
-          alt="Campus Background"
-          layout="fill"
-          objectFit="cover"
-          className="opacity-20"
-          priority
-        />
+        <div className="relative w-full h-full">
+          <Image
+            src="/campus.jpg"
+            alt="Campus Background"
+            fill
+            className="object-cover opacity-20"
+            priority
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-r from-[#67B044] via-[#FFD700] to-[#9B4DEE] opacity-80" />
       </div>
 
@@ -330,10 +331,9 @@ const Hero: React.FC = () => {
           <Image
             src="/robot.png"
             alt="Robot"
-            layout="fill"
-            objectFit="contain"
-            objectPosition="right center"
-            className="drop-shadow-2xl"
+            fill
+            className="object-contain drop-shadow-2xl"
+            style={{ objectPosition: 'right center' }}
             priority
           />
         </div>
@@ -422,10 +422,9 @@ const Hero: React.FC = () => {
           <Image
             src="/robot.png"
             alt="Robot"
-            layout="fill"
-            objectFit="contain"
-            objectPosition="bottom right"
-            className="drop-shadow-2xl"
+            fill
+            className="object-contain drop-shadow-2xl"
+            style={{ objectPosition: 'bottom right' }}
             priority
           />
         </div>
@@ -448,3 +447,4 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
+
