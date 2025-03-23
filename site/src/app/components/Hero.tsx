@@ -102,7 +102,7 @@ const Hero: React.FC = () => {
                   </p>
                 </div>
                 <p className={`${spaceGrotesk.className} max-sm:text-center max-sm:bg-black/30 max-sm:backdrop-blur-md max-sm:border max-sm:border-white/20 max-sm:rounded-lg max-sm:p-[0.5em] text-xl md:text-2xl tracking-wide max-sm:text-[4vw]`}>
-                  <span className=' max-sm:text-[white]'>CIT KR PURAM, BENGALURU-560037</span>
+                  <span className=' max-sm:text-[white]'>CIT KR PURAM, BENGALURU-560036</span>
                 </p>
               </motion.div>
 
