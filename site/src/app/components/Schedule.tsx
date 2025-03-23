@@ -2,11 +2,6 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Orbitron, Audiowide, Space_Grotesk } from 'next/font/google';
-
-const orbitron = Orbitron({ subsets: ['latin'] });
-const audiowide = Audiowide({ weight: '400', subsets: ['latin'] });
-const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
 
 export default function Schedule() {
   const scheduleBlocks = [
