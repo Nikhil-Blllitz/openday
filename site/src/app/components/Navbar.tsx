@@ -69,7 +69,7 @@ const Navbar: React.FC = () => {
               </div>
               <div className="h-12 w-px bg-gradient-to-b from-transparent via-gray-300 to-transparent" />
               <div className="flex flex-col">
-                <span className="text-2xl font-black text-black tracking-tight">CIT INTUIT</span>
+                {/* <span className="text-2xl font-black text-black tracking-tight">CIT INTUIT</span> */}
               </div>
             </div>
           </motion.div>
