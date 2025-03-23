@@ -385,7 +385,7 @@ const Hero: React.FC = () => {
               >
                 <div className="flex items-center">
                   <p className={`${orbitron.className} text-2xl md:text-3xl text-white font-bold tracking-wide`}>
-                    19<sup>th</sup> APR '25 | 9:30 AM <span className="text-white/80">TO</span> 5:00 PM
+                    19<sup>th</sup> APR &apos;25 | 9:30 AM <span className="text-white/80">TO</span> 5:00 PM
                   </p>
                 </div>
                 <p className={`${spaceGrotesk.className} text-xl md:text-2xl text-white/90 tracking-wide`}>

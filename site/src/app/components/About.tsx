@@ -106,7 +106,7 @@ export default function About() {
             Innovation Showcase
           </h1>
           <p className="text-xl md:text-2xl text-gray-800 max-w-3xl mx-auto">
-            Discover a world of innovation at CIT's largest tech exhibition featuring 150+ stalls of groundbreaking ideas and solutions
+            Discover a world of innovation at CIT&apos;s largest tech exhibition featuring 150+ stalls of groundbreaking ideas and solutions
           </p>
         </motion.div>
 
