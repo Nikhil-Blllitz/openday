@@ -6,13 +6,12 @@ import { FiMenu, FiX } from 'react-icons/fi';
 import Image from 'next/image';
 
 const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [scrolled, setScrolled] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 20;
-      setScrolled(isScrolled);
+      setScrolled(window.scrollY > 20);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -20,13 +19,13 @@ const Navbar: React.FC = () => {
   }, []);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prev) => !prev);
   };
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const offset = 80; // Height of the navbar
+      const offset = 80; // Adjust based on navbar height
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
 
@@ -35,9 +34,7 @@ const Navbar: React.FC = () => {
         behavior: 'smooth'
       });
 
-      if (isOpen) {
-        toggleMenu();
-      }
+      setIsOpen(false); // Close menu after click
     }
   };
 
@@ -46,12 +43,13 @@ const Navbar: React.FC = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-lg' : 'bg-white'
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? 'bg-white/90 backdrop-blur-md shadow-lg' : 'bg-white'
+      }`}
     >
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Left Section - Logos and Brand */}
+          {/* Logo & Brand */}
           <motion.div
             className="flex items-center"
             initial={{ opacity: 0, x: -20 }}
@@ -59,7 +57,6 @@ const Navbar: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <div className="flex items-center space-x-6">
-              {/* CIT Logo */}
               <div className="relative w-[60px] h-[60px] group">
                 <Image
                   src="/citlogo.png"
@@ -70,23 +67,21 @@ const Navbar: React.FC = () => {
                   priority
                 />
               </div>
-              {/* Vertical Divider */}
               <div className="h-12 w-px bg-gradient-to-b from-transparent via-gray-300 to-transparent" />
-              {/* INTUIT Header */}
               <div className="flex flex-col">
                 <span className="text-2xl font-black text-black tracking-tight">CIT INTUIT</span>
               </div>
             </div>
           </motion.div>
 
-          {/* Right Section - Navigation Links */}
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <NavLinks scrollToSection={scrollToSection} />
             <motion.button
-              onClick={() => scrollToSection('register')}
+              onClick={() => scrollToSection('registration-section')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 py-3 rounded-full bg-gradient-to-r from-green-500 via-emerald-500 to-green-500 text-white font-semibold hover:shadow-lg hover:shadow-green-500/30 transition-all duration-300"
+              className="px-6 py-3 rounded-full bg-gradient-to-r from-green-500 via-emerald-500 to-green-500 text-white font-semibold hover:shadow-lg hover:shadow-green-500/30 transition-all duration-300 cursor-pointer"
             >
               Register Now
             </motion.button>
@@ -103,11 +98,7 @@ const Navbar: React.FC = () => {
               onClick={toggleMenu}
               className="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors duration-300 focus:outline-none"
             >
-              {isOpen ? (
-                <FiX className="h-6 w-6" />
-              ) : (
-                <FiMenu className="h-6 w-6" />
-              )}
+              {isOpen ? <FiX className="h-6 w-6" /> : <FiMenu className="h-6 w-6" />}
             </button>
           </motion.div>
         </div>
@@ -124,10 +115,15 @@ const Navbar: React.FC = () => {
             className="md:hidden bg-white border-t border-gray-100"
           >
             <div className="px-4 py-6 space-y-4">
-              <MobileNavLinks scrollToSection={scrollToSection} />
+              <MobileNavLinks scrollToSection={scrollToSection} toggleMenu={toggleMenu} />
               <div className="pt-4">
                 <motion.button
-                  onClick={() => scrollToSection('register')}
+                  onClick={() => {
+                    toggleMenu(); 
+                    setTimeout(() => {
+                      document.getElementById('registration-section')?.scrollIntoView({ behavior: 'smooth' });
+                    }, 100); 
+                  }}
                   whileTap={{ scale: 0.95 }}
                   className="w-full px-6 py-3 rounded-full bg-gradient-to-r from-green-500 via-emerald-500 to-green-500 text-white font-semibold hover:shadow-lg hover:shadow-green-500/30 transition-all duration-300"
                 >
@@ -142,6 +138,7 @@ const Navbar: React.FC = () => {
   );
 };
 
+/* Desktop Nav Links */
 const NavLinks = ({ scrollToSection }: { scrollToSection: (sectionId: string) => void }) => {
   const links = [
     { id: 'hero', label: 'Home' },
@@ -161,7 +158,8 @@ const NavLinks = ({ scrollToSection }: { scrollToSection: (sectionId: string) =>
   );
 };
 
-const MobileNavLinks = ({ scrollToSection }: { scrollToSection: (sectionId: string) => void }) => {
+/* Mobile Nav Links */
+const MobileNavLinks = ({ scrollToSection, toggleMenu }: { scrollToSection: (sectionId: string) => void; toggleMenu: () => void }) => {
   const links = [
     { id: 'hero', label: 'Home' },
     { id: 'about', label: 'About' },
@@ -178,7 +176,12 @@ const MobileNavLinks = ({ scrollToSection }: { scrollToSection: (sectionId: stri
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: index * 0.1 }}
         >
-          <MobileNavLink onClick={() => scrollToSection(link.id)}>
+          <MobileNavLink
+            onClick={() => {
+              toggleMenu(); // 🔥 Close menu immediately
+              setTimeout(() => scrollToSection(link.id), 100); // 🔥 Scroll after small delay
+            }}
+          >
             {link.label}
           </MobileNavLink>
         </motion.div>
@@ -187,13 +190,12 @@ const MobileNavLinks = ({ scrollToSection }: { scrollToSection: (sectionId: stri
   );
 };
 
+
 function NavLink({ onClick, children }: { onClick: () => void; children: React.ReactNode }) {
   return (
-    <button onClick={onClick} className="group relative">
-      <span className="text-gray-600 hover:text-gray-900 font-medium transition-colors duration-300">
-        {children}
-      </span>
-      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-green-500 to-emerald-500 transition-all duration-300 group-hover:w-full" />
+    <button onClick={onClick} className="group relative cursor-pointer">
+      <span className="text-gray-600 hover:text-gray-900 font-medium transition-colors duration-300">{children}</span>
+      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-green-500 to-emerald-500 transition-all duration-300 group-hover:w-full " />
     </button>
   );
 }

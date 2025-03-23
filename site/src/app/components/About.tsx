@@ -12,6 +12,8 @@ export default function About() {
     phoneNumber: '',
     state: '',
     city: '',
+    occupation: 'Your Occupation',
+    otherOccupation: '',
     interest: 'Select Your Interest',
     accompaniedBy: 'Accompanied By (Including you)',
   });
@@ -65,6 +67,8 @@ export default function About() {
           state: '',
           city: '',
           interest: 'Select Your Interest',
+          occupation: 'Your Occupation',
+          otherOccupation: '',
           accompaniedBy: 'Accompanied By (Including you)',
         });
       } else {
@@ -107,7 +111,7 @@ export default function About() {
       <div className="absolute top-1/2 left-1/3 translate-y-[-50%] w-96 h-96 rounded-full bg-yellow-300/20 blur-3xl" />
 
       {/* Main Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="relative z-10 max-w-7xl mt-auto mx-auto px-4 sm:px-6 lg:px-8 py-20">
         {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -184,6 +188,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
+          id='registration-section'
           className="mt-16 bg-white/80 backdrop-blur-sm rounded-xl p-8 border border-gray-100 max-w-2xl mx-auto shadow-sm"
         >
           <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 via-yellow-400 to-purple-500 mb-6 text-center">
@@ -218,9 +223,9 @@ export default function About() {
               className="w-full p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-purple-400 focus:border-transparent text-gray-700 placeholder-gray-400"
             />
             <div className="flex gap-2">
-              <select className="w-1/3 p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-green-400 focus:border-transparent text-gray-700 appearance-none cursor-pointer">
-                <option>+91</option>
-              </select>
+              <label className="w-1/3 p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-green-400 focus:border-transparent text-gray-700 appearance-none">
+                +91
+              </label>
               <input
                 type="text"
                 name="phoneNumber"
@@ -253,7 +258,7 @@ export default function About() {
               onChange={handleChange}
               className="w-full p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-gray-700 appearance-none cursor-pointer"
             >
-              <option>Select Your Interest</option>
+              <option hidden>Select Your Interest</option>
               <option>AI & Machine Learning</option>
               <option>Robotics & Automation</option>
               <option>Web & Mobile Development</option>
@@ -261,6 +266,29 @@ export default function About() {
               <option>Cybersecurity</option>
             </select>
             <select
+              name="occupation"
+              value={formData.occupation}
+              onChange={handleChange}
+              className='w-full p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-green-400 focus:border-transparent text-gray-700 appearance-none cursor-pointer ' 
+              >
+                <option hidden>Your Occupation</option>
+                <option>Student</option>
+                <option>Faculty/Professor</option>
+                <option>Researcher</option>
+                <option>Industry Professional</option>
+                <option>Startup Founder/Entrepreneur</option>
+                <option>Government Official</option>
+                <option>Investor/Venture Capitalist</option>
+                <option>Parent/Guardian</option>
+                <option>School Representative {`(Principal/Teacher)`}</option>
+                <option>Media/Journalist</option>
+                <option>Other</option>
+              </select>
+              {/* Show Text Input if "Other" is selected */}
+              {formData.occupation === 'Other' && (
+              <input type="text" name="otherOccupation" value={formData.otherOccupation} onChange={handleChange} placeholder="Specify your occupation" className="w-full p-3 border border-gray-200 rounded-lg" />
+            )}
+            {/* <select
               name="accompaniedBy"
               value={formData.accompaniedBy}
               onChange={handleChange}
@@ -272,7 +300,15 @@ export default function About() {
               <option>3</option>
               <option>4</option>
               <option>5+</option>
-            </select>
+            </select> */}
+            <input 
+              name="accompaniedBy"
+              value={formData.accompaniedBy}
+              onChange={handleChange}
+              type="number"
+              placeholder="Accompanied By (Including you) Ex: 3"
+              className="w-full p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-purple-400 focus:border-transparent text-gray-700 appearance-none cursor-pointer"
+              />
             <motion.button
               type="submit"
               className="w-full py-4 rounded-lg bg-gradient-to-r from-green-500 via-yellow-400 to-purple-500 text-white font-bold text-lg shadow-md transition-all hover:shadow-lg"
