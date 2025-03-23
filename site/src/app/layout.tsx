@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Intuit CIT Open Day',
+  title: 'Cambrian Open House',
   description: 'CIT’s First Open Day Tech Fest',
 };
 
