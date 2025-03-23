@@ -76,21 +76,35 @@ export default function About() {
     }
   };
 
+  // ... existing code ...
+
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 overflow-hidden">
+    <div className="relative min-h-screen bg-gradient-to-br from-green-50 via-yellow-50 to-purple-50 overflow-hidden">
+      {/* Colored Strips */}
+      <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-500 via-yellow-400 to-purple-500" />
+      <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-green-500 via-yellow-400 to-purple-500" />
+
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.03]">
+      <div className="absolute inset-0 opacity-[0.02]">
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }}
         />
       </div>
 
-      {/* Decorative Elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-br from-amber-200/30 to-yellow-100/30 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-yellow-100/30 to-orange-100/30 rounded-full blur-3xl" />
+      {/* Diagonal Color Bands - Inspired by the Poster */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-green-400/10 via-transparent to-transparent"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-transparent via-yellow-400/10 to-transparent"></div>
+        <div className="absolute bottom-0 right-0 w-full h-full bg-gradient-to-tl from-purple-500/10 via-transparent to-transparent"></div>
+      </div>
+
+      {/* Subtle Background Accents */}
+      <div className="absolute -top-40 right-20 w-96 h-96 rounded-full bg-green-300/20 blur-3xl" />
+      <div className="absolute -bottom-40 left-20 w-96 h-96 rounded-full bg-purple-300/20 blur-3xl" />
+      <div className="absolute top-1/2 left-1/3 translate-y-[-50%] w-96 h-96 rounded-full bg-yellow-300/20 blur-3xl" />
 
       {/* Main Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -100,12 +114,12 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-amber-900 to-yellow-800 mb-6">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 via-yellow-400 to-purple-500 mb-6">
             Innovation Showcase
           </h1>
-          <p className="text-xl md:text-2xl text-gray-800 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto">
             Discover a world of innovation at CIT&apos;s largest tech exhibition featuring 150+ stalls of groundbreaking ideas and solutions
           </p>
         </motion.div>
@@ -119,13 +133,19 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white/60 backdrop-blur-lg rounded-xl p-6 border border-amber-100 hover:bg-white/70 transition-all duration-300 shadow-lg"
+              className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-100 hover:border-gray-200 transition-all duration-300 shadow-sm hover:shadow-md"
             >
-              <div className="bg-gradient-to-br from-amber-500 to-yellow-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+              <div className={`
+              ${index % 4 === 0 ? 'bg-green-500' : ''}
+              ${index % 4 === 1 ? 'bg-yellow-400' : ''}
+              ${index % 4 === 2 ? 'bg-purple-500' : ''}
+              ${index % 4 === 3 ? 'bg-gradient-to-r from-green-500 via-yellow-400 to-purple-500' : ''}
+              w-12 h-12 rounded-lg flex items-center justify-center mb-4
+            `}>
                 <feature.icon className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
-              <p className="text-gray-700">{feature.description}</p>
+              <h3 className="text-xl font-bold text-gray-800 mb-2">{feature.title}</h3>
+              <p className="text-gray-600">{feature.description}</p>
             </motion.div>
           ))}
         </div>
@@ -136,24 +156,24 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="bg-white/60 backdrop-blur-lg rounded-xl p-8 border border-amber-100 shadow-lg"
+          className="bg-white/80 backdrop-blur-sm rounded-xl p-8 border border-gray-100 shadow-sm"
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-yellow-600 mb-2">150+</div>
-              <div className="text-gray-700">Innovation Stalls</div>
+              <div className="text-4xl font-bold text-green-500 mb-2">150+</div>
+              <div className="text-gray-600">Innovation Stalls</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-yellow-600 mb-2">50+</div>
-              <div className="text-gray-700">Live Demos</div>
+              <div className="text-4xl font-bold text-yellow-500 mb-2">50+</div>
+              <div className="text-gray-600">Live Demos</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-yellow-600 mb-2">20+</div>
-              <div className="text-gray-700">Tech Workshops</div>
+              <div className="text-4xl font-bold text-purple-500 mb-2">20+</div>
+              <div className="text-gray-600">Tech Workshops</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-yellow-600 mb-2">1000+</div>
-              <div className="text-gray-700">Expected Visitors</div>
+              <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 via-yellow-400 to-purple-500 mb-2">1000+</div>
+              <div className="text-gray-600">Expected Visitors</div>
             </div>
           </div>
         </motion.div>
@@ -164,9 +184,9 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mt-16 bg-white/60 backdrop-blur-lg rounded-xl p-8 border border-amber-100 max-w-2xl mx-auto shadow-lg"
+          className="mt-16 bg-white/80 backdrop-blur-sm rounded-xl p-8 border border-gray-100 max-w-2xl mx-auto shadow-sm"
         >
-          <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-yellow-600 mb-6 text-center">
+          <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 via-yellow-400 to-purple-500 mb-6 text-center">
             Register for Open Day
           </h3>
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -174,7 +194,7 @@ export default function About() {
               name="registrationType"
               value={formData.registrationType}
               onChange={handleChange}
-              className="w-full p-3 border border-amber-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-amber-300 focus:border-transparent text-gray-800 appearance-none cursor-pointer"
+              className="w-full p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-green-400 focus:border-transparent text-gray-700 appearance-none cursor-pointer"
             >
               <option>Individual Registration</option>
               <option>Group Registration</option>
@@ -186,7 +206,7 @@ export default function About() {
               onChange={handleChange}
               placeholder="Name*"
               required
-              className="w-full p-3 border border-amber-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-amber-300 focus:border-transparent text-gray-800 placeholder-gray-500"
+              className="w-full p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-gray-700 placeholder-gray-400"
             />
             <input
               type="email"
@@ -195,10 +215,10 @@ export default function About() {
               onChange={handleChange}
               placeholder="Email*"
               required
-              className="w-full p-3 border border-amber-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-amber-300 focus:border-transparent text-gray-800 placeholder-gray-500"
+              className="w-full p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-purple-400 focus:border-transparent text-gray-700 placeholder-gray-400"
             />
             <div className="flex gap-2">
-              <select className="w-1/3 p-3 border border-amber-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-amber-300 focus:border-transparent text-gray-800 appearance-none cursor-pointer">
+              <select className="w-1/3 p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-green-400 focus:border-transparent text-gray-700 appearance-none cursor-pointer">
                 <option>+91</option>
               </select>
               <input
@@ -207,7 +227,7 @@ export default function About() {
                 value={formData.phoneNumber}
                 onChange={handleChange}
                 placeholder="Phone Number"
-              className="w-2/3 p-3 border border-amber-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-amber-300 focus:border-transparent text-gray-800 placeholder-gray-500"
+                className="w-2/3 p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-gray-700 placeholder-gray-400"
               />
             </div>
             <input
@@ -216,7 +236,7 @@ export default function About() {
               value={formData.state}
               onChange={handleChange}
               placeholder="Select State"
-              className="w-full p-3 border border-amber-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-amber-300 focus:border-transparent text-gray-800 placeholder-gray-500"
+              className="w-full p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-purple-400 focus:border-transparent text-gray-700 placeholder-gray-400"
             />
             <input
               type="text"
@@ -225,13 +245,13 @@ export default function About() {
               onChange={handleChange}
               placeholder="City*"
               required
-              className="w-full p-3 border border-amber-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-amber-300 focus:border-transparent text-gray-800 placeholder-gray-500"
+              className="w-full p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-green-400 focus:border-transparent text-gray-700 placeholder-gray-400"
             />
             <select
               name="interest"
               value={formData.interest}
               onChange={handleChange}
-              className="w-full p-3 border border-amber-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-amber-300 focus:border-transparent text-gray-800 appearance-none cursor-pointer"
+              className="w-full p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-gray-700 appearance-none cursor-pointer"
             >
               <option>Select Your Interest</option>
               <option>AI & Machine Learning</option>
@@ -244,7 +264,7 @@ export default function About() {
               name="accompaniedBy"
               value={formData.accompaniedBy}
               onChange={handleChange}
-              className="w-full p-3 border border-amber-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-amber-300 focus:border-transparent text-gray-800 appearance-none cursor-pointer"
+              className="w-full p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-purple-400 focus:border-transparent text-gray-700 appearance-none cursor-pointer"
             >
               <option>Accompanied By (Including you)</option>
               <option>1</option>
@@ -255,17 +275,17 @@ export default function About() {
             </select>
             <motion.button
               type="submit"
-              className="w-full py-4 rounded-lg bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-bold text-lg shadow-lg transition-all hover:from-amber-600 hover:to-yellow-600"
+              className="w-full py-4 rounded-lg bg-gradient-to-r from-green-500 via-yellow-400 to-purple-500 text-white font-bold text-lg shadow-md transition-all hover:shadow-lg"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
               REGISTER NOW
             </motion.button>
           </form>
-          {status && <p className="mt-4 text-center text-gray-700">{status}</p>}
+          {status && <p className="mt-4 text-center text-gray-600">{status}</p>}
         </motion.div>
       </div>
     </div>
   );
-  
+  // ... existing code ...
 }
