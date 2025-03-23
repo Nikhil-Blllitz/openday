@@ -164,7 +164,7 @@ export default function About() {
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-green-500 mb-2">150+</div>
+              <div className="text-4xl font-bold text-green-500 mb-2">100+</div>
               <div className="text-gray-600">Innovation Stalls</div>
             </div>
             <div>
