@@ -27,7 +27,7 @@ export default function Home() {
         <section id="venue" className="min-h-screen">
           <Venue />
         </section>
-        <section id="register" className="min-h-screen">
+        <section id="register" className="min-h-fit">
           <Footer />
         </section>
       </div>
