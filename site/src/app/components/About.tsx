@@ -22,7 +22,7 @@ export default function About() {
   const features = [
     {
       icon: FiBox,
-      title: '150+ Innovation Stalls',
+      title: '100+ Innovation Stalls',
       description: 'Explore a vast array of cutting-edge projects, from AI and robotics to sustainable technology solutions.',
     },
     {
@@ -124,7 +124,7 @@ export default function About() {
             Innovation Showcase
           </h1>
           <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto">
-            Discover a world of innovation at CIT&apos;s largest tech exhibition featuring 150+ stalls of groundbreaking ideas and solutions
+            Discover a world of innovation at CIT&apos;s largest tech exhibition featuring 100+ stalls of groundbreaking ideas and solutions
           </p>
         </motion.div>
 
@@ -176,7 +176,7 @@ export default function About() {
               <div className="text-gray-600">Tech Workshops</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 via-yellow-400 to-purple-500 mb-2">1000+</div>
+              <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 via-yellow-400 to-purple-500 mb-2">2000+</div>
               <div className="text-gray-600">Expected Visitors</div>
             </div>
           </div>
@@ -202,7 +202,7 @@ export default function About() {
               className="w-full p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-green-400 focus:border-transparent text-gray-700 appearance-none cursor-pointer"
             >
               <option>Individual Registration</option>
-              <option>Group Registration</option>
+              <option>Institutional Registration</option>
             </select>
             <input
               type="text"
