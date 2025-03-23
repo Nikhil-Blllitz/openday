@@ -17,6 +17,8 @@ export async function POST(request: NextRequest) {
       phoneNumber,
       state,
       city,
+      occupation,
+      otherOccupation,
       interest,
       accompaniedBy,
     } = await request.json();
@@ -28,6 +30,8 @@ export async function POST(request: NextRequest) {
       phoneNumber,
       state,
       city,
+      occupation,
+      otherOccupation,
       interest,
       accompaniedBy,
     });
@@ -44,6 +48,8 @@ export async function POST(request: NextRequest) {
         phone_number VARCHAR(20),
         state VARCHAR(100),
         city VARCHAR(100) NOT NULL,
+        occupation VARCHAR(100),
+        other_occupation VARCHAR(100),
         interest VARCHAR(100),
         accompanied_by VARCHAR(10),
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -51,8 +57,8 @@ export async function POST(request: NextRequest) {
     `);
 
     const query = `
-      INSERT INTO registrations (registration_type, name, email, phone_number, state, city, interest, accompanied_by)
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+      INSERT INTO registrations (registration_type, name, email, phone_number, state, city, occupation, other_occupation, interest, accompanied_by)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
       RETURNING *
     `;
     const values = [
@@ -62,6 +68,8 @@ export async function POST(request: NextRequest) {
       phoneNumber,
       state,
       city,
+      occupation === 'Your Occupation' ? null : occupation,
+      otherOccupation,
       interest === 'Select Your Interest' ? null : interest,
       accompaniedBy === 'Accompanied By (Including you)' ? null : accompaniedBy,
     ];
@@ -73,6 +81,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: false, error: (error as Error).message }, { status: 500 });
   }
 }
+
 export async function GET() {
   try {
     const result = await pool.query('SELECT * FROM registrations');
