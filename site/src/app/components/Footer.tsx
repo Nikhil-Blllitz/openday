@@ -394,7 +394,7 @@ export default function Footer() {
                   viewport={{ once: true }}
                 >
                   <FaPhone className="text-xl mt-1" />
-                  <span className="text-gray-800">+91 80 24494141 / 24494107 / 7411747070</span>
+                  <span className="text-gray-800">+91 6360146030 </span>
                 </motion.li>
                 <motion.li
                   className="flex items-start space-x-3"
@@ -404,7 +404,7 @@ export default function Footer() {
                   viewport={{ once: true }}
                 >
                   <FaEnvelope className="text-xl mt-1" />
-                  <span className="text-gray-800">info@citech.edu.in</span>
+                  <span className="text-gray-800">events@cambridge.edu.in</span>
                 </motion.li>
               </ul>
             </motion.div>
