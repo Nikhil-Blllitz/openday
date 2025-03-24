@@ -349,6 +349,14 @@ export default function Footer() {
               <p className="text-gray-800 mb-4">
                 Cambridge Institute of Technology (CITech), Bengaluru, is a dynamic and innovative hub of education, fostering excellence in engineering and technology.
               </p>
+              <Link href="http://15.207.194.161/" passHref>
+                <button
+                  type="button"
+                  className="px-6 py-2 hover:cursor-pointer bg-black text-white font-semibold rounded-lg shadow-md hover:bg-gray-900 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+                >
+                  Admissions Open
+                </button>
+              </Link>
               {/* <form className="flex">
                 <input
                   type="email"
