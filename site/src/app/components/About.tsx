@@ -355,7 +355,7 @@ export default function About() {
               /> */}
             <motion.button
               type="submit"
-              className="w-full py-4 rounded-lg bg-gradient-to-r from-green-500 via-yellow-400 to-purple-500 text-white font-bold text-lg shadow-md transition-all hover:shadow-lg"
+              className="w-full py-4 rounded-lg bg-gradient-to-r from-green-500 to-green-700 text-white font-bold text-lg shadow-md transition-all hover:shadow-lg"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
