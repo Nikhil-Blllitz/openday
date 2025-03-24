@@ -136,7 +136,6 @@ export async function POST(req) {
       State: body.state,
       City: body.city,
       Country: body.country,
-      CurrentOccupation: body.currentOccupation,
       Interest: body.interest,
       Occupation: body.occupation,
       OtherOccupation: body.otherOccupation,
