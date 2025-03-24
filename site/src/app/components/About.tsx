@@ -6,16 +6,18 @@ import { FiBox, FiTarget, FiBriefcase, FiCpu } from 'react-icons/fi';
 
 export default function About() {
   const [formData, setFormData] = useState({
-    registrationType: 'Individual Registration',
     name: '',
     email: '',
+    age: '',
+    gender: '',
     phoneNumber: '',
     state: '',
     city: '',
+    country: '',
+    currentOccupation: '',
     occupation: 'Your Occupation',
     otherOccupation: '',
     interest: 'Select Your Interest',
-    accompaniedBy: 'Accompanied By (Including you)',
   });
   const [status, setStatus] = useState('');
 
@@ -48,37 +50,40 @@ export default function About() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus('Submitting...');
-
+    setStatus("Submitting...");
+  
     try {
-      const res = await fetch('/api/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
+  
       if (res.ok) {
-        setStatus('Registration successful!');
+        setStatus("Registration successful!");
         setFormData({
-          registrationType: 'Individual Registration',
           name: '',
           email: '',
+          age: '',
+          gender: 'Select you gender',
           phoneNumber: '',
           state: '',
           city: '',
-          interest: 'Select Your Interest',
+          country: '',
+          currentOccupation: '',
           occupation: 'Your Occupation',
           otherOccupation: '',
-          accompaniedBy: 'Accompanied By (Including you)',
+          interest: 'Select Your Interest',
         });
       } else {
-        setStatus('Failed to register.');
+        setStatus("Failed to register.");
       }
     } catch (error) {
-      setStatus('An error occurred.');
+      setStatus("An error occurred.");
       console.error(error);
     }
   };
+  
 
   // ... existing code ...
 
@@ -195,7 +200,7 @@ export default function About() {
             Register for Open Day
           </h3>
           <form onSubmit={handleSubmit} className="space-y-4">
-            <select
+            {/* <select
               name="registrationType"
               value={formData.registrationType}
               onChange={handleChange}
@@ -203,7 +208,8 @@ export default function About() {
             >
               <option>Individual Registration</option>
               <option>Institutional Registration</option>
-            </select>
+            </select> */}
+            
             <input
               type="text"
               name="name"
@@ -222,6 +228,26 @@ export default function About() {
               required
               className="w-full p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-purple-400 focus:border-transparent text-gray-700 placeholder-gray-400"
             />
+            <input  
+              type='text'
+              name='age'
+              value={formData.age}
+              onChange={handleChange}
+              placeholder='Age*'
+              required
+              className='w-full p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-green-400 focus:border-transparent text-gray-700 appearance-none cursor-pointer'
+              />
+              <select
+              name="gender"
+              value={formData.gender}
+              onChange={handleChange}
+              className="w-full p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-green-400 focus:border-transparent text-gray-700 appearance-none cursor-pointer"
+            >
+              <option hidden>Select your Gender</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Others</option>
+            </select>
             <div className="flex gap-2">
               {/* <label className="w-1/3 p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-green-400 focus:border-transparent text-gray-700 appearance-none">
                 +91
@@ -248,7 +274,25 @@ export default function About() {
               name="city"
               value={formData.city}
               onChange={handleChange}
-              placeholder="City*"
+              placeholder="City"
+              required
+              className="w-full p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-green-400 focus:border-transparent text-gray-700 placeholder-gray-400"
+            />
+            <input
+              type="text"
+              name="country"
+              value={formData.country}
+              onChange={handleChange}
+              placeholder="Country"
+              required
+              className="w-full p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-green-400 focus:border-transparent text-gray-700 placeholder-gray-400"
+            />
+            <input
+              type="text"
+              name="currentOccupation"
+              value={formData.currentOccupation}
+              onChange={handleChange}
+              placeholder="Current education/ occupation (for college or workplace)"
               required
               className="w-full p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-green-400 focus:border-transparent text-gray-700 placeholder-gray-400"
             />
@@ -301,14 +345,14 @@ export default function About() {
               <option>4</option>
               <option>5+</option>
             </select> */}
-            <input 
+            {/* <input 
               name="accompaniedBy"
               value={formData.accompaniedBy}
               onChange={handleChange}
               type="number"
               placeholder="Accompanied By (Including you) Ex: 3"
               className="w-full p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-purple-400 focus:border-transparent text-gray-700 appearance-none cursor-pointer"
-              />
+              /> */}
             <motion.button
               type="submit"
               className="w-full py-4 rounded-lg bg-gradient-to-r from-green-500 to-green-700 text-white font-bold text-lg shadow-md transition-all hover:shadow-lg"
