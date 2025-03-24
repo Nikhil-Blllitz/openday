@@ -285,8 +285,8 @@ export default function About() {
               <option>Female</option>
               <option>Other</option>
             </select>
-            {formData.gender === 'Others' && (
-              <input type="text" name="otherGender" value={formData.otherGender} onChange={handleChange} placeholder="Please specify" className="w-full p-3 border border-gray-200 rounded-lg" />
+            {formData.gender === 'Other' && (
+              <input type="text" name="otherGender" value={formData.otherGender} onChange={handleChange} placeholder="Please specify" className="w-full p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-purple-400 focus:border-transparent text-gray-700 appearance-none cursor-pointer" />
             )}
             <div className="flex gap-2">
               {/* <label className="w-1/3 p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-green-400 focus:border-transparent text-gray-700 appearance-none">
