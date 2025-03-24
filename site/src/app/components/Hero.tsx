@@ -3,11 +3,10 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Space_Grotesk, Orbitron, Audiowide } from 'next/font/google';
+import { Space_Grotesk, Orbitron } from 'next/font/google';
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
 const orbitron = Orbitron({ subsets: ['latin'] });
-const audiowide = Audiowide({ weight: '400', subsets: ['latin'] });
 
 const Hero: React.FC = () => {
   return (
