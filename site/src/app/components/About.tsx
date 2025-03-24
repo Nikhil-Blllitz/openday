@@ -233,7 +233,7 @@ export default function About() {
               name='age'
               value={formData.age}
               onChange={handleChange}
-              placeholder='Age'
+              placeholder='Age*'
               required
               className='w-full p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-green-400 focus:border-transparent text-gray-700 appearance-none cursor-pointer'
               />
