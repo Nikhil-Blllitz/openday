@@ -1,26 +1,47 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState,useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FiBox, FiTarget, FiBriefcase, FiCpu } from 'react-icons/fi';
+import { FiBox, FiTarget, FiBriefcase, FiCpu, FiChevronDown } from 'react-icons/fi';
 
 export default function About() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    age: '',
-    gender: '',
-    otherGender: '',
-    phoneNumber: '',
-    state: '',
-    city: '',
-    country: '',
-    currentOccupation: '',
-    occupation: 'Your Occupation',
-    otherOccupation: '',
-    interest: 'Select Your Interest',
+    name: "",
+    email: "",
+    age: "",
+    gender: "",
+    otherGender: "",
+    phoneNumber: "",
+    state: "",
+    city: "",
+    country: "",
+    occupation: "Your Occupation",
+    otherOccupation: "",
+    interest: [] as string [], // Ensure this is an empty array initially
   });
+  
   const [status, setStatus] = useState('');
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null); 
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const interests = [
+    "AI & Machine Learning",
+    "Robotics & Automation",
+    "Web & Mobile Development",
+    "IoT & Hardware",
+    "Cybersecurity",
+  ];
 
   const features = [
     {
@@ -57,7 +78,11 @@ export default function About() {
       const res = await fetch("/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+        interest: formData.interest.join(", "),
+        }),
+
       });
   
       if (res.ok) {
@@ -72,10 +97,9 @@ export default function About() {
           state: '',
           city: '',
           country: '',
-          currentOccupation: '',
           occupation: 'Your Occupation',
           otherOccupation: '',
-          interest: 'Select Your Interest',
+          interest: [],
         });
       } else {
         setStatus("Failed to register.");
@@ -84,6 +108,17 @@ export default function About() {
       setStatus("An error occurred.");
       console.error(error);
     }
+  };
+
+  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, checked } = event.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      interest: checked
+        ? [...prev.interest, value]
+        : prev.interest.filter((item) => item !== value),
+    }));
   };
   
 
@@ -248,7 +283,7 @@ export default function About() {
               <option hidden>Select your Gender</option>
               <option>Male</option>
               <option>Female</option>
-              <option>Others</option>
+              <option>Other</option>
             </select>
             {formData.gender === 'Others' && (
               <input type="text" name="otherGender" value={formData.otherGender} onChange={handleChange} placeholder="Please specify" className="w-full p-3 border border-gray-200 rounded-lg" />
@@ -292,28 +327,42 @@ export default function About() {
               required
               className="w-full p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-green-400 focus:border-transparent text-gray-700 placeholder-gray-400"
             />
-            <input
-              type="text"
-              name="currentOccupation"
-              value={formData.currentOccupation}
-              onChange={handleChange}
-              placeholder="Current education/ occupation"
-              required
-              className="w-full p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-green-400 focus:border-transparent text-gray-700 placeholder-gray-400"
-            />
-            <select
-              name="interest"
-              value={formData.interest}
-              onChange={handleChange}
-              className="w-full p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-gray-700 appearance-none cursor-pointer"
-            >
-              <option hidden>Select Your Interest</option>
-              <option>AI & Machine Learning</option>
-              <option>Robotics & Automation</option>
-              <option>Web & Mobile Development</option>
-              <option>IoT & Hardware</option>
-              <option>Cybersecurity</option>
-            </select>
+            <div className="relative w-full" ref={dropdownRef}>
+              {/* Dropdown Button */}
+              <button
+                type="button"
+                onClick={() => setIsOpen(!isOpen)}
+                className="w-full p-3 border flex flex-row justify-between border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-gray-700 cursor-pointer"
+              >
+                <span>
+                  {formData.interest.length > 0
+                    ? formData.interest.join(", ")
+                    : "Select Your Interests"}
+                </span>
+                <FiChevronDown className="w-5 h-5 text-gray-500" />
+              </button>
+
+              {/* Dropdown Menu */}
+              {isOpen && (
+                <div className="absolute w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
+                  <div className="p-2 max-h-48 overflow-y-auto">
+                    {interests.map((interest) => (
+                      <label key={interest} className="flex items-center gap-2 p-2 rounded hover:bg-gray-100 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          name="interest"
+                          value={interest}
+                          checked={formData.interest.includes(interest)}
+                          onChange={handleCheckboxChange}
+                          className="w-4 h-4 text-green-500 focus:ring focus:ring-green-300"
+                        />
+                        <span className="text-gray-700">{interest}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
             <select
               name="occupation"
               value={formData.occupation}
@@ -335,7 +384,7 @@ export default function About() {
               </select>
               {/* Show Text Input if "Other" is selected */}
               {formData.occupation === 'Other' && (
-              <input type="text" name="otherOccupation" value={formData.otherOccupation} onChange={handleChange} placeholder="Specify your occupation" className="w-full p-3 border border-gray-200 rounded-lg" />
+              <input type="text" name="otherOccupation" value={formData.otherOccupation} onChange={handleChange} placeholder="Specify your occupation" className="w-full p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-purple-400 focus:border-transparent text-gray-700 appearance-none cursor-pointer" />
             )}
             {/* <select
               name="accompaniedBy"
