@@ -404,7 +404,7 @@ export default function Footer() {
                   viewport={{ once: true }}
                 >
                   <FaEnvelope className="text-xl mt-1" />
-                  <span className="text-gray-800">events@cambridge.edu.in</span>
+                  <span className="text-gray-800">openhouse@cambridge.edu.in</span>
                 </motion.li>
               </ul>
             </motion.div>
@@ -428,7 +428,7 @@ export default function Footer() {
                   transition={{ duration: 0.4, delay: 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                  <Link href="https://www.linkedin.com/school/cambridge-institute-of-technology1/" target="_blank" rel="noopener noreferrer">
                     <div className="w-12 h-12 rounded-full bg-black/10 flex items-center justify-center transition-all hover:bg-gradient-to-r from-[#0a77e4] to-[#9bc2e9] hover:text-white">
                       <FaLinkedin className="text-2xl text-black " />
                     </div>
@@ -442,7 +442,7 @@ export default function Footer() {
                   transition={{ duration: 0.4, delay: 0.2 }}
                   viewport={{ once: true }}
                 >
-                  <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                  <Link href="https://x.com/citopenhouse" target="_blank" rel="noopener noreferrer">
                     <div className="w-12 h-12 rounded-full bg-black/10 flex items-center justify-center transition-all hover:bg-gradient-to-r from-[#16181b] to-[#ccd7e3] hover:text-white">
                       <FaXTwitter className="text-2xl text-black group-hover:text-white" />
                     </div>
@@ -456,7 +456,7 @@ export default function Footer() {
                   transition={{ duration: 0.4, delay: 0.3 }}
                   viewport={{ once: true }}
                 >
-                  <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                  <Link href="https://www.instagram.com/cambrianopenhouse" target="_blank" rel="noopener noreferrer">
                     <div className="w-12 h-12 rounded-full bg-black/10 flex items-center justify-center transition-all hover:bg-gradient-to-r from-[#F58529] via-[#DD2A7B] to-[#833AB4]">
                       <FaInstagram className="text-2xl text-black group-hover:text-white" />
                     </div>
@@ -470,7 +470,7 @@ export default function Footer() {
                   transition={{ duration: 0.4, delay: 0.4 }}
                   viewport={{ once: true }}
                 >
-                  <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                  <Link href="https://www.facebook.com/share/19NWGapTzA/" target="_blank" rel="noopener noreferrer">
                     <div className="w-12 h-12 rounded-full bg-black/10 flex items-center justify-center transition-all hover:bg-gradient-to-r from-[#0a77e4] to-[#9bc2e9] hover:text-white">
                       <FaFacebook className="text-2xl text-black group-hover:text-white" />
                     </div>

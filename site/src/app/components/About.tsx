@@ -10,6 +10,7 @@ export default function About() {
     email: '',
     age: '',
     gender: '',
+    otherGender: '',
     phoneNumber: '',
     state: '',
     city: '',
@@ -66,6 +67,7 @@ export default function About() {
           email: '',
           age: '',
           gender: 'Select you gender',
+          otherGender: '',
           phoneNumber: '',
           state: '',
           city: '',
@@ -248,6 +250,9 @@ export default function About() {
               <option>Female</option>
               <option>Others</option>
             </select>
+            {formData.gender === 'Others' && (
+              <input type="text" name="otherGender" value={formData.otherGender} onChange={handleChange} placeholder="Please specify" className="w-full p-3 border border-gray-200 rounded-lg" />
+            )}
             <div className="flex gap-2">
               {/* <label className="w-1/3 p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-green-400 focus:border-transparent text-gray-700 appearance-none">
                 +91
@@ -292,7 +297,7 @@ export default function About() {
               name="currentOccupation"
               value={formData.currentOccupation}
               onChange={handleChange}
-              placeholder="Current education/ occupation (for college or workplace)"
+              placeholder="Current education/ occupation"
               required
               className="w-full p-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-green-400 focus:border-transparent text-gray-700 placeholder-gray-400"
             />
