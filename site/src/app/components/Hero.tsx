@@ -62,43 +62,38 @@ const Hero: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="flex flex-col max-sm:mt-[-21rem] max-sm:absolute"
+                className=" flex flex-col max-sm:top-[10] max-sm:absolute"
               >
-                <motion.span
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.7, ease: 'easeOut' }}
-                  className={` font-['BS'] text-[5vw] max-sm:text-[10vw] leading-tight font-bold mb-2 tracking-wider text-white`}
-                >
-                  CAMBRIAN
-                </motion.span>
-                <h1 className={`${audiowide.className} text-[7vw] max-sm:text-[11vw]  leading-none font-bold text-white uppercase tracking-wider`}>
-                  OPEN HOUSE
-                </h1>
-                  {/* <h1 className={`${audiowide.className} text-[7vw] max-sm:text-[11vw]  leading-none font-bold text-white uppercase tracking-wider`}>
-                    HOUSE
-                  </h1> */}
+                <div className=" relative w-[50vw] max-sm:w-[85vw] h-[45vh] max-sm:h-[22vh]">
+                  <Image
+                    src="/COHlogo.svg"
+                    alt="COH Logo"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
               </motion.div>
 
-              <motion.p
+              {/* <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className={`max-sm:mt-[22rem] ${orbitron.className} max-sm:text-center text-xl md:text-2xl text-white/90 font-medium tracking-widest mt-6 uppercase max-sm:text-[4.7vw] `}
               >
                 ENGAGE. <span className='max-sm:text-[white]'>IMMERSE</span>. BELONG
-              </motion.p>
+              </motion.p> */}
 
               {/* Event Details */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className=" md:mt-12 space-y-3"
+                className="max-sm:absolute md:mt-12 space-y-3  max-sm:top-[25%] max-sm:w-[85vw]"
               >
-                <div className="flex items-center ">
-                  <p className={`${orbitron.className} max-sm:bg-black/30 max-sm:backdrop-blur-md max-sm:border max-sm:border-white/20 max-sm:rounded-lg max-sm:p-[0.5em] max-sm:w-full max-sm:text-center text-2xl md:text-3xl font-bold tracking-wide max-sm:text-[3.5vw]`}>
-                    19<sup>th</sup> APR &apos;25 | <span className='max-sm:text-[white]'>9:30 PM</span> TO <span className='max-sm:text-[white]'>5:00 PM</span>
+                <div className="flex items-center  ">
+                  <p className={`${orbitron.className} max-sm:bg-black/30 max-sm:backdrop-blur-md max-sm:border max-sm:border-white/20 max-sm:rounded-lg max-sm:p-[0.5em] max-sm:w-full max-sm:text-center text-[1.5rem] text-white font-bold tracking-wide max-sm:text-[3.5vw]`}>
+                    19<sup>th</sup> APR &apos;25 | <span className='text-white'>9:30 AM</span> TO <span className='text-white'>5:00 PM</span>
                   </p>
                 </div>
                 <p className={`${spaceGrotesk.className} max-sm:text-center max-sm:bg-black/30 max-sm:backdrop-blur-md max-sm:border max-sm:border-white/20 max-sm:rounded-lg max-sm:p-[0.5em] text-xl md:text-2xl tracking-wide max-sm:text-[4vw]`}>
@@ -111,7 +106,7 @@ const Hero: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className=" md:mt-12 max-sm:bg-[green] "
+                className=" md:mt-12 max-sm:absolute max-sm:w-[85vw] max-sm:top-[90%] "
               >
                 <button
                   onClick={() => document.getElementById("registration-section")?.scrollIntoView({ behavior: "smooth" })}
