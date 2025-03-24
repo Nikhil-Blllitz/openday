@@ -131,6 +131,7 @@ export async function POST(req) {
       Email: body.email,
       Age: body.age,
       Gender: body.gender,
+      OtherGender: body.otherGender,
       Phone: body.phoneNumber,
       State: body.state,
       City: body.city,
