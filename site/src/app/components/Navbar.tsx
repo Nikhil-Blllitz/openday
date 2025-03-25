@@ -43,9 +43,8 @@ const Navbar: React.FC = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/90 backdrop-blur-md shadow-lg' : 'bg-white'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-lg' : 'bg-white'
+        }`}
     >
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
@@ -57,7 +56,12 @@ const Navbar: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <div className="flex items-center space-x-6">
-              <div className="relative w-[60px] h-[60px] group">
+              <a
+                href="https://engg.cambridge.edu.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative w-[60px] h-[60px] group cursor-pointer"
+              >
                 <Image
                   src="/citlogo.png"
                   alt="CIT Logo"
@@ -66,7 +70,7 @@ const Navbar: React.FC = () => {
                   className="transition-transform duration-300 group-hover:scale-110"
                   priority
                 />
-              </div>
+              </a>
               <div className="h-12 w-px bg-gradient-to-b from-transparent via-gray-300 to-transparent" />
               <div className="flex flex-col">
                 {/* <span className="text-2xl font-black text-black tracking-tight">CIT INTUIT</span> */}
@@ -119,10 +123,10 @@ const Navbar: React.FC = () => {
               <div className="pt-4">
                 <motion.button
                   onClick={() => {
-                    toggleMenu(); 
+                    toggleMenu();
                     setTimeout(() => {
                       document.getElementById('registration-section')?.scrollIntoView({ behavior: 'smooth' });
-                    }, 100); 
+                    }, 100);
                   }}
                   whileTap={{ scale: 0.95 }}
                   className="w-full px-6 py-3 rounded-full bg-gradient-to-r from-green-500 via-emerald-500 to-green-500 text-white font-semibold hover:shadow-lg hover:shadow-green-500/30 transition-all duration-300"

@@ -334,7 +334,7 @@ export default function Footer() {
       <div className="relative flex-1 flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-            
+
             {/* Newsletter Subscription */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -392,7 +392,7 @@ export default function Footer() {
                   viewport={{ once: true }}
                 >
                   <FaLocationDot className="text-xl mt-1" />
-                  <span className="text-gray-800">Krishnarajapuram, Bengaluru - 560036</span>
+                  <span className="text-gray-800">CITech, Krishnarajapuram, Bengaluru - 560036</span>
                 </motion.li>
                 <motion.li
                   className="flex items-start space-x-3"
@@ -416,7 +416,7 @@ export default function Footer() {
                 </motion.li>
               </ul>
             </motion.div>
-            
+
             {/* Social Media */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -436,7 +436,7 @@ export default function Footer() {
                   transition={{ duration: 0.4, delay: 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <Link href="https://www.linkedin.com/school/cambridge-institute-of-technology1/" target="_blank" rel="noopener noreferrer">
+                  <Link href="https://www.linkedin.com/company/cambrian-open-house" target="_blank" rel="noopener noreferrer">
                     <div className="w-12 h-12 rounded-full bg-black/10 flex items-center justify-center transition-all hover:bg-gradient-to-r from-[#0a77e4] to-[#9bc2e9] hover:text-white">
                       <FaLinkedin className="text-2xl text-black " />
                     </div>
@@ -478,7 +478,7 @@ export default function Footer() {
                   transition={{ duration: 0.4, delay: 0.4 }}
                   viewport={{ once: true }}
                 >
-                  <Link href="https://www.facebook.com/share/19NWGapTzA/" target="_blank" rel="noopener noreferrer">
+                  <Link href="https://www.facebook.com/cambrianopenhouse/" target="_blank" rel="noopener noreferrer">
                     <div className="w-12 h-12 rounded-full bg-black/10 flex items-center justify-center transition-all hover:bg-gradient-to-r from-[#0a77e4] to-[#9bc2e9] hover:text-white">
                       <FaFacebook className="text-2xl text-black group-hover:text-white" />
                     </div>
