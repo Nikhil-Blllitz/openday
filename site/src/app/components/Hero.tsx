@@ -110,7 +110,7 @@ const Hero: React.FC = () => {
                 <button
                   onClick={() => document.getElementById("registration-section")?.scrollIntoView({ behavior: "smooth" })}
                   className={`${orbitron.className} max-sm:w-full max-sm:p-[0.5em] max-sm:h-auto group relative px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-lg md:text-xl font-bold rounded-md hover:from-amber-600 hover:to-yellow-600 transition-all duration-200 overflow-hidden shadow-lg tracking-wider`}>
-                  REGISTER NOW
+                  REGISTER FOR FREE
                   <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-200" />
                 </button>
               </motion.div>
