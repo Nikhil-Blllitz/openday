@@ -17,7 +17,7 @@ export default function MainPage() {
     <div className="relative min-h-screen">
       <Navbar />
       
-      {/* Animated Button */}
+      {/* Animated Button
       <div className="bottom-4 z-50 fixed right-4">
         <motion.button
           className="bg-gradient-to-r from-green-500 to-green-700 text-white px-6 py-3 rounded-full text-lg font-bold shadow-lg"
@@ -28,7 +28,7 @@ export default function MainPage() {
         >
           Join Us for Free
         </motion.button>
-      </div>
+      </div> */}
 
 
       <section id="home" className="min-h-screen">

@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
   return (
     <div id="home" className="min-h-screen w-full overflow-hidden flex flex-col relative">
       {/* Header with Logo and Navigation */}
-      <div className="flex justify-between items-center px-4 md:px-8 py-4 z-10">
+      <div className="flex justify-between items-center px-4 md:px-8 py-2 z-10">
         {/* Navigation */}
         <div className="bg-[#99E265] rounded-full py-1 px-4">
           <nav className="flex space-x-4 md:space-x-6">
@@ -24,16 +24,16 @@ const Hero: React.FC = () => {
 
       {/* Full size background image that covers the entire home section */}
       <div className="absolute inset-0 w-full h-full z-0">
-        {/* CHANGE HERE: Different styling for mobile vs desktop */}
+        {/* Different styling for mobile vs desktop */}
         <div className="relative w-full h-full">
           {/* Mobile view - Larger and more centered */}
-          <div className="md:hidden absolute inset-0 flex items-center justify-center">
+          <div className="md:hidden absolute inset-0 flex items-center justify-center -mt-4">
             <Image
               src="/base.webp"
               alt="Robot Image"
               width={500}
               height={800}
-              className="scale-200 transform-gpu" /* Increased size for mobile */
+              className="scale-150 transform-gpu" /* Adjusted size for mobile */
               priority
             />
           </div>
@@ -63,31 +63,36 @@ const Hero: React.FC = () => {
       {/* Bottom Title Section */}
       <div className="w-full pb-20 pt-4 z-10">
         <div className="container mx-auto px-4">
-          {/* "CAMBRIAN OPEN HOUSE" in one line with overflow handling */}
+          {/* Date and Venue Information - Mobile only, on top of image */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center overflow-hidden"
+            className="md:hidden text-center mb-4 mt-[35vh]" 
           >
-            {/* CHANGE HERE: Force text to be positioned below the image on mobile */}
-            <h1 className="text-[#67E11D] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-['BS'] tracking-wide whitespace-nowrap overflow-hidden mt-[60vh] md:mt-0">
-              CAMBRIAN OPEN HOUSE
-            </h1>
+            <p className="text-white bg-white/70 backdrop-blur-sm py-2 px-6 rounded-lg inline-block text-sm font-medium">
+              APRIL 15-17, 2025 • CIT CAMPUS, BENGALURU
+            </p>
           </motion.div>
 
-          {/* Tagline */}
+          {/* "CAMBRIAN OPEN HOUSE" - Stack for mobile like in image */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex justify-center items-center space-x-4 md:space-x-8 mt-2 text-[#67E11D] font-['BS'] text-sm md:text-lg"
+            transition={{ duration: 0.6 }}
+            className="text-center"
           >
-            <span>ELEVATE</span>
-            <span className="text-lg md:text-2xl">×</span>
-            <span>INNOVATE</span>
-            <span className="text-lg md:text-2xl">×</span>
-            <span>INTEGRATE</span>
+            {/* Mobile view: Stacked */}
+            <div className="md:hidden flex flex-col items-center space-y-3">
+              <h1 className="text-[#FF8A00] text-4xl font-['BS'] tracking-wide">CAMBRIAN</h1>
+              <h1 className="text-[#FF8A00] text-4xl font-['BS'] tracking-wide">OPEN</h1>
+              <h1 className="text-[#FF8A00] text-4xl font-['BS'] tracking-wide">HOUSE</h1>
+            </div>
+            
+            {/* Desktop view: One line */}
+            <h1 className="hidden md:block text-[#FF8A00] text-5xl md:text-6xl lg:text-7xl font-['BS'] tracking-wide whitespace-nowrap leading-normal py-2">
+              CAMBRIAN OPEN HOUSE
+            </h1>
           </motion.div>
 
           {/* "JOIN US FOR FREE" Button */}
@@ -95,7 +100,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex justify-center mt-6"
+            className="flex justify-center mt-8"
           >
             <button
               onClick={() => document.getElementById("registration-section")?.scrollIntoView({ behavior: "smooth" })}

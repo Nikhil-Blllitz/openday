@@ -121,7 +121,8 @@ export default function About() {
   };
 
   return (
-    <div className="relative min-h-screen py-20">
+    // Added pt-40 to increase top padding and mt-32 for more margin at the top
+    <div className="relative min-h-screen pt-40 mt-32">
       {/* Main Content - No background styling as we're using the global background */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
