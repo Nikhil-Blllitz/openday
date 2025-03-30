@@ -27,6 +27,13 @@ export default function RootLayout({
             `,
           }}
         />
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            body {
+              background-color: #EBE7D8;
+            }
+          `
+        }} />
       </head>
       <body className="antialiased">
         {/* Google Tag Manager (GTM) noscript fallback */}
@@ -38,9 +45,11 @@ export default function RootLayout({
             style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
-        
-        {/* Your existing content */}
-        {children}
+
+        {/* Main Content */}
+        <div className="relative">
+          {children}
+        </div>
       </body>
     </html>
   );

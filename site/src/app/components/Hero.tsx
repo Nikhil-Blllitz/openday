@@ -3,157 +3,121 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Space_Grotesk, Orbitron } from 'next/font/google';
-
-const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
-const orbitron = Orbitron({ subsets: ['latin'] });
+import Link from 'next/link';
 
 const Hero: React.FC = () => {
   return (
-    <div className={`min-h-screen relative w-full overflow-hidden bg-[#141414] ${spaceGrotesk.className} `}>
-      {/* Background Image with Gradient Overlay */}
-      <div className="absolute inset-0 z-0  ">
-        <div className="relative w-full h-full ">
-          <Image
-            src="/campus.jpg"
-            alt="Campus Background"
-            fill
-            className="object-cover opacity-20"
-            priority
-          />
+    <div id="home" className="min-h-screen w-full overflow-hidden flex flex-col relative">
+      {/* Header with Logo and Navigation */}
+      <div className="flex justify-between items-center px-4 md:px-8 py-4 z-10">
+        {/* Navigation */}
+        <div className="bg-[#99E265] rounded-full py-1 px-4">
+          <nav className="flex space-x-4 md:space-x-6">
+            <Link href="/" className="bg-black text-white px-3 py-1 rounded-full text-sm font-bold">HOME</Link>
+            <Link href="/about" className="text-black px-3 py-1 text-sm font-bold">ABOUT</Link>
+            <Link href="/schedule" className="text-black px-3 py-1 text-sm font-bold">SCHEDULE</Link>
+            <Link href="/venue" className="text-black px-3 py-1 text-sm font-bold">VENUE</Link>
+            <Link href="/blog" className="text-black px-3 py-1 text-sm font-bold">BLOG</Link>
+          </nav>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#67B044] via-[#FFD700] to-[#9B4DEE] opacity-80  " />
       </div>
 
-      {/* Decorative Elements */}
-      <div className="absolute inset-0 z-10 overflow-hidden">
-        <div className="absolute top-20 right-10 w-40 h-40 rounded-full bg-[#FF69B4] opacity-30 blur-2xl" />
-        <div className="absolute bottom-40 right-20 w-60 h-60 rounded-full bg-[#9B4DEE] opacity-30 blur-2xl" />
-        <div className="absolute -left-20 top-40 w-80 h-80 rounded-full bg-[#FFD700] opacity-30 blur-2xl" />
-      </div>
+      {/* Full size background image that covers the entire home section */}
+      <div className="absolute inset-0 w-full h-full z-0">
+        {/* CHANGE HERE: Different styling for mobile vs desktop */}
+        <div className="relative w-full h-full">
+          {/* Mobile view - Larger and more centered */}
+          <div className="md:hidden absolute inset-0 flex items-center justify-center">
+            <Image
+              src="/base.webp"
+              alt="Robot Image"
+              width={500}
+              height={800}
+              className="scale-200 transform-gpu" /* Increased size for mobile */
+              priority
+            />
+          </div>
 
-      {/* Robot Image - Desktop version (hidden on mobile) */}
-      <motion.div
-        initial={{ opacity: 0, x: 100 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.7, delay: 0.2 }}
-        className="absolute top-0 right-0 bottom-0 w-1/2 z-10 hidden md:flex items-center justify-end pointer-events-none "
-      >
-        <div className="absolute h-full w-[50vw]  ">
-          <Image
-            src="/robot.png"
-            alt="Robot"
-            fill
-            className="object-contain drop-shadow-2xl  max-sm:w-[10vw]"
-            // style={{ objectPosition: 'right center' }}
-            priority
-          />
-        </div>
-      </motion.div>
-
-      {/* Content Container (Text on the Left) */}
-      <div className="relative z-20 h-full flex items-center">
-        <div className=" container mx-auto px-6 py-20 flex flex-col justify-center h-full text-left max-sm:h-[100vh]">
-          <div className="max-w-full md:max-w-3xl ">
-            {/* Main Title Section */}
-            <div className="space-y-4 ">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className=" flex flex-col max-sm:top-[10] max-sm:absolute"
-              >
-                <div className=" relative w-[50vw] max-sm:w-[85vw] h-[45vh] max-sm:h-[22vh]">
-                  <Image
-                    src="/COHlogo.svg"
-                    alt="COH Logo"
-                    fill
-                    className="object-contain"
-                    priority
-                  />
-                </div>
-              </motion.div>
-
-              {/* <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className={`max-sm:mt-[22rem] ${orbitron.className} max-sm:text-center text-xl md:text-2xl text-white/90 font-medium tracking-widest mt-6 uppercase max-sm:text-[4.7vw] `}
-              >
-                ENGAGE. <span className='max-sm:text-[white]'>IMMERSE</span>. BELONG
-              </motion.p> */}
-
-              {/* Event Details */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="max-sm:absolute md:mt-12 space-y-3  max-sm:top-[25%] max-sm:w-[85vw]"
-              >
-                <div className="flex items-center  ">
-                  <p className={`${orbitron.className} max-sm:bg-black/30 max-sm:backdrop-blur-md max-sm:border max-sm:border-white/20 max-sm:rounded-lg max-sm:p-[0.5em] max-sm:w-full max-sm:text-center text-[1.5rem] text-white font-bold tracking-wide max-sm:text-[3.5vw]`}>
-                    19<sup>th</sup> APR &apos;25 | <span className='text-white'>9:30 AM</span> TO <span className='text-white'>5:00 PM</span>
-                  </p>
-                </div>
-                <p className={`${spaceGrotesk.className} max-sm:text-center max-sm:bg-black/30 max-sm:backdrop-blur-md max-sm:border max-sm:border-white/20 max-sm:rounded-lg max-sm:p-[0.5em] text-xl md:text-2xl tracking-wide max-sm:text-[4vw]`}>
-                  <span className=' max-sm:text-[white]'>CIT KR PURAM, BENGALURU-560036</span>
-                </p>
-              </motion.div>
-
-              {/* CTA Button */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className=" md:mt-12 max-sm:absolute max-sm:w-[85vw] max-sm:top-[90%] "
-              >
-                <button
-                  onClick={() => document.getElementById("registration-section")?.scrollIntoView({ behavior: "smooth" })}
-                  className={`${orbitron.className} max-sm:w-full max-sm:p-[0.5em] max-sm:h-auto group relative px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-lg md:text-xl font-bold rounded-md hover:from-amber-600 hover:to-yellow-600 transition-all duration-200 overflow-hidden shadow-lg tracking-wider`}>
-                  REGISTER FOR FREE
-                  <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-200" />
-                </button>
-              </motion.div>
-            </div>
+          {/* Desktop view - Keep exactly as before */}
+          <div className="hidden md:block w-full h-full">
+            <Image
+              src="/base1.webp"
+              alt="Robot Image"
+              fill
+              className="object-contain"
+              priority
+              sizes="100vw"
+            />
           </div>
         </div>
+
+        {/* 2025 Background Text */}
+        <div className="absolute inset-0 z-[-1] flex justify-center items-center">
+          <div className="text-[#e9f5e0] text-[20vw] font-bold opacity-60">2025</div>
+        </div>
       </div>
 
-      {/* Mobile Robot Image (visible only on small screens) - Adjusted to the right */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.5 }}
-        className=" absolute  z-10 md:hidden pointer-events-none"
-        style={{ height: '100%', width: '100%' }}
-      >
-        <div className="relative h-full w-full">
-          <Image
-            src="/robot.png"
-            alt="Robot"
-            fill
-            className="object-contain drop-shadow-2xl  "
-            style={{ objectPosition: 'bottom ' }}
-            priority
-          />
-        </div>
-      </motion.div>
+      {/* Main Content - Takes the remaining space */}
+      <div className="flex-grow"></div>
 
-      {/* Floating Icons */}
-      <div className="absolute inset-0 z-10 pointer-events-none">
-        <div className="absolute top-40 right-20">
-          <div className="w-16 h-16 md:w-20 md:h-20 text-white/10 border-4 border-current rounded-full" />
+      {/* Bottom Title Section */}
+      <div className="w-full pb-20 pt-4 z-10">
+        <div className="container mx-auto px-4">
+          {/* "CAMBRIAN OPEN HOUSE" in one line with overflow handling */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center overflow-hidden"
+          >
+            {/* CHANGE HERE: Force text to be positioned below the image on mobile */}
+            <h1 className="text-[#67E11D] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-['BS'] tracking-wide whitespace-nowrap overflow-hidden mt-[60vh] md:mt-0">
+              CAMBRIAN OPEN HOUSE
+            </h1>
+          </motion.div>
+
+          {/* Tagline */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex justify-center items-center space-x-4 md:space-x-8 mt-2 text-[#67E11D] font-['BS'] text-sm md:text-lg"
+          >
+            <span>ELEVATE</span>
+            <span className="text-lg md:text-2xl">×</span>
+            <span>INNOVATE</span>
+            <span className="text-lg md:text-2xl">×</span>
+            <span>INTEGRATE</span>
+          </motion.div>
+
+          {/* "JOIN US FOR FREE" Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex justify-center mt-6"
+          >
+            <button
+              onClick={() => document.getElementById("registration-section")?.scrollIntoView({ behavior: "smooth" })}
+              className="bg-[#99E265] text-black font-['BS'] text-base md:text-lg py-3 px-8 rounded-full hover:bg-[#8bd456] transition-all duration-300"
+            >
+              JOIN US FOR FREE
+            </button>
+          </motion.div>
         </div>
-        <div className="absolute bottom-40 left-1/4">
-          <div className="w-24 h-24 md:w-32 md:h-32 text-white/10 border-4 border-current rounded-full" />
-        </div>
-        <div className="absolute top-1/3 right-1/3">
-          <div className="w-12 h-12 md:w-16 md:h-16 text-white/10 border-4 border-current rounded-full" />
-        </div>
+      </div>
+
+      {/* "REGISTER NOW FOR FREE" Button for Mobile - Visible only on small screens */}
+      <div className="md:hidden fixed bottom-6 left-6 z-20">
+        <button
+          onClick={() => document.getElementById("registration-section")?.scrollIntoView({ behavior: "smooth" })}
+          className="bg-[#99E265] text-black text-sm py-2 px-6 rounded-full hover:bg-[#8bd456] transition-all duration-300"
+        >
+          REGISTER NOW
+        </button>
       </div>
     </div>
   );
 };
 
 export default Hero;
-
