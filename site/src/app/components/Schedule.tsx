@@ -69,27 +69,27 @@ export default function Schedule() {
   ];
 
   return (
-    <div className="relative min-h-screen py-20">
+    <div className="relative py-10 sm:py-16 md:py-20">
       {/* Main Content */}
-      <div className="relative z-10 container mx-auto px-6">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6">
         {/* Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-10 sm:mb-16 md:mb-20"
         >
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#141414] mb-6">
+          <h1 className="font-['BS'] max-sm:text-[8vw] max-sm:leading-[15vw] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#141414] mb-3 sm:mb-6">
             Event Schedule
           </h1>
-          <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 max-w-3xl mx-auto px-2">
             A day filled with innovation, learning, and networking opportunities
           </p>
         </motion.div>
 
         {/* Schedule Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
           {scheduleBlocks.map((block, index) => (
             <motion.div
               key={index}
@@ -97,57 +97,50 @@ export default function Schedule() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-[#9EE666]/30 hover:border-[#9EE666]/50 transition-all duration-300 shadow-sm hover:shadow-md"
+              className="bg-white/80 backdrop-blur-sm rounded-xl p-4 sm:p-6 md:p-8 border border-[#9EE666]/30 hover:border-[#9EE666]/50 transition-all duration-300 shadow-sm hover:shadow-md"
             >
-              {/* Time */}
-              <div className={`text-xl font-bold bg-gradient-to-r ${block.color} bg-clip-text text-transparent mb-4`}>
-                {block.time}
-              </div>
+              {/* Header Section */}
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 sm:mb-6">
+                <div>
+                  <div className={`text-base sm:text-lg md:text-xl font-bold bg-gradient-to-r ${block.color} bg-clip-text text-transparent mb-1 sm:mb-2`}>
+                    {block.time}
+                  </div>
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">
+                    {block.title}
+                  </h3>
+                </div>
 
-              {/* Title & Location */}
-              <div className="space-y-3 mb-6">
-                <h3 className="text-2xl font-bold text-gray-800">
-                  {block.title}
-                </h3>
-                <div className="inline-flex items-center px-4 py-2 rounded-full bg-[#9EE666]/20 border border-[#9EE666]/30">
-                  <svg
-                    className="w-5 h-5 text-[#67B044] mr-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
-                  <span className="text-lg font-semibold text-gray-700">
-                    {block.location}
-                  </span>
+                <div className="mt-3 md:mt-0">
+                  <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#9EE666]/20 border border-[#9EE666]/30">
+                    <span className="text-sm sm:text-base md:text-lg font-semibold text-gray-700">
+                      {block.location}
+                    </span>
+                  </div>
                 </div>
               </div>
 
-              {/* Activities */}
-              <div className="space-y-4">
-                {block.activities.map((activity, idx) => (
-                  <div key={idx} className="border-t border-[#9EE666]/20 pt-4">
-                    <div className="text-xl font-bold text-gray-800 mb-1">
-                      {activity.name}
+              {/* Activities Section */}
+              <div className={`p-3 sm:p-4 md:p-6 rounded-lg ${block.bgColor} border ${block.borderColor}`}>
+                <h4 className="text-base sm:text-lg font-semibold text-gray-700 mb-2 sm:mb-4">
+                  Activities:
+                </h4>
+                <div className="space-y-3 sm:space-y-4 md:space-y-6">
+                  {block.activities.map((activity, idx) => (
+                    <div key={idx} className="flex">
+                      <div className="mr-3 sm:mr-4 mt-1">
+                        <div className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-gradient-to-r ${block.color}`}></div>
+                      </div>
+                      <div>
+                        <div className="text-base sm:text-lg md:text-xl font-bold text-gray-800">
+                          {activity.name}
+                        </div>
+                        <div className="text-sm sm:text-base text-gray-600">
+                          {activity.description}
+                        </div>
+                      </div>
                     </div>
-                    <div className="text-sm font-medium text-gray-600">
-                      {activity.description}
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}

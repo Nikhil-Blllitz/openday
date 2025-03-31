@@ -25,14 +25,14 @@ const PartnersMarquee: React.FC = () => {
 
   return (
     <div className="w-full py-8 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
+      <div className="mx-auto px-8 md:px-16 lg:px-24">
         {/* Updated heading with larger text */}
-        <h3 className="text-center text-3xl font-semibold text-gray-700 mb-4">
+        <h3 className="text-center text-3xl font-semibold text-gray-700 mb-8">
           Our Affliations
         </h3>
 
         {/* Mobile Marquee - Faster (duration: 20 seconds) */}
-        <div className="flex overflow-hidden relative px-4 block md:hidden">
+        <div className="flex overflow-hidden relative px-8 block md:hidden">
           <motion.div
             className="flex items-center space-x-16 min-w-full"
             animate={{ x: "-100%" }}
@@ -67,7 +67,7 @@ const PartnersMarquee: React.FC = () => {
         </div>
 
         {/* Desktop Marquee - Standard speed (duration: 25 seconds) */}
-        <div className="flex overflow-hidden relative px-4 hidden md:flex">
+        <div className="flex overflow-hidden relative px-8 hidden md:flex">
           <motion.div
             className="flex items-center space-x-16 min-w-full"
             animate={{ x: "-100%" }}

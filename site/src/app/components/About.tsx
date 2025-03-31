@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiBox, FiTarget, FiBriefcase, FiCpu, FiChevronDown } from 'react-icons/fi';
+import Image from 'next/image';
 
 export default function About() {
   const [formData, setFormData] = useState({
@@ -122,27 +123,27 @@ export default function About() {
 
   return (
     // Removed pt-40 and mt-32, using smaller values to reduce the gap
-    <div className="relative min-h-screen pt-10 mt-0" id="about">
+    <div className="relative min-h-screen p-4 sm:p-[2em]" id="about">
       {/* Main Content - No background styling as we're using the global background */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto">
         {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-10 sm:mb-20"
         >
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#141414] mb-6">
+          <h1 className="max-sm:text-[7vw] leading-normal sm:leading-[95px] font-['BS'] mt-4 sm:mt-6 text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-[#141414] mb-4 sm:mb-6">
             Innovation Showcase
           </h1>
-          <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto px-2">
             Discover a world of innovation at CIT&apos;s largest tech exhibition featuring 100+ stalls of groundbreaking ideas and solutions
           </p>
         </motion.div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 mb-8 sm:mb-16">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -150,13 +151,13 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-[#9EE666]/30 hover:border-[#9EE666]/50 transition-all duration-300 shadow-sm hover:shadow-md"
+              className="bg-white/80 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-[#9EE666]/30 hover:border-[#9EE666]/50 transition-all duration-300 shadow-sm hover:shadow-md"
             >
-              <div className="bg-[#67B044] w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                <feature.icon className="w-6 h-6 text-white" />
+              <div className="bg-[#67B044] w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                <feature.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">{feature.title}</h3>
-              <p className="text-gray-600">{feature.description}</p>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-1 sm:mb-2">{feature.title}</h3>
+              <p className="text-sm sm:text-base text-gray-600">{feature.description}</p>
             </motion.div>
           ))}
         </div>
@@ -167,50 +168,73 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="bg-white/80 backdrop-blur-sm rounded-xl p-8 border border-[#9EE666]/30 shadow-sm"
+          className="bg-white/80 backdrop-blur-sm rounded-xl p-4 sm:p-8 border border-[#9EE666]/30 shadow-sm"
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-[#67B044] mb-2">100+</div>
-              <div className="text-gray-600">Innovation Stalls</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#67B044] mb-1 sm:mb-2">100+</div>
+              <div className="text-sm sm:text-base text-gray-600">Innovation Stalls</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-[#FFE600] mb-2">50+</div>
-              <div className="text-gray-600">Live Demos</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#FFE600] mb-1 sm:mb-2">50+</div>
+              <div className="text-sm sm:text-base text-gray-600">Live Demos</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-[#67B044] mb-2">20+</div>
-              <div className="text-gray-600">Tech Workshops</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#67B044] mb-1 sm:mb-2">20+</div>
+              <div className="text-sm sm:text-base text-gray-600">Tech Workshops</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-[#141414] mb-2">2000+</div>
-              <div className="text-gray-600">Expected Visitors</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#141414] mb-1 sm:mb-2">2000+</div>
+              <div className="text-sm sm:text-base text-gray-600">Expected Visitors</div>
             </div>
           </div>
         </motion.div>
 
+        {/* Registration Image */}
+        <div className='mt-6 sm:mt-[2em]'>
+          <Image
+            src="/about/a1.svg"
+            alt="Innovation Stalls"
+            width={600}
+            height={400}
+            className="w-full"
+          />
+        </div>
+
         {/* Registration Form */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          id='registration-section'
-          className="mt-16 bg-white/80 backdrop-blur-sm rounded-xl p-8 border border-[#9EE666]/30 max-w-2xl mx-auto shadow-sm"
-        >
-          <h3 className="text-2xl font-bold text-[#67B044] mb-6 text-center">
-            Register for Open Day
-          </h3>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              placeholder="Name*"
-              required
-              className="w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400"
+        <div className='w-full flex flex-col md:flex-row px-0 sm:px-[1em] gap-4 sm:gap-[2em]'>
+          <div className='mt-[2em] hidden md:flex justify-center md:w-1/2'>
+            <Image
+              src="/about/a2.svg"
+              alt="Innovation Stalls"
+              width={400}
+              height={400}
+              className="w-full"
             />
+          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            id='registration-section'
+            className="mt-4 sm:mt-8 bg-white/80 backdrop-blur-sm rounded-xl p-4 sm:p-8 border border-[#9EE666]/30 w-full md:w-1/2 mx-auto shadow-sm"
+          >
+            <h3 className="text-xl sm:text-2xl font-bold text-[#67B044] mb-4 sm:mb-6 text-center">
+              Register for Open Day
+            </h3>
+            <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
+              {/* Form fields remain the same but with responsive padding */}
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Name*"
+                required
+                className="w-full p-2 sm:p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400"
+              />
+              {/* Other form fields follow the same pattern */}
             <input
               type="email"
               name="email"
@@ -337,7 +361,7 @@ export default function About() {
               <option>Government Official</option>
               <option>Investor/Venture Capitalist</option>
               <option>Parent/Guardian</option>
-              <option>School Representative {`(Principal/Teacher)`}</option>
+              <option>School Representative {('Principal/Teacher')}</option>
               <option>Media/Journalist</option>
               <option>Other</option>
             </select>
@@ -363,6 +387,7 @@ export default function About() {
           </form>
           {status && <p className="mt-4 text-center text-gray-600">{status}</p>}
         </motion.div>
+        </div>
       </div>
     </div>
   );

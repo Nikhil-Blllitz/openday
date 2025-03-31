@@ -34,13 +34,13 @@ const FAQ = () => {
     };
 
     return (
-        <div className="relative min-h-screen py-20 px-6">
+        <div className=" max-sm:pt-[0.5em] relative  py-20 px-6">
             <div className="max-w-4xl mx-auto text-center mb-16">
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="text-5xl mt-12 z-50 font-bold text-[#141414]"
+                    className="font-['BS'] max-sm:text-[7vw] max-sm:leading-[10vw] text-5xl mt-1 z-50 font-bold text-[#141414]"
                 >
                     Frequently Asked Questions
                 </motion.h1>

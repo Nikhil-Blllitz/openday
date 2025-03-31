@@ -12,6 +12,7 @@ import FAQ from './components/FAQ';
 //import MetaTagRotator from './components/MetaTagRotator';
 // import { motion } from 'framer-motion';
 import PartnersMarquee from './components/PartnersMarquee';
+import Reason from './components/reason';
 
 export default function MainPage() {
   return (
@@ -38,6 +39,9 @@ export default function MainPage() {
       <section id="partners" className="min-h-screen">
         <PartnersMarquee />
       </section>
+      <section id="reason" className="min-h-screen">
+        <Reason />
+      </section>
       <section id="about" className="min-h-screen">
         <About />
       </section>
@@ -62,4 +66,3 @@ export default function MainPage() {
     </div>
   );
 }
-

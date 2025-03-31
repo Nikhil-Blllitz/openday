@@ -507,7 +507,6 @@ export default function Footer() {
     </footer>
   );
 }
-
 // import Link from "next/link";
 // import { FaLinkedin, FaXTwitter, FaInstagram, FaFacebook } from "react-icons/fa6";
 
@@ -551,3 +550,4 @@ export default function Footer() {
 
 //   );
 // }
+

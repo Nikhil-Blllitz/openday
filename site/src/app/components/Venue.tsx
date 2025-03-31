@@ -40,7 +40,7 @@ export default function Venue() {
   };
 
   return (
-    <div className="relative min-h-screen py-20">
+    <div className=" max-sm:pb-[0] max-sm:pt-[5vw] relative  py-20">
       {/* Main Content */}
       <div className="relative z-10 container mx-auto px-6">
         {/* Title */}
@@ -51,7 +51,7 @@ export default function Venue() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#141414] mb-4">
+          <h1 className=" font-['BS'] max-sm:text-[8vw] text-5xl md:text-6xl lg:text-7xl font-bold text-[#141414] mb-4">
             Venue
           </h1>
           <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto">
