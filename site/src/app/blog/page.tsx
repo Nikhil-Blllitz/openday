@@ -27,7 +27,7 @@ export default function BlogPage() {
                         Blog Coming Soon!
                     </h1>
                     <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-                        We're working on something exciting! Our blog will be available soon with amazing content about Cambridge Open House.
+                       We are working on something exciting! Our blog will be available soon with amazing content about Cambridge Open House.
                     </p>
                     <button
                         onClick={() => router.push('/')}

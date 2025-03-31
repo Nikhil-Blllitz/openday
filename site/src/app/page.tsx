@@ -10,14 +10,14 @@ import Venue from './components/Venue';
 import Footer from './components/Footer';
 import FAQ from './components/FAQ';
 //import MetaTagRotator from './components/MetaTagRotator';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import PartnersMarquee from './components/PartnersMarquee';
 
 export default function MainPage() {
   return (
     <div className="relative min-h-screen">
       <Navbar />
-      
+
       {/* Animated Button
       <div className="bottom-4 z-50 fixed right-4">
         <motion.button
