@@ -4,14 +4,16 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar: React.FC = () => {
   const [activeSection, setActiveSection] = useState('home');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'schedule', 'venue'];
+      const sections = ['home', 'venue', 'register'];
       let currentSection = 'home';
       sections.forEach((section) => {
         const element = document.getElementById(section);
@@ -29,10 +31,38 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu when navigating
   const handleNavigation = (sectionId: string) => {
-    if (sectionId === 'blog') {
-      router.push('/blog'); // Redirects to the Blog page
-    } else {
+    setMobileMenuOpen(false);
+    
+    if (sectionId === 'register') {
+      const element = document.getElementById('registration-section');
+      if (element) {
+        const offset = 80;
+        const offsetPosition = element.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      }
+    } 
+    else if (sectionId === 'blog') {
+      router.push('/blog');
+    } 
+    else if (sectionId === 'about') {
+      const element = document.getElementById('about');
+      if (element) {
+        const offset = 80;
+        const offsetPosition = element.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      }
+    }
+    else if (sectionId === 'schedule') {
+      const element = document.getElementById('schedule');
+      if (element) {
+        const offset = 80;
+        const offsetPosition = element.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      }
+    }
+    else {
       const element = document.getElementById(sectionId);
       if (element) {
         const offset = 80;
@@ -43,43 +73,79 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <div className="fixed top-0 w-full max-w-screen z-50 bg-transparent px-5 md:px-10 py-4 backdrop-blur-2xl">
-      {/* Logo and Navbar Container */}
-      <div className="grid grid-cols-1 md:grid-cols-2 items-center text-center md:text-left">
+    <div className="fixed top-0 w-full z-50 px-4 py-4 backdrop-blur-md">
+      {/* Main navbar container */}
+      <div className="max-w-7xl mx-auto bg-[#E5F5DA] rounded-full py-2 px-4 flex justify-between items-center shadow-sm">
         {/* Logo Section */}
-        <div className="flex justify-center md:justify-start">
+        <div className="flex items-center">
           <Link href="https://engg.cambridge.edu.in/">
-            <Image
-              src="/cit_navlogo.png"
-              alt="CIT Logo"
-              width={200}
-              height={100}
-              className="object-contain transition-transform duration-300 hover:scale-110 active:scale-95"
-            />
+            <div className="flex items-center">
+              <Image
+                src="/cit_navlogo.png"
+                alt="CIT Logo"
+                width={130}
+                height={50}
+                className="object-contain"
+              />
+            </div>
           </Link>
         </div>
 
-        {/* Navbar Section */}
-        <nav className="mt-4 md:mt-0 flex justify-center md:justify-end">
-          <div
-            className="rounded-full shadow-lg backdrop-blur-lg px-4 py-2"
-            style={{ background: 'linear-gradient(90deg, #9EE666 0%, #7AB54B 100%)' }}
+        {/* Desktop Navigation - Hidden on mobile */}
+        <div className="hidden md:flex items-center space-x-16 text-lg font-bold">
+          {['home', 'venue', 'register'].map((section) => (
+            <button
+              key={section}
+              onClick={() => handleNavigation(section)}
+              className={`${
+                activeSection === section ? 'text-black' : 'text-gray-700 hover:text-black'
+              } transition-colors duration-200`}
+            >
+              {section.toUpperCase()}
+            </button>
+          ))}
+        </div>
+
+        {/* Mobile Hamburger Button - Visible only on mobile */}
+        <button 
+          className="md:hidden flex flex-col justify-center items-center space-y-1.5"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Menu"
+        >
+          <div className={`w-6 h-0.5 bg-gray-800 transition-all ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
+          <div className={`w-6 h-0.5 bg-gray-800 transition-all ${mobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}></div>
+          <div className={`w-6 h-0.5 bg-gray-800 transition-all ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
+        </button>
+      </div>
+
+      {/* Mobile Menu Dropdown - Centered with animations */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div 
+            className="absolute left-0 right-0 mx-auto mt-2 px-4"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
           >
-            <div className="flex w-full flex-row md:flex-row items-center">
-              {['home', 'about', 'schedule', 'venue', 'blog'].map((section) => (
-                <div key={section} className={activeSection === section ? 'bg-black text-white rounded-full' : ''}>
+            <div className="bg-[#E5F5DA] rounded-xl shadow-lg py-4 max-w-xs mx-auto">
+              <div className="flex flex-col items-center space-y-4">
+                {['home', 'about', 'schedule', 'venue', 'register', 'blog'].map((section) => (
                   <button
+                    key={section}
                     onClick={() => handleNavigation(section)}
-                    className="px-2 md:px-6 py-1 font-semibold hover:bg-black/10 flex justify-between rounded-full transition-colors"
+                    className={`${
+                      activeSection === section ? 'bg-[#99E265] text-black' : 'text-gray-700'
+                    } py-2 px-8 rounded-full text-base font-medium w-40 text-center transition-colors`}
                   >
                     {section.toUpperCase()}
                   </button>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        </nav>
-      </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

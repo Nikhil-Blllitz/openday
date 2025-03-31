@@ -69,7 +69,7 @@ const Hero: React.FC = () => {
       {/* Bottom Title Section */}
       <div className="w-full pb-12 pt-4 z-10">
         <div className="container mx-auto px-4">
-          {/* Mobile View */}
+          {/* Mobile View - Keep as is */}
           <div className="md:hidden flex flex-col items-center space-y-2 mt-[20vh]">
             <div className="flex flex-col items-center space-y-1">
               <h1 className="text-[#FF8A00] text-3xl font-['BS'] tracking-wide">CAMBRIAN</h1>
@@ -81,11 +81,40 @@ const Hero: React.FC = () => {
             </p>
           </div>
 
-          {/* Desktop View */}
-          <div className="hidden md:block text-center">
-            <h1 className="text-[#FF8A00] text-5xl md:text-6xl lg:text-7xl font-['BS'] tracking-wide whitespace-nowrap leading-normal py-2">
-              CAMBRIAN OPEN HOUSE
-            </h1>
+          {/* Desktop View - FIXED to ensure text fits */}
+          <div className="hidden md:block text-center px-4">
+            {/* Option 1: Responsive text sizing that adjusts to screen width */}
+            <div className="hidden md:block lg:hidden">
+              <h1 className="text-[#FF8A00] text-[5vw] font-['BS'] tracking-wide whitespace-nowrap leading-normal">
+                CAMBRIAN OPEN HOUSE
+              </h1>
+            </div>
+
+            {/* Option 2: For large screens, keep the size but make sure it fits */}
+            <div className="hidden lg:block xl:hidden">
+              <h1 className="text-[#FF8A00] text-5xl font-['BS'] tracking-wide whitespace-nowrap leading-normal mx-auto max-w-[90vw] overflow-hidden">
+                CAMBRIAN OPEN HOUSE
+              </h1>
+            </div>
+
+            {/* Option 3: For very large screens */}
+            <div className="hidden xl:block">
+              <h1 className="text-[#FF8A00] text-6xl font-['BS'] tracking-wide whitespace-nowrap leading-normal">
+                CAMBRIAN OPEN HOUSE
+              </h1>
+            </div>
+
+            {/* Option 4: If screen is too small, stack the title */}
+            <div className="hidden 2xl:hidden md:hidden">
+              <div className="flex flex-col items-center">
+                <h1 className="text-[#FF8A00] text-5xl font-['BS'] tracking-wide leading-tight">
+                  CAMBRIAN OPEN
+                </h1>
+                <h1 className="text-[#FF8A00] text-5xl font-['BS'] tracking-wide leading-tight">
+                  HOUSE
+                </h1>
+              </div>
+            </div>
           </div>
 
           {/* "JOIN US FOR FREE" Button */}
@@ -103,16 +132,6 @@ const Hero: React.FC = () => {
             </button>
           </motion.div>
         </div>
-      </div>
-
-      {/* "REGISTER NOW FOR FREE" Button for Mobile */}
-      <div className="md:hidden fixed bottom-4 left-4 z-20">
-        <button
-          onClick={() => document.getElementById("registration-section")?.scrollIntoView({ behavior: "smooth" })}
-          className="bg-[#99E265] text-black text-xs py-2 px-4 rounded-full hover:bg-[#8bd456] transition-all duration-300"
-        >
-          REGISTER NOW
-        </button>
       </div>
     </div>
   );
