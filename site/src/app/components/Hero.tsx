@@ -164,7 +164,7 @@ const Hero: React.FC = () => {
               <h1 className="text-[#FF8A00] text-4xl font-['BS'] tracking-wide">HOUSE</h1>
             </div>
             <p className="text-black bg-white/70 backdrop-blur-sm py-2 px-6 rounded-lg inline-block text-sm font-medium mt-4">
-              19th APR '25 | 9:30 AM TO 5:00 PM
+              19th APR 2025 | 9:30 AM TO 5:00 PM
             </p>
             <p className="text-black bg-white/70 backdrop-blur-sm py-2 px-6 rounded-lg inline-block text-sm font-medium mt-2">
               CIT KR PURAM, BENGALURU-560036

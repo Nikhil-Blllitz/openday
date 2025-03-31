@@ -12,7 +12,7 @@ const Reason = () => {
           <span className="font-['BS'] text-green-500">?</span>
         </h2>
         <p className="font-['Inter'] text-center text-gray-700 max-w-3xl mx-auto mb-[2em]">
-          Discover a world of innovation at CIT's largest tech exhibition featuring 100+ stalls of 
+          Discover a world of innovation at CIT&apos;s largest tech exhibition featuring 100+ stalls of 
           groundbreaking ideas and solutions
         </p>
       </div>
@@ -49,7 +49,7 @@ const Reason = () => {
             <div className='max-sm:ml-16'>
               <h3 className="text-2xl font-bold text-green-700 mb-2">Discover +</h3>
               <p className=" text-gray-700">
-                Discover a world of innovation at CIT's largest tech exhibition featuring 100+ stalls 
+                Discover a world of innovation at CIT&apos;s largest tech exhibition featuring 100+ stalls 
                 of groundbreaking ideas and solutions
               </p>
             </div>
@@ -88,7 +88,7 @@ const Reason = () => {
             <div className='max-sm:ml-16'>
               <h3 className="text-2xl font-bold text-green-700 mb-2">Discover +</h3>
               <p className="text-gray-700">
-                Discover a world of innovation at CIT's largest tech exhibition featuring 100+ stalls 
+                Discover a world of innovation at CIT&apos;s largest tech exhibition featuring 100+ stalls 
                 of groundbreaking ideas and solutions
               </p>
             </div>
@@ -109,7 +109,7 @@ const Reason = () => {
           PEOPLE WHO ARE GAY, PEOPLE WHO ARE GAY, PEOPLE WHO ARE GAY
         </p>
         <p className="text-center text-gray-700 max-w-3xl mx-auto ">
-          Discover a world of innovation at CIT's largest tech exhibition 
+          Discover a world of innovation at CIT&apos;s largest tech exhibition 
           featuring 100+ stalls of
         </p>
 
