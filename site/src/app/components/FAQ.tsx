@@ -42,7 +42,7 @@ const FAQ = () => {
                     transition={{ duration: 0.6 }}
                     className="font-['BS'] max-sm:text-[7vw] max-sm:leading-[10vw] text-5xl mt-1 z-50 font-bold text-[#141414]"
                 >
-                    Frequently Asked Questions
+                    FAQ
                 </motion.h1>
             </div>
 

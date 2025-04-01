@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import SurpriseGuest from './SurpriseGuest';
 
 export default function Schedule() {
   const scheduleBlocks = [
@@ -55,11 +56,12 @@ export default function Schedule() {
       borderColor: 'border-[#FFE600]/30'
     },
     {
-      time: '4:00 PM - 5:00 PM',
-      title: 'CLOSING CEREMONY',
-      location: 'Main Seminar Hall',
+      time: '4:00 PM - 5:30 PM',
+      title: 'GRAND FINALE',
+      location: 'Main Auditorium',
       activities: [
         { name: 'AWARDS & RECOGNITION', description: 'Celebrating Excellence' },
+        { name: 'SURPRISE COMEDY ACT', description: 'Special Performance by Mystery Guest' },
         { name: 'CLOSING REMARKS', description: 'Vote of Thanks' }
       ],
       color: 'from-[#67B044] to-[#9EE666]',
@@ -89,7 +91,7 @@ export default function Schedule() {
         </motion.div>
 
         {/* Schedule Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-20">
           {scheduleBlocks.map((block, index) => (
             <motion.div
               key={index}
@@ -145,6 +147,9 @@ export default function Schedule() {
             </motion.div>
           ))}
         </div>
+
+        {/* Surprise Guest Section */}
+        <SurpriseGuest />
       </div>
     </div>
   );

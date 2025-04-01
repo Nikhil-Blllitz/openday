@@ -235,158 +235,158 @@ export default function About() {
                 className="w-full p-2 sm:p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400"
               />
               {/* Other form fields follow the same pattern */}
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Email*"
-              required
-              className="w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400"
-            />
-            <input
-              type='text'
-              name='age'
-              value={formData.age}
-              onChange={handleChange}
-              placeholder='Age*'
-              required
-              className='w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 appearance-none cursor-pointer'
-            />
-            <select
-              name="gender"
-              value={formData.gender}
-              onChange={handleChange}
-              className="w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 appearance-none cursor-pointer"
-            >
-              <option hidden>Select your Gender</option>
-              <option>Male</option>
-              <option>Female</option>
-              <option>Other</option>
-            </select>
-            {formData.gender === 'Other' && (
               <input
-                type="text"
-                name="otherGender"
-                value={formData.otherGender}
+                type="email"
+                name="email"
+                value={formData.email}
                 onChange={handleChange}
-                placeholder="Please specify"
-                className="w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 appearance-none cursor-pointer"
-              />
-            )}
-            <div className="flex gap-2">
-              <input
-                type="text"
-                name="phoneNumber"
-                value={formData.phoneNumber}
-                onChange={handleChange}
-                placeholder="Phone Number"
+                placeholder="Email*"
+                required
                 className="w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400"
               />
-            </div>
-            <input
-              type="text"
-              name="state"
-              value={formData.state}
-              onChange={handleChange}
-              placeholder="Select State"
-              className="w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400"
-            />
-            <input
-              type="text"
-              name="city"
-              value={formData.city}
-              onChange={handleChange}
-              placeholder="City"
-              required
-              className="w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400"
-            />
-            <input
-              type="text"
-              name="country"
-              value={formData.country}
-              onChange={handleChange}
-              placeholder="Country"
-              required
-              className="w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400"
-            />
-            <div className="relative w-full" ref={dropdownRef}>
-              {/* Dropdown Button */}
-              <button
-                type="button"
-                onClick={() => setIsOpen(!isOpen)}
-                className="w-full p-3 border flex flex-row justify-between border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 cursor-pointer"
+              <input
+                type='text'
+                name='age'
+                value={formData.age}
+                onChange={handleChange}
+                placeholder='Age*'
+                required
+                className='w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 appearance-none cursor-pointer'
+              />
+              <select
+                name="gender"
+                value={formData.gender}
+                onChange={handleChange}
+                className="w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 appearance-none cursor-pointer"
               >
-                <span>
-                  {formData.interest.length > 0
-                    ? formData.interest.join(", ")
-                    : "Select Your Interests"}
-                </span>
-                <FiChevronDown className="w-5 h-5 text-gray-500" />
-              </button>
-
-              {/* Dropdown Menu */}
-              {isOpen && (
-                <div className="absolute w-full mt-1 bg-white border border-[#9EE666]/40 rounded-lg shadow-lg z-10">
-                  <div className="p-2 max-h-48 overflow-y-auto">
-                    {interests.map((interest) => (
-                      <label key={interest} className="flex items-center gap-2 p-2 rounded hover:bg-[#9EE666]/10 cursor-pointer">
-                        <input
-                          type="checkbox"
-                          name="interest"
-                          value={interest}
-                          checked={formData.interest.includes(interest)}
-                          onChange={handleCheckboxChange}
-                          className="w-4 h-4 text-[#67B044] focus:ring focus:ring-[#67B044]/30"
-                        />
-                        <span className="text-gray-700">{interest}</span>
-                      </label>
-                    ))}
-                  </div>
-                </div>
+                <option hidden>Select your Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+              </select>
+              {formData.gender === 'Other' && (
+                <input
+                  type="text"
+                  name="otherGender"
+                  value={formData.otherGender}
+                  onChange={handleChange}
+                  placeholder="Please specify"
+                  className="w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 appearance-none cursor-pointer"
+                />
               )}
-            </div>
-            <select
-              name="occupation"
-              value={formData.occupation}
-              onChange={handleChange}
-              className='w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 appearance-none cursor-pointer'
-            >
-              <option hidden>Your Occupation</option>
-              <option>Student</option>
-              <option>Faculty/Professor</option>
-              <option>Researcher</option>
-              <option>Industry Professional</option>
-              <option>Startup Founder/Entrepreneur</option>
-              <option>Government Official</option>
-              <option>Investor/Venture Capitalist</option>
-              <option>Parent/Guardian</option>
-              <option>School Representative {('Principal/Teacher')}</option>
-              <option>Media/Journalist</option>
-              <option>Other</option>
-            </select>
-            {/* Show Text Input if "Other" is selected */}
-            {formData.occupation === 'Other' && (
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  name="phoneNumber"
+                  value={formData.phoneNumber}
+                  onChange={handleChange}
+                  placeholder="Phone Number"
+                  className="w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400"
+                />
+              </div>
               <input
                 type="text"
-                name="otherOccupation"
-                value={formData.otherOccupation}
+                name="state"
+                value={formData.state}
                 onChange={handleChange}
-                placeholder="Specify your occupation"
-                className="w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 appearance-none cursor-pointer"
+                placeholder="Select State"
+                className="w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400"
               />
-            )}
-            <motion.button
-              type="submit"
-              className="w-full py-4 rounded-lg bg-[#67B044] text-white font-bold text-lg shadow-md transition-all hover:shadow-lg hover:bg-[#67B044]/90"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              REGISTER NOW
-            </motion.button>
-          </form>
-          {status && <p className="mt-4 text-center text-gray-600">{status}</p>}
-        </motion.div>
+              <input
+                type="text"
+                name="city"
+                value={formData.city}
+                onChange={handleChange}
+                placeholder="City"
+                required
+                className="w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400"
+              />
+              <input
+                type="text"
+                name="country"
+                value={formData.country}
+                onChange={handleChange}
+                placeholder="Country"
+                required
+                className="w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400"
+              />
+              <div className="relative w-full" ref={dropdownRef}>
+                {/* Dropdown Button */}
+                <button
+                  type="button"
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="w-full p-3 border flex flex-row justify-between border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 cursor-pointer"
+                >
+                  <span>
+                    {formData.interest.length > 0
+                      ? formData.interest.join(", ")
+                      : "Select Your Interests"}
+                  </span>
+                  <FiChevronDown className="w-5 h-5 text-gray-500" />
+                </button>
+
+                {/* Dropdown Menu */}
+                {isOpen && (
+                  <div className="absolute w-full mt-1 bg-white border border-[#9EE666]/40 rounded-lg shadow-lg z-10">
+                    <div className="p-2 max-h-48 overflow-y-auto">
+                      {interests.map((interest) => (
+                        <label key={interest} className="flex items-center gap-2 p-2 rounded hover:bg-[#9EE666]/10 cursor-pointer">
+                          <input
+                            type="checkbox"
+                            name="interest"
+                            value={interest}
+                            checked={formData.interest.includes(interest)}
+                            onChange={handleCheckboxChange}
+                            className="w-4 h-4 text-[#67B044] focus:ring focus:ring-[#67B044]/30"
+                          />
+                          <span className="text-gray-700">{interest}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+              <select
+                name="occupation"
+                value={formData.occupation}
+                onChange={handleChange}
+                className='w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 appearance-none cursor-pointer'
+              >
+                <option hidden>Your Occupation</option>
+                <option>Student</option>
+                <option>Faculty/Professor</option>
+                <option>Researcher</option>
+                <option>Industry Professional</option>
+                <option>Startup Founder/Entrepreneur</option>
+                <option>Government Official</option>
+                <option>Investor/Venture Capitalist</option>
+                <option>Parent/Guardian</option>
+                <option>School Representative {('Principal/Teacher')}</option>
+                <option>Media/Journalist</option>
+                <option>Other</option>
+              </select>
+              {/* Show Text Input if "Other" is selected */}
+              {formData.occupation === 'Other' && (
+                <input
+                  type="text"
+                  name="otherOccupation"
+                  value={formData.otherOccupation}
+                  onChange={handleChange}
+                  placeholder="Specify your occupation"
+                  className="w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 appearance-none cursor-pointer"
+                />
+              )}
+              <motion.button
+                type="submit"
+                className="w-full py-4 rounded-lg bg-[#67B044] text-white font-bold text-lg shadow-md transition-all hover:shadow-lg hover:bg-[#67B044]/90"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                REGISTER NOW
+              </motion.button>
+            </form>
+            {status && <p className="mt-4 text-center text-gray-600">{status}</p>}
+          </motion.div>
         </div>
       </div>
     </div>

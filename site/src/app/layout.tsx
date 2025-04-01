@@ -1,6 +1,9 @@
 // src/app/layout.tsx
 import type { Metadata } from 'next';
 import './globals.css';
+import { Inter } from 'next/font/google'
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Cambrian Open House',
@@ -34,8 +37,9 @@ export default function RootLayout({
             }
           `
         }} />
+        <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
-      <body className="antialiased">
+      <body className={inter.className}>
         {/* Google Tag Manager (GTM) noscript fallback */}
         <noscript>
           <iframe
