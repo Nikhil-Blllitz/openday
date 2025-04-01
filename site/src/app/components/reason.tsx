@@ -96,7 +96,7 @@ const Reason = () => {
           <span className="font-['BS'] text-green-500">JOIN!</span>
         </h2>
         <p className="font-['Rajdhani'] max-sm:mt-[1vw] text-center text-gray-700 tracking-wide text-lg font-semibold leading-relaxed max-w-4xl mx-auto px-4">
-          Cambrian Open House 2025 is open to everyone! Whether you're a tech enthusiast, student, entrepreneur, or just curious, explore groundbreaking innovations, experience live demos, and engage in exciting activities. Entry is FREE—come be a part of the future! 🚀
+          Cambrian Open House 2025 is open to everyone! Whether you&apos;re a tech enthusiast, student, entrepreneur, or just curious, explore groundbreaking innovations, experience live demos, and engage in exciting activities. Entry is FREE—come be a part of the future! 🚀
         </p>
 
         <div className="relative">
