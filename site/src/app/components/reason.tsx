@@ -13,7 +13,7 @@ const Reason = () => {
         </h2>
         <p className="font-['Rajdhani'] text-center text-gray-700 max-w-3xl mx-auto mb-[2em] tracking-wide text-lg font-semibold">
           Discover a world of innovation at CIT&apos;s largest tech exhibition featuring 100+ stalls of
-          groundbreaking ideas and solutions
+          groundbreaking ideas and solutions.
         </p>
       </div>
 
