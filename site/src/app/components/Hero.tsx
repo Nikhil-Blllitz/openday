@@ -92,7 +92,7 @@ const Hero: React.FC = () => {
               >
                 <div className="flex items-center  ">
                   <p className={`${orbitron.className} max-sm:bg-black/30 max-sm:backdrop-blur-md max-sm:border max-sm:border-white/20 max-sm:rounded-lg max-sm:p-[0.5em] max-sm:w-full max-sm:text-center text-[1.5rem] text-white font-bold tracking-wide max-sm:text-[3.5vw]`}>
-                    19<sup>th</sup> APR &apos;25 | <span className='text-white'>9:30 AM</span> TO <span className='text-white'>5:00 PM</span>
+                    20<sup>th</sup> APR &apos;25 | <span className='text-white'>9:30 AM</span> TO <span className='text-white'>5:00 PM</span>
                   </p>
                 </div>
                 <p className={`${spaceGrotesk.className} max-sm:text-center max-sm:bg-black/30 max-sm:backdrop-blur-md max-sm:border max-sm:border-white/20 max-sm:rounded-lg max-sm:p-[0.5em] text-xl md:text-2xl tracking-wide max-sm:text-[4vw]`}>
