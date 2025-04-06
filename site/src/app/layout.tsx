@@ -1,6 +1,6 @@
-// src/app/layout.tsx
 import type { Metadata } from 'next';
 import './globals.css';
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: 'Cambrian Open House',
@@ -38,9 +38,10 @@ export default function RootLayout({
             style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
-        
-        {/* Your existing content */}
+
         {children}
+
+        <Analytics />
       </body>
     </html>
   );
