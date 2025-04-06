@@ -11,7 +11,7 @@ import Footer from './components/Footer';
 import FAQ from './components/FAQ';
 //import MetaTagRotator from './components/MetaTagRotator';
 // import { motion } from 'framer-motion';
-import PartnersMarquee from './components/PartnersMarquee';
+//import PartnersMarquee from './components/PartnersMarquee';
 import Reason from './components/reason';
 
 export default function MainPage() {
