@@ -6,9 +6,20 @@ import { FaLinkedin, FaXTwitter, FaInstagram, FaFacebook, FaPhone, FaEnvelope, F
 
 export default function Footer() {
   return (
-    <footer className="relative bg-gradient-to-b from-yellow-400 to-yellow-500 text-black overflow-hidden flex flex-col">
+    <footer className="relative bg-white text-black overflow-hidden flex flex-col">
+      {/* Content-Footer Divider Line - Mobbin Style */}
+      <div className="absolute top-0 left-0 right-0 w-full flex justify-center items-center" style={{ height: '1px' }}>
+        <motion.div
+          className="w-full max-w-[90%] h-[1px] bg-gray-300 mx-auto"
+          initial={{ width: "0%" }}
+          whileInView={{ width: "90%" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+        />
+      </div>
+
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
         }} />
@@ -30,13 +41,13 @@ export default function Footer() {
                 About CIT
                 <span className="absolute -bottom-2 left-0 w-12 h-1 bg-black rounded-full"></span>
               </h3>
-              <p className="text-gray-800 mb-4">
+              <p className="font-['OSK'] tracking-wide text-gray-800 mb-4">
                 Cambridge Institute of Technology (CITech), Bengaluru, is a dynamic and innovative hub of education, fostering excellence in engineering and technology.
               </p>
               <Link href="http://15.207.194.161/" passHref>
                 <button
                   type="button"
-                  className="px-6 py-2 hover:cursor-pointer bg-black text-white font-semibold rounded-lg shadow-md hover:bg-gray-900 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+                  className="px-6 py-2 hover:cursor-pointer bg-black text-white font-['OSK'] tracking-wide rounded-lg shadow-md hover:bg-gray-900 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
                 >
                   Admissions Open
                 </button>
@@ -76,7 +87,7 @@ export default function Footer() {
                   viewport={{ once: true }}
                 >
                   <FaLocationDot className="text-xl mt-1" />
-                  <span className="text-gray-800">CITech, Krishnarajapuram, Bengaluru - 560036</span>
+                  <span className="font-['OSK'] tracking-wide text-gray-800">CITech, Krishnarajapuram, Bengaluru - 560036</span>
                 </motion.li>
                 <motion.li
                   className="flex items-start space-x-3"
@@ -86,7 +97,7 @@ export default function Footer() {
                   viewport={{ once: true }}
                 >
                   <FaPhone className="text-xl mt-1" />
-                  <span className="text-gray-800">+91 6360146030 </span>
+                  <span className="font-['OSK'] tracking-wide text-gray-800">+91 6360146030 </span>
                 </motion.li>
                 <motion.li
                   className="flex items-start space-x-3"
@@ -96,7 +107,7 @@ export default function Footer() {
                   viewport={{ once: true }}
                 >
                   <FaEnvelope className="text-xl mt-1" />
-                  <span className="text-gray-800">openhouse@cambridge.edu.in</span>
+                  <span className="font-['OSK'] tracking-wide text-gray-800">openhouse@cambridge.edu.in</span>
                 </motion.li>
               </ul>
             </motion.div>
@@ -176,15 +187,15 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <motion.div
-        className="relative py-6 border-t border-black/20"
+        className="relative py-6 border-t border-black/10"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
         viewport={{ once: true }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-gray-800 text-center text-sm">
-            © {new Date().getFullYear()} Cambridge Institute of Technology. All rights reserved.
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center items-center">
+          <p className="font-['OSK'] tracking-wide text-gray-800 text-center text-sm">
+            © 2025 Cambridge Institute of Technology. All rights reserved.
           </p>
         </div>
       </motion.div>

@@ -16,8 +16,10 @@ export default function About() {
     state: "",
     city: "",
     country: "",
-    occupation: "Your Occupation",
+    occupation: "",
     otherOccupation: "",
+    referredBy: "",
+    agreeToTerms: false,
     interest: [] as string[], // Ensure this is an empty array initially
   });
 
@@ -97,8 +99,10 @@ export default function About() {
           state: '',
           city: '',
           country: '',
-          occupation: 'Your Occupation',
+          occupation: '',
           otherOccupation: '',
+          referredBy: '',
+          agreeToTerms: false,
           interest: [],
         });
       } else {
@@ -111,19 +115,26 @@ export default function About() {
   };
 
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value, checked } = event.target;
+    const { name, value, checked } = event.target;
 
-    setFormData((prev) => ({
-      ...prev,
-      interest: checked
-        ? [...prev.interest, value]
-        : prev.interest.filter((item) => item !== value),
-    }));
+    if (name === "interest") {
+      setFormData((prev) => ({
+        ...prev,
+        interest: checked
+          ? [...prev.interest, value]
+          : prev.interest.filter((item) => item !== value),
+      }));
+    } else if (name === "agreeToTerms") {
+      setFormData((prev) => ({
+        ...prev,
+        agreeToTerms: checked,
+      }));
+    }
   };
 
   return (
     // Removed pt-40 and mt-32, using smaller values to reduce the gap
-    <div className="relative min-h-screen p-4 sm:p-[2em]" id="about">
+    <div className="relative min-h-screen p-4 sm:p-[2em] pt-10 sm:pt-16" id="about">
       {/* Main Content - No background styling as we're using the global background */}
       <div className="relative z-10 mx-auto">
         {/* Header Section */}
@@ -132,12 +143,12 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-10 sm:mb-20"
+          className="text-center mb-10 sm:mb-20 mt-10 sm:mt-16"
         >
-          <h1 className="max-sm:text-[7vw] leading-normal sm:leading-[95px] font-['BS'] mt-4 sm:mt-6 text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-[#141414] mb-4 sm:mb-6">
+          <h1 className="max-sm:text-[7vw] tracking-tight text-4xl md:text-5xl font-bold text-center mb-4 font-['BS'] text-[#141414]">
             Innovation Showcase
           </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto px-2">
+          <p className="font-['OSK'] text-center text-gray-700 max-w-3xl mx-auto mb-[2em] tracking-wider md:tracking-widest text-lg md:text-xl font-semibold leading-relaxed md:leading-loose">
             Discover a world of innovation at CIT&apos;s largest tech exhibition featuring 100+ stalls of groundbreaking ideas and solutions
           </p>
         </motion.div>
@@ -156,8 +167,10 @@ export default function About() {
               <div className="bg-[#67B044] w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
                 <feature.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-1 sm:mb-2">{feature.title}</h3>
-              <p className="text-sm sm:text-base text-gray-600">{feature.description}</p>
+              <h3 className="font-['OSK'] tracking-wide md:tracking-wider text-2xl sm:text-3xl md:text-3xl font-bold text-gray-800 mb-2 sm:mb-3">{feature.title}</h3>
+              <p className="font-['OSK'] tracking-wider md:tracking-widest text-gray-600 text-lg font-semibold leading-relaxed md:leading-loose">
+                {feature.description}
+              </p>
             </motion.div>
           ))}
         </div>
@@ -172,20 +185,20 @@ export default function About() {
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 text-center">
             <div>
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#67B044] mb-1 sm:mb-2">100+</div>
-              <div className="text-sm sm:text-base text-gray-600">Innovation Stalls</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#67B044] mb-2 sm:mb-3 font-['OSK'] tracking-wide md:tracking-wider">100+</div>
+              <div className="font-['OSK'] tracking-wider md:tracking-widest text-gray-700 text-xl sm:text-2xl font-semibold">Innovation Stalls</div>
             </div>
             <div>
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#FFE600] mb-1 sm:mb-2">50+</div>
-              <div className="text-sm sm:text-base text-gray-600">Live Demos</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#FFE600] mb-2 sm:mb-3 font-['OSK'] tracking-wide md:tracking-wider">50+</div>
+              <div className="font-['OSK'] tracking-wider md:tracking-widest text-gray-700 text-xl sm:text-2xl font-semibold">Live Demos</div>
             </div>
             <div>
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#67B044] mb-1 sm:mb-2">20+</div>
-              <div className="text-sm sm:text-base text-gray-600">Tech Workshops</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#67B044] mb-2 sm:mb-3 font-['OSK'] tracking-wide md:tracking-wider">20+</div>
+              <div className="font-['OSK'] tracking-wider md:tracking-widest text-gray-700 text-xl sm:text-2xl font-semibold">Tech Workshops</div>
             </div>
             <div>
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#141414] mb-1 sm:mb-2">2000+</div>
-              <div className="text-sm sm:text-base text-gray-600">Expected Visitors</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#141414] mb-2 sm:mb-3 font-['OSK'] tracking-wide md:tracking-wider">2000+</div>
+              <div className="font-['OSK'] tracking-wider md:tracking-widest text-gray-700 text-xl sm:text-2xl font-semibold">Expected Visitors</div>
             </div>
           </div>
         </motion.div>
@@ -193,7 +206,7 @@ export default function About() {
         {/* Registration Image */}
         <div className='mt-6 sm:mt-[2em]'>
           <Image
-            src="/about/a1.svg"
+            src="/about/amain.svg"
             alt="Innovation Stalls"
             width={600}
             height={400}
@@ -205,7 +218,7 @@ export default function About() {
         <div className='w-full flex flex-col md:flex-row px-0 sm:px-[1em] gap-4 sm:gap-[2em]'>
           <div className='mt-[2em] hidden md:flex justify-center md:w-1/2'>
             <Image
-              src="/about/a2.svg"
+              src="/about/aposters.svg"
               alt="Innovation Stalls"
               width={400}
               height={400}
@@ -220,8 +233,8 @@ export default function About() {
             id='registration-section'
             className="mt-4 sm:mt-8 bg-white/80 backdrop-blur-sm rounded-xl p-4 sm:p-8 border border-[#9EE666]/30 w-full md:w-1/2 mx-auto shadow-sm"
           >
-            <h3 className="text-xl sm:text-2xl font-bold text-[#67B044] mb-4 sm:mb-6 text-center">
-              Register for Open Day
+            <h3 className="text-2xl sm:text-3xl font-bold text-green-700 mb-6 font-['OSK'] tracking-wider md:tracking-widest text-center">
+              Register for Open House
             </h3>
             <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
               {/* Form fields remain the same but with responsive padding */}
@@ -232,7 +245,7 @@ export default function About() {
                 onChange={handleChange}
                 placeholder="Name*"
                 required
-                className="w-full p-2 sm:p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400"
+                className="font-['OSK'] w-full p-2 sm:p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400 tracking-wider"
               />
               {/* Other form fields follow the same pattern */}
               <input
@@ -242,7 +255,7 @@ export default function About() {
                 onChange={handleChange}
                 placeholder="Email*"
                 required
-                className="w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400"
+                className="font-['OSK'] w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400 tracking-wider"
               />
               <input
                 type='text'
@@ -251,13 +264,13 @@ export default function About() {
                 onChange={handleChange}
                 placeholder='Age*'
                 required
-                className='w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 appearance-none cursor-pointer'
+                className='font-["OSK"] w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 appearance-none cursor-pointer tracking-wider'
               />
               <select
                 name="gender"
                 value={formData.gender}
                 onChange={handleChange}
-                className="w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 appearance-none cursor-pointer"
+                className="font-['OSK'] w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 appearance-none cursor-pointer tracking-wider"
               >
                 <option hidden>Select your Gender</option>
                 <option>Male</option>
@@ -271,7 +284,7 @@ export default function About() {
                   value={formData.otherGender}
                   onChange={handleChange}
                   placeholder="Please specify"
-                  className="w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 appearance-none cursor-pointer"
+                  className="font-['OSK'] w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 appearance-none cursor-pointer tracking-wider"
                 />
               )}
               <div className="flex gap-2">
@@ -281,7 +294,7 @@ export default function About() {
                   value={formData.phoneNumber}
                   onChange={handleChange}
                   placeholder="Phone Number"
-                  className="w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400"
+                  className="font-['OSK'] w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400 tracking-wider"
                 />
               </div>
               <input
@@ -290,7 +303,7 @@ export default function About() {
                 value={formData.state}
                 onChange={handleChange}
                 placeholder="Select State"
-                className="w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400"
+                className="font-['OSK'] w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400 tracking-wider"
               />
               <input
                 type="text"
@@ -299,7 +312,7 @@ export default function About() {
                 onChange={handleChange}
                 placeholder="City"
                 required
-                className="w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400"
+                className="font-['OSK'] w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400 tracking-wider"
               />
               <input
                 type="text"
@@ -308,14 +321,14 @@ export default function About() {
                 onChange={handleChange}
                 placeholder="Country"
                 required
-                className="w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400"
+                className="font-['OSK'] w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400 tracking-wider"
               />
               <div className="relative w-full" ref={dropdownRef}>
                 {/* Dropdown Button */}
                 <button
                   type="button"
                   onClick={() => setIsOpen(!isOpen)}
-                  className="w-full p-3 border flex flex-row justify-between border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 cursor-pointer"
+                  className="font-['OSK'] w-full p-3 border flex flex-row justify-between border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 cursor-pointer tracking-wider"
                 >
                   <span>
                     {formData.interest.length > 0
@@ -339,32 +352,37 @@ export default function About() {
                             onChange={handleCheckboxChange}
                             className="w-4 h-4 text-[#67B044] focus:ring focus:ring-[#67B044]/30"
                           />
-                          <span className="text-gray-700">{interest}</span>
+                          <span className="text-gray-700 font-['OSK'] tracking-wider">{interest}</span>
                         </label>
                       ))}
                     </div>
                   </div>
                 )}
               </div>
-              <select
-                name="occupation"
-                value={formData.occupation}
-                onChange={handleChange}
-                className='w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 appearance-none cursor-pointer'
-              >
-                <option hidden>Your Occupation</option>
-                <option>Student</option>
-                <option>Faculty/Professor</option>
-                <option>Researcher</option>
-                <option>Industry Professional</option>
-                <option>Startup Founder/Entrepreneur</option>
-                <option>Government Official</option>
-                <option>Investor/Venture Capitalist</option>
-                <option>Parent/Guardian</option>
-                <option>School Representative {('Principal/Teacher')}</option>
-                <option>Media/Journalist</option>
-                <option>Other</option>
-              </select>
+              <div className="relative">
+                <select
+                  name="occupation"
+                  value={formData.occupation}
+                  onChange={handleChange}
+                  className='font-["OSK"] w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 appearance-none cursor-pointer tracking-wider pr-10'
+                >
+                  <option value="" disabled>Your Occupation</option>
+                  <option>Student</option>
+                  <option>Faculty/Professor</option>
+                  <option>Researcher</option>
+                  <option>Industry Professional</option>
+                  <option>Startup Founder/Entrepreneur</option>
+                  <option>Government Official</option>
+                  <option>Investor/Venture Capitalist</option>
+                  <option>Parent/Guardian</option>
+                  <option>School Representative {('Principal/Teacher')}</option>
+                  <option>Media/Journalist</option>
+                  <option>Other</option>
+                </select>
+                <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                  <FiChevronDown className="w-5 h-5 text-gray-500" />
+                </div>
+              </div>
               {/* Show Text Input if "Other" is selected */}
               {formData.occupation === 'Other' && (
                 <input
@@ -373,22 +391,60 @@ export default function About() {
                   value={formData.otherOccupation}
                   onChange={handleChange}
                   placeholder="Specify your occupation"
-                  className="w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 appearance-none cursor-pointer"
+                  className="font-['OSK'] w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 appearance-none cursor-pointer tracking-wider"
                 />
               )}
+              <div className="relative">
+                <label className="block text-gray-700 text-sm font-bold mb-2 font-['OSK'] tracking-wider">
+                  Referred By (Cambridge Institute Student/Faculty) ?
+                </label>
+                <div className="flex">
+                  <input
+                    type="text"
+                    name="referredBy"
+                    value={formData.referredBy}
+                    onChange={handleChange}
+                    placeholder="Mail id ( Ex: abc.22cse )"
+                    className="font-['OSK'] flex-grow p-3 border border-[#9EE666]/40 rounded-l-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400 tracking-wider"
+                  />
+                  <span className="font-['OSK'] flex items-center justify-center p-3 bg-gray-200 border border-[#9EE666]/40 rounded-r-lg text-gray-700 tracking-wider">
+                    @cambridge.edu.in
+                  </span>
+                </div>
+                <p className="text-xs italic text-gray-600 mt-1 font-['OSK'] tracking-wide">Optional: Enter the mail id of a Cambridge Institute member who referred you.</p>
+              </div>
+              {/* Terms and Conditions for Referrals */}
+              <div className="flex items-start gap-2 mt-4">
+                <input
+                  type="checkbox"
+                  name="agreeToTerms"
+                  checked={formData.agreeToTerms}
+                  onChange={handleCheckboxChange}
+                  required
+                  className="mt-1 w-4 h-4 text-[#67B044] focus:ring focus:ring-[#67B044]/30"
+                />
+                <div>
+                  <label className="block text-gray-700 font-['OSK'] tracking-wider text-sm">
+                    I agree to the terms and conditions*
+                  </label>
+                  <p className="text-xs text-gray-600 font-['OSK'] tracking-wide">
+                    If I've provided a referral, I confirm that the person is a current student or faculty member at Cambridge Institute of Technology. I understand that false referrals will disqualify both parties from any benefits or surprises. Valid referrals may receive special recognition and prizes.
+                  </p>
+                </div>
+              </div>
               <motion.button
                 type="submit"
-                className="w-full py-4 rounded-lg bg-[#67B044] text-white font-bold text-lg shadow-md transition-all hover:shadow-lg hover:bg-[#67B044]/90"
+                className="font-['OSK'] w-full py-4 rounded-lg bg-[#67B044] text-white font-bold text-xl sm:text-2xl shadow-md transition-all hover:shadow-lg hover:bg-[#67B044]/90 tracking-wider md:tracking-widest"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 REGISTER NOW
               </motion.button>
             </form>
-            {status && <p className="mt-4 text-center text-gray-600">{status}</p>}
+            {status && <p className="mt-4 text-center text-gray-600 font-['OSK'] tracking-wider">{status}</p>}
           </motion.div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }

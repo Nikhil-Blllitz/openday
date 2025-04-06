@@ -36,9 +36,9 @@ export default function MainPage() {
       <section id="home" className="min-h-screen">
         <Hero />
       </section>
-      <section id="partners" className="min-h-screen">
+      {/* <section id="partners" className="min-h-screen">
         <PartnersMarquee />
-      </section>
+      </section> */}
       <section id="reason" className="min-h-screen">
         <Reason />
       </section>
@@ -60,6 +60,9 @@ export default function MainPage() {
       <section id="faq" className="min-h-screen">
         <FAQ />
       </section>
+      {/* <section id="partners" className="min-h-screen">
+        <PartnersMarquee />
+      </section> */}
       <section id="" className="min-h-fit">
         <Footer />
       </section>

@@ -3,17 +3,16 @@ import Image from 'next/image';
 
 const Reason = () => {
   return (
-    <div className=" max-sm:pt-[5vw] mt-[-35.5rem] pt-16 relative overflow-hidden">
+    <div className=" max-sm:pt-[5vw] mt-[0rem] pt-16 relative overflow-hidden">
       {/* WHY INTUIT Section */}
-      <div className="max-w-6xl mx-auto">
-        <h2 className="max-sm:text-[7vw] text-4xl md:text-5xl font-bold text-center mb-4">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="max-sm:text-[7vw] tracking-tight text-4xl md:text-5xl font-bold text-center mb-4">
           <span className="font-['BS'] text-black">WHY </span>
-          <span className="font-['BS'] text-green-500">INTUIT </span>
+          <span className="font-['BS'] text-green-500 ">ATTEND</span>
           <span className="font-['BS'] text-green-500">?</span>
         </h2>
-        <p className="font-['Rajdhani'] text-center text-gray-700 max-w-3xl mx-auto mb-[2em] tracking-wide text-lg font-semibold">
-          Discover a world of innovation at CIT&apos;s largest tech exhibition featuring 100+ stalls of
-          groundbreaking ideas and solutions.
+        <p className="font-['OSK'] text-center text-gray-700 max-w-3xl mx-auto mb-[2em] tracking-wider md:tracking-widest text-lg md:text-xl font-semibold leading-relaxed md:leading-loose">
+          Dive into an immersive experience at our exclusive technical exhibition, where innovation meets creativity. Explore visionary ideas, cutting-edge technology, and limitless possibilities!
         </p>
       </div>
 
@@ -37,10 +36,9 @@ const Reason = () => {
               1
             </div>
             <div className="ml-20 max-sm:ml-16">
-              <h3 className="text-2xl font-bold text-green-700 mb-2 font-['Audiowide'] tracking-wide">Discover +</h3>
-              <p className="text-gray-700 font-['Rajdhani'] tracking-wide text-lg font-semibold leading-relaxed">
-                Discover a world of innovation at CIT&apos;s largest tech exhibition featuring 100+ stalls
-                of groundbreaking ideas and solutions
+              <h3 className="text-2xl font-bold text-green-700 mb-2 font-['Audiowide'] tracking-wide md:tracking-wider">Cambrian Open House 2025: Where Ideas Converge</h3>
+              <p className="text-gray-700 font-['OSK'] tracking-wider md:tracking-widest text-lg md:text-xl font-semibold leading-relaxed md:leading-loose">
+                With over 120+ stalls, Cambrian open house 2025, brings together a vibrant mix of technology, creativity, and culture. From food and flea markets to interactive panel discussions with industry experts, experience a dynamic environment where ideas and insights come together.
               </p>
             </div>
           </div>
@@ -76,10 +74,9 @@ const Reason = () => {
               2
             </div>
             <div className='max-sm:ml-16'>
-              <h3 className="text-2xl font-bold text-green-700 mb-2 font-['Audiowide'] tracking-wide">Discover +</h3>
-              <p className="text-gray-700 font-['Rajdhani'] tracking-wide text-lg font-semibold leading-relaxed">
-                Discover a world of innovation at CIT&apos;s largest tech exhibition featuring 100+ stalls
-                of groundbreaking ideas and solutions
+              <h3 className="text-2xl font-bold text-green-700 mb-2 font-['Audiowide'] tracking-wide md:tracking-wider">Fueling Future Minds</h3>
+              <p className="text-gray-700 font-['OSK'] tracking-wider md:tracking-widest text-lg md:text-xl font-semibold leading-relaxed md:leading-loose">
+                Discover exclusive startups and research from Cambridge Institute of Technology, along with innovative student projects and club showcases. Witness the power of creativity and collaboration as future leaders present solutions that shape tomorrow.
               </p>
             </div>
             <div className="max-sm:hidden right-0 absolute bg-green-500 text-white rounded-[100%] w-[3rem] h-[3rem] flex items-center justify-center text-3xl font-bold font-['Audiowide']">
@@ -95,8 +92,9 @@ const Reason = () => {
           <span className="font-['BS'] text-black">WHO CAN </span>
           <span className="font-['BS'] text-green-500">JOIN!</span>
         </h2>
-        <p className="font-['Rajdhani'] max-sm:mt-[1vw] text-center text-gray-700 tracking-wide text-lg font-semibold leading-relaxed max-w-4xl mx-auto px-4">
-          Cambrian Open House 2025 is open to everyone! Whether you&apos;re a tech enthusiast, student, entrepreneur, or just curious, explore groundbreaking innovations, experience live demos, and engage in exciting activities. Entry is FREE—come be a part of the future! 🚀
+        <p className="font-['OSK'] max-sm:mt-[1vw] text-center text-gray-700 tracking-wider md:tracking-widest text-lg md:text-xl font-semibold leading-relaxed md:leading-loose max-w-4xl mx-auto px-4">
+          Cambrian Open House 2025 welcomes everyone! Whether you are a tech enthusiast, student, entrepreneur, or a curious mind eager to explore new ideas and experience innovative demonstrations, this event is for you. Entry is absolutely free!!!<br></br>
+          Register now and join us for an immersive experience!
         </p>
 
         <div className="relative">

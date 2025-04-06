@@ -67,15 +67,12 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <div className="w-[80vw] md:w-[60vw] fixed top-4 left-1/2 transform -translate-x-1/2 z-50 backdrop-blur-lg rounded-full shadow-md">
+      <div className="w-[80vw] md:w-[45vw] fixed top-4 left-1/2 transform -translate-x-1/2 z-50 backdrop-blur-lg rounded-full shadow-md">
         {/* Main Navbar Container */}
         <div className="py-2 px-4 md:px-8 flex justify-between items-center">
           {/* Logo Section */}
           <div className="flex items-center">
-            <button
-              onClick={() => handleNavigation('home')}
-              className="cursor-pointer"
-            >
+            <a href="https://engg.cambridge.edu.in/" target="_blank" rel="noopener noreferrer">
               <Image
                 src="/cit_navlogo.png"
                 alt="CIT Logo"
@@ -83,11 +80,11 @@ const Navbar: React.FC = () => {
                 height={45}
                 className="object-contain"
               />
-            </button>
+            </a>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8 lg:space-x-12 text-base lg:text-lg font-extrabold tracking-wide text-black">
+          <div className="hidden md:flex items-center space-x-8 lg:space-x-12 text-base lg:text-lg font-['OSK'] tracking-wider text-black">
             {navigationItems.map((section) => (
               <button
                 key={section}
@@ -133,16 +130,32 @@ const Navbar: React.FC = () => {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="backdrop-blur-lg bg-white/80 rounded-lg shadow-lg py-4 max-w-xs mx-auto">
-                <div className="flex flex-col items-center space-y-4">
+              <div className="backdrop-blur-xl rounded-2xl shadow-lg py-6 max-w-xs mx-auto border border-gray-200/30"
+                style={{
+                  backgroundImage: 'linear-gradient(145deg, rgba(240,240,240,0.85) 0%, rgba(200,200,200,0.75) 100%)',
+                  boxShadow: '0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.05), 0 0 0 1px rgba(255,255,255,0.3) inset'
+                }}>
+                <div className="flex flex-col items-start px-8 space-y-6">
                   {navigationItems.map((section) => (
-                    <button
-                      key={section}
-                      onClick={() => handleNavigation(section)}
-                      className="text-black text-lg font-bold uppercase py-2 px-8 rounded-full w-40 text-center transition-colors hover:bg-gray-200"
-                    >
-                      {section}
-                    </button>
+                    section === 'register' ? (
+                      <motion.button
+                        key={section}
+                        onClick={() => handleNavigation(section)}
+                        className="bg-[#FF8A00] text-white font-['OSK'] tracking-wider uppercase py-2.5 px-8 rounded-full w-full text-center transition-all hover:bg-[#FFB700]"
+                        whileHover={{ scale: 1.03, boxShadow: '0 0 15px 2px rgba(255,138,0,0.3)' }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        Join for free
+                      </motion.button>
+                    ) : (
+                      <button
+                        key={section}
+                        onClick={() => handleNavigation(section)}
+                        className="text-gray-800 text-lg font-['OSK'] tracking-wider uppercase py-1 text-left transition-all hover:text-[#FF8A00]"
+                      >
+                        {section}
+                      </button>
+                    )
                   ))}
                 </div>
               </div>

@@ -12,6 +12,7 @@ export default function Schedule() {
       location: 'Main Seminar Hall',
       activities: [
         { name: 'WELCOME ADDRESS', description: 'Introduction to CIT Open House 2025' },
+        { name: 'INAUGURAL ADDRESS', description: 'By the Chairman of AICTE' },
         { name: 'KEYNOTE SESSION', description: 'Future of Technology & Innovation' }
       ],
       color: 'from-[#67B044] to-[#9EE666]',
@@ -23,9 +24,10 @@ export default function Schedule() {
       title: 'INNOVATION SHOWCASE',
       location: 'College Lawn',
       activities: [
-        { name: 'TECH EXPO', description: 'Student Projects & Innovations' },
-        { name: 'INTERACTIVE DEMOS', description: 'Hands-on Technology Experience' },
-        { name: 'CLUB ACTIVITIES', description: 'Student Club Demonstrations' }
+        { name: '130+ STUDENT PROJECTS', description: 'Student-led project exhibitions' },
+        { name: 'R&D SHOWCASE', description: 'Research & Development demonstrations and campus tour' },
+        { name: 'STUDENT STARTUPS', description: 'Presentations by entrepreneurial students' },
+        { name: 'INTERACTIVE DEMOS', description: 'Hands-on Technology Experience' }
       ],
       color: 'from-[#FFE600] to-[#FFE600]',
       bgColor: 'bg-[#FFE600]/10',
@@ -33,11 +35,12 @@ export default function Schedule() {
     },
     {
       time: '1:30 PM - 2:30 PM',
-      title: 'LUNCH BREAK',
+      title: 'LUNCH & ENTERTAINMENT',
       location: 'College Lawn',
       activities: [
         { name: 'NETWORKING LUNCH', description: 'Connect with Students and Faculty' },
-        { name: 'CULTURAL PERFORMANCES', description: 'Student Showcases' }
+        { name: 'CULTURAL PERFORMANCES', description: 'Live bands and student performances' },
+        { name: 'FLEA MARKET & FOOD STALLS', description: 'Variety of food and merchandise options' }
       ],
       color: 'from-[#67B044] to-[#9EE666]',
       bgColor: 'bg-[#9EE666]/10',
@@ -48,8 +51,9 @@ export default function Schedule() {
       title: 'TECHNICAL SESSIONS',
       location: 'Seminar Hall',
       activities: [
-        { name: 'WORKSHOPS', description: 'Interactive Technical Sessions' },
-        { name: 'PANEL DISCUSSIONS', description: 'Industry Insights & Trends' }
+        { name: 'CAREER GUIDANCE', description: 'Sessions for CET & COMED-K aspirants' },
+        { name: 'EXPERT PANELS', description: 'Discussions on emerging technologies' },
+        { name: 'TECHNICAL COMPETITIONS', description: 'Exciting hands-on activities and challenges' }
       ],
       color: 'from-[#FFE600] to-[#FFE600]',
       bgColor: 'bg-[#FFE600]/10',
@@ -82,10 +86,10 @@ export default function Schedule() {
           viewport={{ once: true }}
           className="text-center mb-10 sm:mb-16 md:mb-20"
         >
-          <h1 className="font-['BS'] max-sm:text-[8vw] max-sm:leading-[15vw] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#141414] mb-3 sm:mb-6">
+          <h1 className="font-['BS'] max-sm:text-[8vw] max-sm:leading-[15vw] text-4xl sm:text-5xl md:text-6xl lg:text-5xl font-bold text-[#141414] mb-3 sm:mb-6">
             Event Schedule
           </h1>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 max-w-3xl mx-auto px-2">
+          <p className="font-['OSK'] tracking-wide text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 max-w-3xl mx-auto px-2">
             A day filled with innovation, learning, and networking opportunities
           </p>
         </motion.div>
@@ -104,17 +108,17 @@ export default function Schedule() {
               {/* Header Section */}
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 sm:mb-6">
                 <div>
-                  <div className={`text-base sm:text-lg md:text-xl font-bold bg-gradient-to-r ${block.color} bg-clip-text text-transparent mb-1 sm:mb-2`}>
+                  <div className={`font-['OSK'] tracking-wide text-base sm:text-lg md:text-xl font-bold bg-gradient-to-r ${block.color} bg-clip-text text-transparent mb-1 sm:mb-2`}>
                     {block.time}
                   </div>
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">
+                  <h3 className="font-['OSK'] tracking-wide text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">
                     {block.title}
                   </h3>
                 </div>
 
                 <div className="mt-3 md:mt-0">
                   <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#9EE666]/20 border border-[#9EE666]/30">
-                    <span className="text-sm sm:text-base md:text-lg font-semibold text-gray-700">
+                    <span className="font-['OSK'] tracking-wide text-sm sm:text-base md:text-lg font-semibold text-gray-700">
                       {block.location}
                     </span>
                   </div>
@@ -123,7 +127,7 @@ export default function Schedule() {
 
               {/* Activities Section */}
               <div className={`p-3 sm:p-4 md:p-6 rounded-lg ${block.bgColor} border ${block.borderColor}`}>
-                <h4 className="text-base sm:text-lg font-semibold text-gray-700 mb-2 sm:mb-4">
+                <h4 className="font-['OSK'] tracking-wide text-base sm:text-lg font-semibold text-gray-700 mb-2 sm:mb-4">
                   Activities:
                 </h4>
                 <div className="space-y-3 sm:space-y-4 md:space-y-6">
@@ -133,10 +137,10 @@ export default function Schedule() {
                         <div className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-gradient-to-r ${block.color}`}></div>
                       </div>
                       <div>
-                        <div className="text-base sm:text-lg md:text-xl font-bold text-gray-800">
+                        <div className="font-['OSK'] tracking-wide text-base sm:text-lg md:text-xl font-bold text-gray-800">
                           {activity.name}
                         </div>
-                        <div className="text-sm sm:text-base text-gray-600">
+                        <div className="font-['OSK'] tracking-wide text-sm sm:text-base text-gray-600">
                           {activity.description}
                         </div>
                       </div>

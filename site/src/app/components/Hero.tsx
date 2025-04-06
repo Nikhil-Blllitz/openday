@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
@@ -24,7 +24,7 @@ const Hero: React.FC = () => {
           {/* Desktop view */}
           <div className="hidden md:block w-full h-full">
             <Image
-              src="/base2.webp"
+              src="/robotnew.webp"
               alt="Robot Image"
               fill
               className="object-contain"
@@ -43,32 +43,88 @@ const Hero: React.FC = () => {
         <div className="container mx-auto px-4">
           {/* Mobile View */}
           <div className="md:hidden flex flex-col items-center space-y-2 mt-[60vh]">
-            <div className="flex flex-col items-center space-y-4">
-              <h1 className="text-[#FF8A00] text-3xl font-['BS'] tracking-wide">CAMBRIAN</h1>
-              <h1 className="text-[#FF8A00] text-3xl font-['BS'] tracking-wide">OPEN</h1>
-              <h1 className="text-[#FF8A00] text-3xl font-['BS'] tracking-wide">HOUSE</h1>
+            <div className="flex flex-col items-center space-y-6 ">
+              <h1 className="text-[#FF8A00] text-4xl font-['BS'] tracking-wide max-sm:top-[60vw] max-sm:text-[10vw] max-sm:leading-[6vw]">CAMBRIAN</h1>
+              <h1 className="text-[#FF8A00] text-4xl font-['BS'] tracking-wide max-sm:text-[8.2vw]">OPEN HOUSE</h1>
             </div>
-            <div className="bg-white/70 backdrop-blur-sm py-2 px-4 rounded-lg mt-2">
-              <p className="text-black text-base font-['Bebas_Neue'] font-bold tracking-wider text-center">
-                19th APR 2025 • 9:30 AM TO 5:00 PM
-              </p>
-              <p className="text-black text-base font-['Bebas_Neue'] font-bold tracking-wider text-center mt-0.5">
-                CIT KR PURAM, BENGALURU-560036
-              </p>
+            <div className="bg-white/70 backdrop-blur-sm py-2 px-4 rounded-lg mt-2 overflow-hidden">
+              <motion.p
+                initial={{ x: -100, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="text-black text-base font-['OSK'] font-bold tracking-wider text-center"
+              >
+                20th APR 2025 • 9:30 AM TO 5:00 PM
+              </motion.p>
+              <motion.p
+                initial={{ x: 100, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                className="text-black text-base font-['OSK'] font-bold tracking-wider text-center mt-0.5"
+              >
+                Cambridge Instiute of Technology<br></br>KR Puram, Bengaluru-560036
+              </motion.p>
             </div>
-            {/* "JOIN US FOR FREE" Button for mobile */}
+
+            {/* Enhanced "JOIN US FOR FREE" Button for mobile */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex justify-center w-full mt-4"
+              whileHover={{ scale: 1.03 }}
             >
-              <button
+              {/* Pulsing background for emphasis */}
+              <motion.div
+                className="absolute w-full max-w-xs rounded-full bg-[#FF8A00]/20 h-12"
+                animate={{
+                  scale: [1, 1.1, 1],
+                  opacity: [0.3, 0.6, 0.3]
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+
+              <motion.button
                 onClick={() => document.getElementById("registration-section")?.scrollIntoView({ behavior: "smooth" })}
-                className="bg-[#99E265] text-black font-['Bebas_Neue'] text-lg tracking-wider py-2.5 px-6 w-full max-w-xs rounded-full hover:bg-[#8bd456] transition-all duration-300"
+                className="relative bg-gradient-to-r from-[#99E265] to-[#67B044] text-black font-['OSK'] text-lg tracking-wider py-2.5 px-6 w-full max-w-xs rounded-full shadow-lg shadow-[#99E265]/20 overflow-hidden"
+                whileTap={{ scale: 0.97 }}
               >
-                JOIN US FOR FREE
-              </button>
+                <div className="relative flex items-center justify-center z-10">
+                  <motion.span
+                    className="inline-block mr-2 text-xl"
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      repeatType: "reverse"
+                    }}
+                  >
+                    →
+                  </motion.span>
+                  JOIN US FOR FREE!
+                </div>
+
+                {/* Sheen effect */}
+                <motion.div
+                  className="absolute inset-0 w-full h-full overflow-hidden"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                >
+                  <motion.div
+                    className="w-40 h-full bg-gradient-to-r from-transparent via-white/30 to-transparent absolute top-0 -left-40"
+                    animate={{ left: ["0%", "100%"] }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      repeatDelay: 3
+                    }}
+                  />
+                </motion.div>
+              </motion.button>
             </motion.div>
           </div>
 
@@ -89,33 +145,103 @@ const Hero: React.FC = () => {
                 CAMBRIAN OPEN HOUSE
               </h1>
             </div>
-            <div className="flex flex-col items-center gap-2 mt-6">
-              <div className="flex items-center gap-4">
-                <p className="text-black bg-white/70 backdrop-blur-sm py-2 px-6 rounded-lg text-2xl md:text-3xl font-['Bebas_Neue'] font-bold tracking-wider">
-                  APRIL 19, 2025
-                </p>
-                <span className="text-black text-2xl md:text-3xl font-['Bebas_Neue'] font-bold">•</span>
-                <p className="text-black bg-white/70 backdrop-blur-sm py-2 px-6 rounded-lg text-2xl md:text-3xl font-['Bebas_Neue'] font-bold tracking-wider">
-                  9:30 AM - 6:00 PM
-                </p>
-              </div>
-              <p className="text-black bg-white/70 backdrop-blur-sm py-2 px-6 rounded-lg text-2xl md:text-3xl font-['Bebas_Neue'] font-bold tracking-wider">
-                CIT CAMPUS, BENGALURU
-              </p>
-            </div>
-            {/* "JOIN US FOR FREE" Button - Desktop */}
+
+            {/* Enhanced "JOIN US FOR FREE" Button - Desktop */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex justify-center mt-8"
+              className="flex justify-center mt-8 relative"
             >
-              <button
+              {/* Floating decorative elements */}
+              <motion.div
+                className="absolute -right-4 -top-4 w-6 h-6 rounded-full bg-[#FF8A00]"
+                animate={{
+                  y: [0, -8, 0],
+                  opacity: [0.7, 1, 0.7],
+                  scale: [1, 1.1, 1]
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+
+              <motion.div
+                className="absolute -left-20 top-12 w-4 h-4 rounded-full bg-cyan-400"
+                animate={{
+                  y: [0, -5, 0],
+                  opacity: [0.5, 0.8, 0.5],
+                  scale: [1, 1.2, 1]
+                }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.5
+                }}
+              />
+
+              {/* Pulsing ring */}
+              <motion.div
+                className="absolute -inset-2 rounded-full bg-[#99E265]/30"
+                animate={{
+                  scale: [0.95, 1.05, 0.95],
+                  opacity: [0.2, 0.5, 0.2]
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+
+              <motion.button
                 onClick={() => document.getElementById("registration-section")?.scrollIntoView({ behavior: "smooth" })}
-                className="bg-[#99E265] text-black font-['Bebas_Neue'] text-2xl tracking-wider py-2 px-8 rounded-full hover:bg-[#8bd456] transition-all duration-300"
+                className="relative bg-gradient-to-r from-[#99E265] to-[#67B044] text-black font-['OSK'] text-2xl tracking-wider py-3 px-10 rounded-full shadow-lg shadow-[#99E265]/30 overflow-hidden"
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: '0 0 25px 5px rgba(153,226,101,0.5)',
+                  textShadow: '0 0 5px rgba(255,255,255,0.5)'
+                }}
+                whileTap={{ scale: 0.97 }}
               >
-                JOIN US FOR FREE
-              </button>
+                <div className="relative flex items-center justify-center z-10">
+                  <motion.span
+                    className="inline-block mr-3 text-2xl"
+                    animate={{
+                      x: [0, 7, 0],
+                      rotate: [0, 10, 0]
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      repeatType: "reverse"
+                    }}
+                  >
+                    →
+                  </motion.span>
+                  JOIN US FOR FREE!
+                </div>
+
+                {/* Sheen effect */}
+                <motion.div
+                  className="absolute inset-0 w-full h-full overflow-hidden"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                >
+                  <motion.div
+                    className="w-60 h-full bg-gradient-to-r from-transparent via-white/40 to-transparent absolute top-0 -left-60"
+                    animate={{ left: ["0%", "100%"] }}
+                    transition={{
+                      duration: 1.8,
+                      repeat: Infinity,
+                      repeatDelay: 2
+                    }}
+                  />
+                </motion.div>
+              </motion.button>
             </motion.div>
           </div>
         </div>

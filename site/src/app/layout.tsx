@@ -33,7 +33,7 @@ export default function RootLayout({
         <style dangerouslySetInnerHTML={{
           __html: `
             body {
-              background-color: #EBE7D8;
+              // background-color: #EBE7D8;
             }
           `
         }} />
