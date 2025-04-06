@@ -63,7 +63,7 @@ const Navbar: React.FC = () => {
                 className="relative w-[60px] h-[60px] group cursor-pointer"
               >
                 <Image
-                  src="/citlogo.png"
+                  src="/citlogo.webp"
                   alt="CIT Logo"
                   fill
                   style={{ objectFit: 'contain' }}

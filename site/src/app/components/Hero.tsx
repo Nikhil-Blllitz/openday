@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
       >
         <div className="absolute h-full w-[50vw]  ">
           <Image
-            src="/robot.png"
+            src="/robot.webp"
             alt="Robot"
             fill
             className="object-contain drop-shadow-2xl  max-sm:w-[10vw]"
@@ -129,7 +129,7 @@ const Hero: React.FC = () => {
       >
         <div className="relative h-full w-full">
           <Image
-            src="/robot.png"
+            src="/robot.webp"
             alt="Robot"
             fill
             className="object-contain drop-shadow-2xl  "
