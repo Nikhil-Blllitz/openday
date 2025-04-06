@@ -428,7 +428,7 @@ export default function About() {
                     I agree to the terms and conditions*
                   </label>
                   <p className="text-xs text-gray-600 font-['OSK'] tracking-wide">
-                    If I've provided a referral, I confirm that the person is a current student or faculty member at Cambridge Institute of Technology. I understand that false referrals will disqualify both parties from any benefits or surprises. Valid referrals may receive special recognition and prizes.
+                    If I&apos;ve provided a referral, I confirm that the person is a current student or faculty member at Cambridge Institute of Technology. I understand that false referrals will disqualify both parties from any benefits or surprises. Valid referrals may receive special recognition and prizes.
                   </p>
                 </div>
               </div>

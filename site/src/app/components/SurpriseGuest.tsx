@@ -30,7 +30,7 @@ const SurpriseGuest = () => {
                             </h2>
                         </div>
                         <p className="font-[OSK] tracking-wide text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto px-2">
-                            A Top-Notch Standup Performance You Won't Want To Miss!
+                            A Top-Notch Standup Performance You Won&apos;t Want To Miss!
                         </p>
                     </motion.div>
 
@@ -100,7 +100,7 @@ const SurpriseGuest = () => {
                                 Get Ready To Laugh Until It Hurts!
                             </p>
                             <p className="font-[OSK] tracking-wide text-lg sm:text-xl md:text-xl text-gray-700 max-w-3xl mx-auto">
-                                We're bringing a nationally acclaimed standup comedian to close out our event! Prepare for an hour of non-stop entertainment and hilarious moments.
+                                We&apos;re bringing a nationally acclaimed standup comedian to close out our event! Prepare for an hour of non-stop entertainment and hilarious moments.
                             </p>
                         </motion.div>
                     </motion.div>
