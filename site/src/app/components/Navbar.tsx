@@ -74,7 +74,7 @@ const Navbar: React.FC = () => {
           <div className="flex items-center">
             <a href="https://engg.cambridge.edu.in/" target="_blank" rel="noopener noreferrer">
               <Image
-                src="/cit_navlogo.png"
+                src="/cit_navlogo.webp"
                 alt="CIT Logo"
                 width={110}
                 height={45}

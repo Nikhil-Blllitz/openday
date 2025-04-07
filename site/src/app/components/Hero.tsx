@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
           {/* Mobile view */}
           <div className="md:hidden absolute inset-0 flex items-start justify-center pt-10">
             <Image
-              src="/mobile_robot.png"
+              src="/mobile_robot.webp"
               alt="Robot Image"
               width={440}
               height={600}

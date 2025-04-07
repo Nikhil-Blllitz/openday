@@ -72,7 +72,7 @@ export default function Venue() {
               {/* Left side - Image */}
               <div className="md:w-1/2 relative h-64 md:h-auto">
                 <Image
-                  src="/campus.jpg"
+                  src="/campus.webp"
                   alt="CIT Campus"
                   fill
                   className="object-cover transition-transform duration-300 hover:scale-105"

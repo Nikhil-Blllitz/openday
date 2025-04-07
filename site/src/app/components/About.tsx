@@ -218,7 +218,7 @@ export default function About() {
         <div className='w-full flex flex-col md:flex-row px-0 sm:px-[1em] gap-4 sm:gap-[2em]'>
           <div className='mt-[2em] hidden md:flex justify-center md:w-1/2'>
             <Image
-              src="/about/aposters.svg"
+              src="/about/aposters.webp"
               alt="Innovation Stalls"
               width={400}
               height={400}
