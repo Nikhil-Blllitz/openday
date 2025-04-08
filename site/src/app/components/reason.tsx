@@ -21,7 +21,7 @@ const Reason = () => {
         <div className="max-sm:mb-0 relative w-full md:w-1/2">
           <div className="relative z-10">
             <Image
-              src="/r1.svg"
+              src="/r1.webp"
               alt="Innovation Stalls"
               width={400}
               height={300}
@@ -32,12 +32,12 @@ const Reason = () => {
 
         <div className="relative w-full md:w-1/2 md:pl-8">
           <div className="relative flex items-start">
-            <div className="absolute left-0 bg-green-500 text-white rounded-full w-16 h-16 flex items-center justify-center text-3xl font-bold mr-4 max-sm:w-12 max-sm:h-12 max-sm:text-2xl font-['Audiowide']">
+            <div className="absolute left-0 bg-green-500 text-white rounded-full w-16 h-16 flex items-center justify-center text-3xl font-bold mr-4 max-sm:w-12 max-sm:h-12 max-sm:text-2xl font-['OSK']">
               1
             </div>
             <div className="ml-20 max-sm:ml-16">
-              <h3 className="text-2xl font-bold text-green-700 mb-2 font-['Audiowide'] tracking-wide md:tracking-wider">Cambrian Open House 2025: Where Ideas Converge</h3>
-              <p className="text-gray-700 font-['OSK'] tracking-wider md:tracking-widest text-lg md:text-xl font-semibold leading-relaxed md:leading-loose">
+              <h3 className="text-3xl font-bold text-green-700 mb-2 font-['OSK'] tracking-wide md:tracking-wider">Cambrian Open House 2025: Where Ideas Converge</h3>
+              <p className="text-gray-700 font-['OSK'] tracking-wider md:tracking-widest text-lg md:text-xl font-light leading-snug md:leading-normal">
                 With over 120+ stalls, Cambrian open house 2025, brings together a vibrant mix of technology, creativity, and culture. From food and flea markets to interactive panel discussions with industry experts, experience a dynamic environment where ideas and insights come together.
               </p>
             </div>
@@ -50,7 +50,7 @@ const Reason = () => {
         <div className="max-sm:mb-0 relative w-full md:w-1/2">
           <div className="relative z-10">
             <Image
-              src="/reasons_page/r2.svg"
+              src="/reasons_page/r2.webp"
               alt="Innovation Stalls"
               width={400}
               height={300}
@@ -70,12 +70,12 @@ const Reason = () => {
 
         <div className="relative w-full md:w-1/2 md:pr-12">
           <div className="flex items-start mb-4">
-            <div className="absolute lg:hidden bg-green-500 text-white rounded-full w-16 h-16 flex items-center justify-center text-3xl font-bold mr-4 max-sm:w-12 max-sm:h-12 max-sm:text-2xl font-['Audiowide']">
+            <div className="absolute left-0 lg:hidden bg-green-500 text-white rounded-full w-16 h-16 flex items-center justify-center text-3xl font-bold mr-4 max-sm:w-12 max-sm:h-12 max-sm:text-2xl font-['OSK']">
               2
             </div>
             <div className='max-sm:ml-16'>
-              <h3 className="text-2xl font-bold text-green-700 mb-2 font-['Audiowide'] tracking-wide md:tracking-wider">Fueling Future Minds</h3>
-              <p className="text-gray-700 font-['OSK'] tracking-wider md:tracking-widest text-lg md:text-xl font-semibold leading-relaxed md:leading-loose">
+              <h3 className="text-3xl font-bold text-green-700 mb-2 font-['OSK'] tracking-wide md:tracking-wider">Fueling Future Minds</h3>
+              <p className="text-gray-700 font-['OSK'] tracking-wider md:tracking-widest text-lg md:text-xl font-light leading-snug md:leading-normal">
                 Discover exclusive startups and research from Cambridge Institute of Technology, along with innovative student projects and club showcases. Witness the power of creativity and collaboration as future leaders present solutions that shape tomorrow.
               </p>
             </div>
@@ -101,7 +101,7 @@ const Reason = () => {
           <div className="flex justify-center">
             <div className="relative w-full">
               <Image
-                src="/reasons_page/r3.svg"
+                src="/reasons_page/r3.webp"
                 alt="Innovation Stalls"
                 width={600}
                 height={400}

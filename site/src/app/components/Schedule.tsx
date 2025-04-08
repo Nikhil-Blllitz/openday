@@ -9,7 +9,7 @@ export default function Schedule() {
     {
       time: '10:00 AM - 11:30 AM',
       title: 'OPENING CEREMONY',
-      location: 'Main Seminar Hall',
+      location: 'Main Stage',
       activities: [
         { name: 'WELCOME ADDRESS', description: 'Introduction to CIT Open House 2025' },
         { name: 'INAUGURAL ADDRESS', description: 'By the Chairman of AICTE' },
@@ -49,7 +49,7 @@ export default function Schedule() {
     {
       time: '2:30 PM - 4:00 PM',
       title: 'TECHNICAL SESSIONS',
-      location: 'Seminar Hall',
+      location: 'Main Stage',
       activities: [
         { name: 'CAREER GUIDANCE', description: 'Sessions for CET & COMED-K aspirants' },
         { name: 'EXPERT PANELS', description: 'Discussions on emerging technologies' },
@@ -62,7 +62,7 @@ export default function Schedule() {
     {
       time: '4:00 PM - 5:30 PM',
       title: 'GRAND FINALE',
-      location: 'Main Auditorium',
+      location: 'Main Stage',
       activities: [
         { name: 'AWARDS & RECOGNITION', description: 'Celebrating Excellence' },
         { name: 'SURPRISE COMEDY ACT', description: 'Special Performance by Mystery Guest' },

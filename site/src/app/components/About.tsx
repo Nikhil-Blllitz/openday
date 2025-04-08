@@ -21,7 +21,7 @@ export default function About() {
     occupation: "",
     otherOccupation: "",
     referredBy: "",
-    //agreeToTerms: false, // Still in state if needed for backend validation; remove if not required.
+    // agreeToTerms is removed from the state
     interest: [] as string[], // Ensure this is an empty array initially
   });
 
@@ -133,7 +133,7 @@ export default function About() {
           viewport={{ once: true }}
           className="text-center mb-10 sm:mb-20 mt-10 sm:mt-16"
         >
-          <h1 className="max-sm:text-[7vw] tracking-tight text-4xl md:text-5xl font-bold text-center mb-4 font-['BS'] text-[#141414]">
+          <h1 className="font-['BS'] max-sm:text-[8vw] max-sm:leading-[15vw] text-4xl sm:text-5xl md:text-6xl lg:text-5xl font-bold text-[#141414] mb-3 sm:mb-6">
             Innovation Showcase
           </h1>
           <p className="font-['OSK'] text-center text-gray-700 max-w-3xl mx-auto mb-[2em] tracking-wider md:tracking-widest text-lg md:text-xl font-semibold leading-relaxed md:leading-loose">
@@ -196,7 +196,7 @@ export default function About() {
         {/* Registration Image */}
         <div className='mt-6 sm:mt-[2em]'>
           <Image
-            src="/about/amain.svg"
+            src="/about/amain.webp"
             alt="Innovation Stalls"
             width={600}
             height={400}
@@ -206,13 +206,15 @@ export default function About() {
 
         {/* Registration Form */}
         <div className='w-full flex flex-col md:flex-row px-0 sm:px-[1em] gap-4 sm:gap-[2em]'>
+          {/* Aposters Image with White Background Removed */}
           <div className='mt-[2em] hidden md:flex justify-center md:w-1/2'>
             <Image
               src="/about/aposters.webp"
               alt="Innovation Stalls"
               width={400}
               height={400}
-              className="w-full"
+              className="w-full bg-transparent"
+              style={{ background: 'transparent' }}
             />
           </div>
           <motion.div
@@ -246,11 +248,13 @@ export default function About() {
                 className="font-['OSK'] w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400 tracking-wider"
               />
               <input
-                type="text"
+                type="number"
                 name="age"
                 value={formData.age}
                 onChange={handleChange}
                 placeholder="Age*"
+                min="1"
+                max="100"
                 required
                 className='font-["OSK"] w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 appearance-none cursor-pointer tracking-wider'
               />

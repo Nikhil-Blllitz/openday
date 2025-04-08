@@ -41,7 +41,7 @@ const Navbar: React.FC = () => {
     }
 
     if (sectionId === 'sitemap') {
-      window.open('/map.jpg', '_blank');
+      window.open('https://drive.google.com/file/d/1TVYr2CGyyKWqIohzcB0QAaTtv84RrXlc/view?usp=sharing');
       return;
     }
 
@@ -145,7 +145,7 @@ const Navbar: React.FC = () => {
                         whileHover={{ scale: 1.03, boxShadow: '0 0 15px 2px rgba(255,138,0,0.3)' }}
                         whileTap={{ scale: 0.98 }}
                       >
-                        Join for free
+                        Join Us for free
                       </motion.button>
                     ) : (
                       <button
