@@ -46,7 +46,7 @@ const SuccessPage = () => {
                                         Confirmation Details
                                     </h3>
                                     <p className="text-gray-600 font-['OSK'] tracking-wider leading-relaxed">
-                                        Your registration for Cambridge Institute of Technology Open House 2025 has been successfully processed. We're excited to welcome you to our campus for an extraordinary showcase of innovation and technology.
+                                        Your registration for Cambridge Institute of Technology Open House 2025 has been successfully processed. We&apos;re excited to welcome you to our campus for an extraordinary showcase of innovation and technology.
                                     </p>
                                 </div>
                             </div>
@@ -61,7 +61,7 @@ const SuccessPage = () => {
                                 </div>
                                 <div>
                                     <h3 className="text-xl font-bold text-gray-800 mb-2 font-['OSK'] tracking-wider">
-                                        What's Next?
+                                        What&apos;s Next?
                                     </h3>
                                     <p className="text-gray-600 font-['OSK'] tracking-wider leading-relaxed">
                                         You will receive a confirmation email shortly with all the event details, including the schedule, venue information, and parking details. Please check your inbox and spam folder.
