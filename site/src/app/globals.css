@@ -3,12 +3,12 @@
 @import "tailwindcss";
 
 /* Load the font for body text (subfonts) */
-@font-face {
+/* @font-face {
   font-family: 'Montserrat';
   src: url('/fonts/MONTSERRAT-REGULAR.OTF') format('opentype');
   font-weight: 400;
   font-style: normal;
-}
+} */
 
 @font-face {
   font-family: 'BS';
@@ -17,16 +17,16 @@
   font-style: normal;
   font-display: swap;
 }
-
+/* 
 @font-face {
   font-family: 'Cool';
   src: url('/fonts/COOLVETICA RG.OTF') format('opentype');
-}
-
+} */
+/* 
 @font-face {
   font-family: 'SM';
   src: url('/fonts/SpaceMono-Regular.ttf') format('truetype');
-}
+} */
 
 @font-face {
   font-family: 'OSK';

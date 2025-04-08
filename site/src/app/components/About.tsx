@@ -4,8 +4,10 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiBox, FiTarget, FiBriefcase, FiCpu, FiChevronDown } from 'react-icons/fi';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 export default function About() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,7 +21,7 @@ export default function About() {
     occupation: "",
     otherOccupation: "",
     referredBy: "",
-    agreeToTerms: false,
+    //agreeToTerms: false, // Still in state if needed for backend validation; remove if not required.
     interest: [] as string[], // Ensure this is an empty array initially
   });
 
@@ -78,6 +80,14 @@ export default function About() {
     setStatus("Submitting...");
 
     try {
+      // For development/testing purposes
+      if (process.env.NODE_ENV === 'development') {
+        // Simulate a successful response
+        await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API delay
+        router.push('/success');
+        return;
+      }
+
       const res = await fetch("/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -88,23 +98,7 @@ export default function About() {
       });
 
       if (res.ok) {
-        setStatus("Registration successful!");
-        setFormData({
-          name: '',
-          email: '',
-          age: '',
-          gender: 'Select you gender',
-          otherGender: '',
-          phoneNumber: '',
-          state: '',
-          city: '',
-          country: '',
-          occupation: '',
-          otherOccupation: '',
-          referredBy: '',
-          agreeToTerms: false,
-          interest: [],
-        });
+        router.push('/success');
       } else {
         setStatus("Failed to register.");
       }
@@ -114,6 +108,7 @@ export default function About() {
     }
   };
 
+  // Updated checkbox handler only processes interests now
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, checked } = event.target;
 
@@ -124,18 +119,11 @@ export default function About() {
           ? [...prev.interest, value]
           : prev.interest.filter((item) => item !== value),
       }));
-    } else if (name === "agreeToTerms") {
-      setFormData((prev) => ({
-        ...prev,
-        agreeToTerms: checked,
-      }));
     }
   };
 
   return (
-    // Removed pt-40 and mt-32, using smaller values to reduce the gap
     <div className="relative min-h-screen p-4 sm:p-[2em] pt-10 sm:pt-16" id="about">
-      {/* Main Content - No background styling as we're using the global background */}
       <div className="relative z-10 mx-auto">
         {/* Header Section */}
         <motion.div
@@ -167,7 +155,9 @@ export default function About() {
               <div className="bg-[#67B044] w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
                 <feature.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
-              <h3 className="font-['OSK'] tracking-wide md:tracking-wider text-2xl sm:text-3xl md:text-3xl font-bold text-gray-800 mb-2 sm:mb-3">{feature.title}</h3>
+              <h3 className="font-['OSK'] tracking-wide md:tracking-wider text-2xl sm:text-3xl md:text-3xl font-bold text-gray-800 mb-2 sm:mb-3">
+                {feature.title}
+              </h3>
               <p className="font-['OSK'] tracking-wider md:tracking-widest text-gray-600 text-lg font-semibold leading-relaxed md:leading-loose">
                 {feature.description}
               </p>
@@ -237,7 +227,6 @@ export default function About() {
               Register for Open House
             </h3>
             <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
-              {/* Form fields remain the same but with responsive padding */}
               <input
                 type="text"
                 name="name"
@@ -247,7 +236,6 @@ export default function About() {
                 required
                 className="font-['OSK'] w-full p-2 sm:p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400 tracking-wider"
               />
-              {/* Other form fields follow the same pattern */}
               <input
                 type="email"
                 name="email"
@@ -258,11 +246,11 @@ export default function About() {
                 className="font-['OSK'] w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400 tracking-wider"
               />
               <input
-                type='text'
-                name='age'
+                type="text"
+                name="age"
                 value={formData.age}
                 onChange={handleChange}
-                placeholder='Age*'
+                placeholder="Age*"
                 required
                 className='font-["OSK"] w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 appearance-none cursor-pointer tracking-wider'
               />
@@ -324,7 +312,6 @@ export default function About() {
                 className="font-['OSK'] w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400 tracking-wider"
               />
               <div className="relative w-full" ref={dropdownRef}>
-                {/* Dropdown Button */}
                 <button
                   type="button"
                   onClick={() => setIsOpen(!isOpen)}
@@ -337,8 +324,6 @@ export default function About() {
                   </span>
                   <FiChevronDown className="w-5 h-5 text-gray-500" />
                 </button>
-
-                {/* Dropdown Menu */}
                 {isOpen && (
                   <div className="absolute w-full mt-1 bg-white border border-[#9EE666]/40 rounded-lg shadow-lg z-10">
                     <div className="p-2 max-h-48 overflow-y-auto">
@@ -383,7 +368,6 @@ export default function About() {
                   <FiChevronDown className="w-5 h-5 text-gray-500" />
                 </div>
               </div>
-              {/* Show Text Input if "Other" is selected */}
               {formData.occupation === 'Other' && (
                 <input
                   type="text"
@@ -396,7 +380,7 @@ export default function About() {
               )}
               <div className="relative">
                 <label className="block text-gray-700 text-sm font-bold mb-2 font-['OSK'] tracking-wider">
-                  Referred By (Cambridge Institute Student/Faculty) ?
+                  Referred By (Cambridge Institute Student) ?
                 </label>
                 <div className="flex">
                   <input
@@ -411,26 +395,15 @@ export default function About() {
                     @cambridge.edu.in
                   </span>
                 </div>
-                <p className="text-xs italic text-gray-600 mt-1 font-['OSK'] tracking-wide">Optional: Enter the mail id of a Cambridge Institute member who referred you.</p>
+                <p className="text-xs italic text-gray-600 mt-1 font-['OSK'] tracking-wide">
+                  Optional: Enter the mail id of a Cambridge Institute member who referred you.
+                </p>
               </div>
-              {/* Terms and Conditions for Referrals */}
-              <div className="flex items-start gap-2 mt-4">
-                <input
-                  type="checkbox"
-                  name="agreeToTerms"
-                  checked={formData.agreeToTerms}
-                  onChange={handleCheckboxChange}
-                  required
-                  className="mt-1 w-4 h-4 text-[#67B044] focus:ring focus:ring-[#67B044]/30"
-                />
-                <div>
-                  <label className="block text-gray-700 font-['OSK'] tracking-wider text-sm">
-                    I agree to the terms and conditions*
-                  </label>
-                  <p className="text-xs text-gray-600 font-['OSK'] tracking-wide">
-                    If I&apos;ve provided a referral, I confirm that the person is a current student or faculty member at Cambridge Institute of Technology. I understand that false referrals will disqualify both parties from any benefits or surprises. Valid referrals may receive special recognition and prizes.
-                  </p>
-                </div>
+              {/* Referral Disclaimer */}
+              <div className="mb-4">
+                <p className="text-xs text-gray-600 font-['OSK'] tracking-wide">
+                  If I've provided a referral, I confirm that the person is a current student or faculty member at Cambridge Institute of Technology. I understand that false referrals will disqualify both parties from any benefits or surprises. Valid referrals may receive special recognition and prizes.
+                </p>
               </div>
               <motion.button
                 type="submit"
@@ -445,6 +418,6 @@ export default function About() {
           </motion.div>
         </div>
       </div>
-    </div >
+    </div>
   );
 }
