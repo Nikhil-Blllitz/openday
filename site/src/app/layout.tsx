@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Cambrian Open House',
-  description: "CIT's First Open Day Tech Fest",
+  description: "Experience innovation at Cambrian Open House — CIT's first-ever tech fest and open day, featuring 100+ interactive tech stalls, student-led innovations, workshops, and a celebration of future-ready minds.",
 };
 
 export default function RootLayout({

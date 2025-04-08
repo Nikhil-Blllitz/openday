@@ -10,7 +10,7 @@ export default function Venue() {
     address: 'KR Puram, Bengaluru-560036',
     features: [
       {
-        title: 'MAIN SEMINAR HALL',
+        title: 'SIR MV AUDITORIUM',
         description: 'State-of-the-art auditorium with modern facilities',
         icon: (
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

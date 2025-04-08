@@ -11,7 +11,7 @@ const Reason = () => {
           <span className="font-['BS'] text-green-500 ">ATTEND</span>
           <span className="font-['BS'] text-green-500">?</span>
         </h2>
-        <p className="font-['OSK'] text-center text-gray-700 max-w-3xl mx-auto mb-[2em] tracking-wider md:tracking-widest text-lg md:text-xl font-semibold leading-relaxed md:leading-loose">
+        <p className="font-['OSK'] text-center text-gray-700 max-w-3xl mx-auto mb-[2em] tracking-wider md:tracking-widest text-lg md:text-xl font-light leading-snug md:leading-normal">
           Dive into an immersive experience at our exclusive technical exhibition, where innovation meets creativity. Explore visionary ideas, cutting-edge technology, and limitless possibilities!
         </p>
       </div>
@@ -92,7 +92,7 @@ const Reason = () => {
           <span className="font-['BS'] text-black">WHO CAN </span>
           <span className="font-['BS'] text-green-500">JOIN!</span>
         </h2>
-        <p className="font-['OSK'] max-sm:mt-[1vw] text-center text-gray-700 tracking-wider md:tracking-widest text-lg md:text-xl font-semibold leading-relaxed md:leading-loose max-w-4xl mx-auto px-4">
+        <p className="font-['OSK'] max-sm:mt-[1vw] text-center text-gray-700 tracking-wider md:tracking-widest text-lg md:text-xl font-light leading-snug md:leading-normal max-w-4xl mx-auto px-4">
           Cambrian Open House 2025 welcomes everyone! Whether you are a tech enthusiast, student, entrepreneur, or a curious mind eager to explore new ideas and experience innovative demonstrations, this event is for you. Entry is absolutely free!!!<br></br>
           Register now and join us for an immersive experience!
         </p>
