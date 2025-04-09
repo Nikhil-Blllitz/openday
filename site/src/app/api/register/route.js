@@ -141,6 +141,7 @@ export async function POST(req) {
       Occupation: body.occupation,
       Referral: body.referredBy,
       OtherOccupation: body.otherOccupation,
+      Institution: body.institution,
     });
 
     return NextResponse.json({ message: "Registration successful!" }, { status: 201 });
