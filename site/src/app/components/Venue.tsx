@@ -7,7 +7,7 @@ import Image from 'next/image';
 export default function Venue() {
   const venueDetails = {
     name: 'CAMBRIDGE INSTITUTE OF TECHNOLOGY',
-    address: 'KR Puram, Bengaluru-560036',
+    address: 'K.R. Puram, Bengaluru-560036',
     features: [
       {
         title: 'SIR MV AUDITORIUM',
