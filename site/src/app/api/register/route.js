@@ -138,6 +138,7 @@ export async function POST(req) {
       Country: body.country,
       Interest: body.interest,
       Occupation: body.occupation,
+      Referral: body.referredBy,
       OtherOccupation: body.otherOccupation,
     });
 

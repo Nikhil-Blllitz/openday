@@ -1,10 +1,13 @@
+// src/app/layout.tsx
 import type { Metadata } from 'next';
 import './globals.css';
-import { Analytics } from "@vercel/analytics/react";
+import { Inter } from 'next/font/google'
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Cambrian Open House',
-  description: "CIT's First Open Day Tech Fest",
+  description: "Experience innovation at Cambrian Open House — CIT's first-ever tech fest and open day, featuring 100+ interactive tech stalls, student-led innovations, workshops, and a celebration of future-ready minds.",
 };
 
 export default function RootLayout({
@@ -27,8 +30,16 @@ export default function RootLayout({
             `,
           }}
         />
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            body {
+              // background-color: #EBE7D8;
+            }
+          `
+        }} />
+        <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
-      <body className="antialiased">
+      <body className={inter.className}>
         {/* Google Tag Manager (GTM) noscript fallback */}
         <noscript>
           <iframe
@@ -39,9 +50,10 @@ export default function RootLayout({
           />
         </noscript>
 
-        {children}
-
-        <Analytics />
+        {/* Main Content */}
+        <div className="relative">
+          {children}
+        </div>
       </body>
     </html>
   );

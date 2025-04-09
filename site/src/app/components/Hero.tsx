@@ -3,152 +3,247 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Space_Grotesk, Orbitron } from 'next/font/google';
-
-const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
-const orbitron = Orbitron({ subsets: ['latin'] });
 
 const Hero: React.FC = () => {
   return (
-    <div className={`min-h-screen relative w-full overflow-hidden bg-[#141414] ${spaceGrotesk.className} `}>
-      {/* Background Image with Gradient Overlay */}
-      <div className="absolute inset-0 z-0  ">
-        <div className="relative w-full h-full ">
-          <Image
-            src="/campus.jpg"
-            alt="Campus Background"
-            fill
-            className="object-cover opacity-20"
-            priority
-          />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#67B044] via-[#FFD700] to-[#9B4DEE] opacity-80  " />
-      </div>
-
-      {/* Decorative Elements */}
-      <div className="absolute inset-0 z-10 overflow-hidden">
-        <div className="absolute top-20 right-10 w-40 h-40 rounded-full bg-[#FF69B4] opacity-30 blur-2xl" />
-        <div className="absolute bottom-40 right-20 w-60 h-60 rounded-full bg-[#9B4DEE] opacity-30 blur-2xl" />
-        <div className="absolute -left-20 top-40 w-80 h-80 rounded-full bg-[#FFD700] opacity-30 blur-2xl" />
-      </div>
-
-      {/* Robot Image - Desktop version (hidden on mobile) */}
-      <motion.div
-        initial={{ opacity: 0, x: 100 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.7, delay: 0.2 }}
-        className="absolute top-0 right-0 bottom-0 w-1/2 z-10 hidden md:flex items-center justify-end pointer-events-none "
-      >
-        <div className="absolute h-full w-[50vw]  ">
-          <Image
-            src="/robot.webp"
-            alt="Robot"
-            fill
-            className="object-contain drop-shadow-2xl  max-sm:w-[10vw]"
-            // style={{ objectPosition: 'right center' }}
-            priority
-          />
-        </div>
-      </motion.div>
-
-      {/* Content Container (Text on the Left) */}
-      <div className="relative z-20 h-full flex items-center">
-        <div className=" container mx-auto px-6 py-20 flex flex-col justify-center h-full text-left max-sm:h-[100vh]">
-          <div className="max-w-full md:max-w-3xl ">
-            {/* Main Title Section */}
-            <div className="space-y-4 ">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className=" flex flex-col max-sm:top-[10] max-sm:absolute"
-              >
-                <div className=" relative w-[50vw] max-sm:w-[85vw] h-[45vh] max-sm:h-[22vh]">
-                  <Image
-                    src="/COHlogo.svg"
-                    alt="COH Logo"
-                    fill
-                    className="object-contain"
-                    priority
-                  />
-                </div>
-              </motion.div>
-
-              {/* <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className={`max-sm:mt-[22rem] ${orbitron.className} max-sm:text-center text-xl md:text-2xl text-white/90 font-medium tracking-widest mt-6 uppercase max-sm:text-[4.7vw] `}
-              >
-                ENGAGE. <span className='max-sm:text-[white]'>IMMERSE</span>. BELONG
-              </motion.p> */}
-
-              {/* Event Details */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="max-sm:absolute md:mt-12 space-y-3  max-sm:top-[25%] max-sm:w-[85vw]"
-              >
-                <div className="flex items-center  ">
-                  <p className={`${orbitron.className} max-sm:bg-black/30 max-sm:backdrop-blur-md max-sm:border max-sm:border-white/20 max-sm:rounded-lg max-sm:p-[0.5em] max-sm:w-full max-sm:text-center text-[1.5rem] text-white font-bold tracking-wide max-sm:text-[3.5vw]`}>
-                    20<sup>th</sup> APR &apos;25 | <span className='text-white'>9:30 AM</span> TO <span className='text-white'>5:00 PM</span>
-                  </p>
-                </div>
-                <p className={`${spaceGrotesk.className} max-sm:text-center max-sm:bg-black/30 max-sm:backdrop-blur-md max-sm:border max-sm:border-white/20 max-sm:rounded-lg max-sm:p-[0.5em] text-xl md:text-2xl tracking-wide max-sm:text-[4vw]`}>
-                  <span className=' max-sm:text-[white]'>CIT KR PURAM, BENGALURU-560036</span>
-                </p>
-              </motion.div>
-
-              {/* CTA Button */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className=" md:mt-12 max-sm:absolute max-sm:w-[85vw] max-sm:top-[90%] "
-              >
-                <button
-                  onClick={() => document.getElementById("registration-section")?.scrollIntoView({ behavior: "smooth" })}
-                  className={`${orbitron.className} max-sm:w-full max-sm:p-[0.5em] max-sm:h-auto group relative px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-lg md:text-xl font-bold rounded-md hover:from-amber-600 hover:to-yellow-600 transition-all duration-200 overflow-hidden shadow-lg tracking-wider`}>
-                  REGISTER FOR FREE
-                  <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-200" />
-                </button>
-              </motion.div>
-            </div>
+    <div id="home" className="min-h-screen w-full overflow-hidden flex flex-col relative">
+      {/* Full size background image */}
+      <div className="absolute inset-0 w-full h-full z-0">
+        <div className="relative w-full h-full">
+          {/* Mobile view */}
+          <div className="md:hidden absolute inset-0 flex items-start justify-center pt-10">
+            <Image
+              src="/mobile_robot.webp"
+              alt="Robot Image"
+              width={440}
+              height={600}
+              className="transform-gpu object-top"
+              priority
+            />
+          </div>
+          {/* Desktop view */}
+          <div className="hidden md:block w-full h-full">
+            <Image
+              src="/robotnew.webp"
+              alt="Robot Image"
+              fill
+              className="object-contain"
+              priority
+              sizes="100vw"
+            />
           </div>
         </div>
       </div>
 
-      {/* Mobile Robot Image (visible only on small screens) - Adjusted to the right */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.5 }}
-        className=" absolute  z-10 md:hidden pointer-events-none"
-        style={{ height: '100%', width: '100%' }}
-      >
-        <div className="relative h-full w-full">
-          <Image
-            src="/robot.webp"
-            alt="Robot"
-            fill
-            className="object-contain drop-shadow-2xl  "
-            style={{ objectPosition: 'bottom ' }}
-            priority
-          />
-        </div>
-      </motion.div>
+      {/* Main Content spacer */}
+      <div className="flex-grow"></div>
 
-      {/* Floating Icons */}
-      <div className="absolute inset-0 z-10 pointer-events-none">
-        <div className="absolute top-40 right-20">
-          <div className="w-16 h-16 md:w-20 md:h-20 text-white/10 border-4 border-current rounded-full" />
-        </div>
-        <div className="absolute bottom-40 left-1/4">
-          <div className="w-24 h-24 md:w-32 md:h-32 text-white/10 border-4 border-current rounded-full" />
-        </div>
-        <div className="absolute top-1/3 right-1/3">
-          <div className="w-12 h-12 md:w-16 md:h-16 text-white/10 border-4 border-current rounded-full" />
+      {/* Bottom Title Section */}
+      <div className="w-full pb-12 pt-4 z-10">
+        <div className="container mx-auto px-4">
+          {/* Mobile View */}
+          <div className="md:hidden flex flex-col items-center space-y-2 mt-[60vh]">
+            <div className="flex flex-col items-center space-y-6 ">
+              <h1 className="text-[#FF8A00] text-4xl font-['BS'] tracking-wide max-sm:top-[60vw] max-sm:text-[10vw] max-sm:leading-[6vw]">CAMBRIAN</h1>
+              <h1 className="text-[#FF8A00] text-4xl font-['BS'] tracking-wide max-sm:text-[8.2vw]">OPEN HOUSE</h1>
+            </div>
+            <div className="bg-white/70 backdrop-blur-sm py-2 px-4 rounded-lg mt-2 overflow-hidden">
+              <motion.p
+                initial={{ x: -100, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="text-black text-base font-['OSK'] font-bold tracking-wider text-center"
+              >
+                20th APR 2025 • 9:30 AM TO 5:00 PM
+              </motion.p>
+              <motion.p
+                initial={{ x: 100, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                className="text-black text-base font-['OSK'] font-bold tracking-wider text-center mt-0.5"
+              >
+                Cambridge Instiute of Technology<br></br>KR Puram, Bengaluru-560036
+              </motion.p>
+            </div>
+
+            {/* Enhanced "JOIN US FOR FREE" Button for mobile */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex justify-center w-full mt-4"
+              whileHover={{ scale: 1.03 }}
+            >
+              {/* Pulsing background for emphasis */}
+              <motion.div
+                className="absolute w-full max-w-xs rounded-full bg-[#FF8A00]/20 h-12"
+                animate={{
+                  scale: [1, 1.1, 1],
+                  opacity: [0.3, 0.6, 0.3]
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+
+              <motion.button
+                onClick={() => document.getElementById("registration-section")?.scrollIntoView({ behavior: "smooth" })}
+                className="relative bg-gradient-to-r from-[#99E265] to-[#67B044] text-black font-['OSK'] text-lg tracking-wider py-2.5 px-6 w-full max-w-xs rounded-full shadow-lg shadow-[#99E265]/20 overflow-hidden"
+                whileTap={{ scale: 0.97 }}
+              >
+                <div className="relative flex items-center justify-center z-10">
+                  <motion.span
+                    className="inline-block mr-2 text-xl"
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      repeatType: "reverse"
+                    }}
+                  >
+                    →
+                  </motion.span>
+                  JOIN US FOR FREE!
+                </div>
+
+                {/* Sheen effect */}
+                <motion.div
+                  className="absolute inset-0 w-full h-full overflow-hidden"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                >
+                  <motion.div
+                    className="w-40 h-full bg-gradient-to-r from-transparent via-white/30 to-transparent absolute top-0 -left-40"
+                    animate={{ left: ["0%", "100%"] }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      repeatDelay: 3
+                    }}
+                  />
+                </motion.div>
+              </motion.button>
+            </motion.div>
+          </div>
+
+          {/* Desktop View */}
+          <div className="hidden md:block text-center px-4">
+            <div className="hidden md:block lg:hidden">
+              <h1 className="text-[#FF8A00] text-[5vw] font-['BS'] tracking-wide whitespace-nowrap leading-normal">
+                CAMBRIAN OPEN HOUSE
+              </h1>
+            </div>
+            <div className="hidden lg:block xl:hidden">
+              <h1 className="text-[#FF8A00] text-5xl font-['BS'] tracking-wide whitespace-nowrap leading-normal mx-auto max-w-[90vw] overflow-hidden">
+                CAMBRIAN OPEN HOUSE
+              </h1>
+            </div>
+            <div className="hidden xl:block">
+              <h1 className="text-[#FF8A00] text-6xl font-['BS'] tracking-wide whitespace-nowrap leading-normal">
+                CAMBRIAN OPEN HOUSE
+              </h1>
+            </div>
+
+            {/* Enhanced "JOIN US FOR FREE" Button - Desktop */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex justify-center mt-8 relative"
+            >
+              {/* Floating decorative elements */}
+              <motion.div
+                className="absolute -right-4 -top-4 w-6 h-6 rounded-full bg-[#FF8A00]"
+                animate={{
+                  y: [0, -8, 0],
+                  opacity: [0.7, 1, 0.7],
+                  scale: [1, 1.1, 1]
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+
+              <motion.div
+                className="absolute -left-20 top-12 w-4 h-4 rounded-full bg-cyan-400"
+                animate={{
+                  y: [0, -5, 0],
+                  opacity: [0.5, 0.8, 0.5],
+                  scale: [1, 1.2, 1]
+                }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.5
+                }}
+              />
+
+              {/* Pulsing ring */}
+              <motion.div
+                className="absolute -inset-2 rounded-full bg-[#99E265]/30"
+                animate={{
+                  scale: [0.95, 1.05, 0.95],
+                  opacity: [0.2, 0.5, 0.2]
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+
+              <motion.button
+                onClick={() => document.getElementById("registration-section")?.scrollIntoView({ behavior: "smooth" })}
+                className="relative bg-gradient-to-r from-[#99E265] to-[#67B044] text-black font-['OSK'] text-2xl tracking-wider py-3 px-10 rounded-full shadow-lg shadow-[#99E265]/30 overflow-hidden"
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: '0 0 25px 5px rgba(153,226,101,0.5)',
+                  textShadow: '0 0 5px rgba(255,255,255,0.5)'
+                }}
+                whileTap={{ scale: 0.97 }}
+              >
+                <div className="relative flex items-center justify-center z-10">
+                  <motion.span
+                    className="inline-block mr-3 text-2xl"
+                    animate={{
+                      x: [0, 7, 0],
+                      rotate: [0, 10, 0]
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      repeatType: "reverse"
+                    }}
+                  >
+                    →
+                  </motion.span>
+                  JOIN US FOR FREE!
+                </div>
+
+                {/* Sheen effect */}
+                <motion.div
+                  className="absolute inset-0 w-full h-full overflow-hidden"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                >
+                  <motion.div
+                    className="w-60 h-full bg-gradient-to-r from-transparent via-white/40 to-transparent absolute top-0 -left-60"
+                    animate={{ left: ["0%", "100%"] }}
+                    transition={{
+                      duration: 1.8,
+                      repeat: Infinity,
+                      repeatDelay: 2
+                    }}
+                  />
+                </motion.div>
+              </motion.button>
+            </motion.div>
+          </div>
         </div>
       </div>
     </div>
@@ -156,4 +251,3 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
-

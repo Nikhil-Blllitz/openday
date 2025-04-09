@@ -1,218 +1,170 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FiMenu, FiX } from 'react-icons/fi';
 import Image from 'next/image';
+//import Link from 'next/link';
+//import { useRouter } from 'next/navigation';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  //const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      const sections = ['home', 'about'];  // Only track home and about since blog and sitemap are external
+      let currentSection = 'home';
+
+      sections.forEach((section) => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            currentSection = section;
+          }
+        }
+      });
+      setActiveSection(currentSection);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleMenu = () => {
-    setIsOpen((prev) => !prev);
-  };
+  const handleNavigation = (sectionId: string) => {
+    setMobileMenuOpen(false);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
+    if (sectionId === 'blog') {
+      window.open('https://medium.com/@openhouse_38059', '_blank');
+      return;
+    }
+
+    if (sectionId === 'sitemap') {
+      window.open('https://drive.google.com/file/d/1TVYr2CGyyKWqIohzcB0QAaTtv84RrXlc/view?usp=sharing');
+      return;
+    }
+
+    if (sectionId === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    const element = document.getElementById(sectionId === 'register' ? 'registration-section' : sectionId);
     if (element) {
-      const offset = 80; // Adjust based on navbar height
+      const navbarHeight = 80;
       const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
 
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'
       });
-
-      setIsOpen(false); // Close menu after click
     }
   };
 
+  const navigationItems = ['home', 'blog', 'sitemap', 'register'];
+
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-lg' : 'bg-white'
-        }`}
-    >
-      <div className="w-full px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo & Brand */}
-          <motion.div
-            className="flex items-center"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <div className="flex items-center space-x-6">
-              <a
-                href="https://engg.cambridge.edu.in/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative w-[60px] h-[60px] group cursor-pointer"
-              >
-                <Image
-                  src="/citlogo.webp"
-                  alt="CIT Logo"
-                  fill
-                  style={{ objectFit: 'contain' }}
-                  className="transition-transform duration-300 group-hover:scale-110"
-                  priority
-                />
-              </a>
-              <div className="h-12 w-px bg-gradient-to-b from-transparent via-gray-300 to-transparent" />
-              <div className="flex flex-col">
-                {/* <span className="text-2xl font-black text-black tracking-tight">CIT INTUIT</span> */}
-              </div>
-            </div>
-          </motion.div>
+    <>
+      <div className="w-[80vw] md:w-[45vw] fixed top-4 left-1/2 transform -translate-x-1/2 z-50 backdrop-blur-lg rounded-full shadow-md">
+        {/* Main Navbar Container */}
+        <div className="py-2 px-4 md:px-8 flex justify-between items-center">
+          {/* Logo Section */}
+          <div className="flex items-center">
+            <a href="https://engg.cambridge.edu.in/" target="_blank" rel="noopener noreferrer">
+              <Image
+                src="/cit_navlogo.webp"
+                alt="CIT Logo"
+                width={110}
+                height={45}
+                className="object-contain"
+              />
+            </a>
+          </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <NavLinks scrollToSection={scrollToSection} />
-            <motion.button
-              onClick={() => scrollToSection('registration-section')}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-3 rounded-full bg-gradient-to-r from-green-500 via-emerald-500 to-green-500 text-white font-semibold hover:shadow-lg hover:shadow-green-500/30 transition-all duration-300 cursor-pointer"
-            >
-              Register Now
-            </motion.button>
+          <div className="hidden md:flex items-center space-x-8 lg:space-x-12 text-base lg:text-lg font-['OSK'] tracking-wider text-black">
+            {navigationItems.map((section) => (
+              <button
+                key={section}
+                onClick={() => handleNavigation(section)}
+                className={`uppercase ${activeSection === (section === 'register' ? 'about' : section)
+                  ? 'text-black'
+                  : 'hover:text-gray-600'
+                  } transition-colors duration-200`}
+              >
+                {section}
+              </button>
+            ))}
           </div>
 
           {/* Mobile Menu Button */}
-          <motion.div
-            className="md:hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
+          <button
+            className="md:hidden flex flex-col justify-center items-center space-y-1.5"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Menu"
           >
-            <button
-              onClick={toggleMenu}
-              className="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors duration-300 focus:outline-none"
-            >
-              {isOpen ? <FiX className="h-6 w-6" /> : <FiMenu className="h-6 w-6" />}
-            </button>
-          </motion.div>
+            <div
+              className={`w-6 h-0.5 bg-black transition-all ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''
+                }`}
+            ></div>
+            <div
+              className={`w-6 h-0.5 bg-black transition-all ${mobileMenuOpen ? 'opacity-0' : 'opacity-100'
+                }`}
+            ></div>
+            <div
+              className={`w-6 h-0.5 bg-black transition-all ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''
+                }`}
+            ></div>
+          </button>
         </div>
-      </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-white border-t border-gray-100"
-          >
-            <div className="px-4 py-6 space-y-4">
-              <MobileNavLinks scrollToSection={scrollToSection} toggleMenu={toggleMenu} />
-              <div className="pt-4">
-                <motion.button
-                  onClick={() => {
-                    toggleMenu();
-                    setTimeout(() => {
-                      document.getElementById('registration-section')?.scrollIntoView({ behavior: 'smooth' });
-                    }, 100);
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full px-6 py-3 rounded-full bg-gradient-to-r from-green-500 via-emerald-500 to-green-500 text-white font-semibold hover:shadow-lg hover:shadow-green-500/30 transition-all duration-300"
-                >
-                  Register Now
-                </motion.button>
+        {/* Mobile Menu Dropdown */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              className="absolute left-0 right-0 mx-auto mt-2 px-4"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className="backdrop-blur-xl rounded-2xl shadow-lg py-6 max-w-xs mx-auto border border-gray-200/30"
+                style={{
+                  backgroundImage: 'linear-gradient(145deg, rgba(240,240,240,0.85) 0%, rgba(200,200,200,0.75) 100%)',
+                  boxShadow: '0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.05), 0 0 0 1px rgba(255,255,255,0.3) inset'
+                }}>
+                <div className="flex flex-col items-start px-8 space-y-6">
+                  {navigationItems.map((section) => (
+                    section === 'register' ? (
+                      <motion.button
+                        key={section}
+                        onClick={() => handleNavigation(section)}
+                        className="bg-[#FF8A00] text-white font-['OSK'] tracking-wider uppercase py-2.5 px-8 rounded-full w-full text-center transition-all hover:bg-[#FFB700]"
+                        whileHover={{ scale: 1.03, boxShadow: '0 0 15px 2px rgba(255,138,0,0.3)' }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        Join Us for free
+                      </motion.button>
+                    ) : (
+                      <button
+                        key={section}
+                        onClick={() => handleNavigation(section)}
+                        className="text-gray-800 text-lg font-['OSK'] tracking-wider uppercase py-1 text-left transition-all hover:text-[#FF8A00]"
+                      >
+                        {section}
+                      </button>
+                    )
+                  ))}
+                </div>
               </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </>
   );
 };
-
-/* Desktop Nav Links */
-const NavLinks = ({ scrollToSection }: { scrollToSection: (sectionId: string) => void }) => {
-  const links = [
-    { id: 'hero', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'schedule', label: 'Schedule' },
-    { id: 'venue', label: 'Venue' },
-  ];
-
-  return (
-    <div className="flex items-center space-x-5">
-      {links.map((link) => (
-        <NavLink key={link.id} onClick={() => scrollToSection(link.id)}>
-          {link.label}
-        </NavLink>
-      ))}
-    </div>
-  );
-};
-
-/* Mobile Nav Links */
-const MobileNavLinks = ({ scrollToSection, toggleMenu }: { scrollToSection: (sectionId: string) => void; toggleMenu: () => void }) => {
-  const links = [
-    { id: 'hero', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'schedule', label: 'Schedule' },
-    { id: 'venue', label: 'Venue' },
-  ];
-
-  return (
-    <div className="space-y-2">
-      {links.map((link, index) => (
-        <motion.div
-          key={link.id}
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: index * 0.1 }}
-        >
-          <MobileNavLink
-            onClick={() => {
-              toggleMenu(); // 🔥 Close menu immediately
-              setTimeout(() => scrollToSection(link.id), 100); // 🔥 Scroll after small delay
-            }}
-          >
-            {link.label}
-          </MobileNavLink>
-        </motion.div>
-      ))}
-    </div>
-  );
-};
-
-
-function NavLink({ onClick, children }: { onClick: () => void; children: React.ReactNode }) {
-  return (
-    <button onClick={onClick} className="group relative cursor-pointer">
-      <span className="text-gray-600 hover:text-gray-900 font-medium transition-colors duration-300">{children}</span>
-      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-green-500 to-emerald-500 transition-all duration-300 group-hover:w-full " />
-    </button>
-  );
-}
-
-function MobileNavLink({ onClick, children }: { onClick: () => void; children: React.ReactNode }) {
-  return (
-    <button
-      onClick={onClick}
-      className="block w-full text-left py-3 px-4 text-gray-600 hover:text-gray-900 font-medium transition-colors duration-300 rounded-lg hover:bg-gray-50"
-    >
-      {children}
-    </button>
-  );
-}
 
 export default Navbar;
