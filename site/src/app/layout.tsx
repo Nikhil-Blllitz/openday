@@ -1,13 +1,14 @@
-// src/app/layout.tsx
 import type { Metadata } from 'next';
 import './globals.css';
-import { Inter } from 'next/font/google'
+import { Inter } from 'next/font/google';
+import Script from 'next/script'; // ✅ Import Script
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Cambrian Open House',
-  description: "Experience innovation at Cambrian Open House — CIT's first-ever tech fest and open day, featuring 100+ interactive tech stalls, student-led innovations, workshops, and a celebration of future-ready minds.",
+  description:
+    "Experience innovation at Cambrian Open House — CIT's first-ever tech fest and open day, featuring 100+ interactive tech stalls, student-led innovations, workshops, and a celebration of future-ready minds.",
 };
 
 export default function RootLayout({
@@ -18,8 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Google Tag Manager (GTM) Script */}
-        <script
+        {/* ✅ Google Tag Manager using next/script */}
+        <Script
+          id="gtm-head"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -30,30 +33,26 @@ export default function RootLayout({
             `,
           }}
         />
-        <style dangerouslySetInnerHTML={{
-          __html: `
-            body {
-              // background-color: #EBE7D8;
-            }
-          `
-        }} />
-        <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+        {/* Fonts */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Audiowide&family=Rajdhani:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body className={inter.className}>
-        {/* Google Tag Manager (GTM) noscript fallback */}
+        {/* ✅ GTM noscript fallback */}
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-TWM6T25X"
             height="0"
             width="0"
             style={{ display: 'none', visibility: 'hidden' }}
-          />
+          ></iframe>
         </noscript>
 
         {/* Main Content */}
-        <div className="relative">
-          {children}
-        </div>
+        <div className="relative">{children}</div>
       </body>
     </html>
   );
