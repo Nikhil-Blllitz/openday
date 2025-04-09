@@ -20,8 +20,8 @@ export default function About() {
     country: "",
     occupation: "",
     otherOccupation: "",
+    institution: "", // New field for college/institute
     referredBy: "",
-    // agreeToTerms is removed from the state
     interest: [] as string[], // Ensure this is an empty array initially
   });
 
@@ -121,6 +121,9 @@ export default function About() {
       }));
     }
   };
+
+  // Check if the user needs to specify their institution
+  const shouldShowInstitution = formData.occupation === "Student" || formData.occupation === "Faculty/Professor";
 
   return (
     <div className="relative min-h-screen p-4 sm:p-[2em] pt-10 sm:pt-16" id="about">
@@ -372,6 +375,27 @@ export default function About() {
                   <FiChevronDown className="w-5 h-5 text-gray-500" />
                 </div>
               </div>
+              {/* Institution Field - Appears for Students and Faculty/Professors */}
+              {shouldShowInstitution && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <input
+                    type="text"
+                    name="institution"
+                    value={formData.institution}
+                    onChange={handleChange}
+                    placeholder={formData.occupation === "Student" 
+                      ? "College/Institute Name*" 
+                      : "Institution/University Name*"
+                    }
+                    required
+                    className="font-['OSK'] w-full p-3 border border-[#9EE666]/40 rounded-lg bg-white/90 backdrop-blur-sm focus:ring-2 focus:ring-[#67B044] focus:border-transparent text-gray-700 placeholder-gray-400 tracking-wider"
+                  />
+                </motion.div>
+              )}
               {formData.occupation === 'Other' && (
                 <input
                   type="text"
@@ -406,7 +430,7 @@ export default function About() {
               {/* Referral Disclaimer */}
               <div className="mb-4">
                 <p className="text-xs text-gray-600 font-['OSK'] tracking-wide">
-                  If I&apos;ve provided a referral, I confirm that the person is a current student or faculty member at Cambridge Institute of Technology. I understand that false referrals will disqualify both parties from any benefits or surprises. Valid referrals may receive special recognition and prizes.
+                  If I&apos;ve provided a referral, I confirm that the person is a current student member at Cambridge Institute of Technology. I understand that false referrals will disqualify both parties from any benefits or surprises. Valid referrals may receive special recognition and prizes.
                 </p>
               </div>
               <motion.button
