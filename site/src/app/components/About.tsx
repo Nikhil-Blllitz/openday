@@ -408,7 +408,7 @@ export default function About() {
               )}
               <div className="relative">
                 <label className="block text-gray-700 text-sm font-bold mb-2 font-['OSK'] tracking-wider">
-                  Referred By (Cambridge Institute Student) ?
+                  Referred By (Cambridge Institute of Technology member) ?
                 </label>
                 <div className="flex">
                   <input
@@ -430,7 +430,7 @@ export default function About() {
               {/* Referral Disclaimer */}
               <div className="mb-4">
                 <p className="text-xs text-gray-600 font-['OSK'] tracking-wide">
-                  If I&apos;ve provided a referral, I confirm that the person is a current student member at Cambridge Institute of Technology. I understand that false referrals will disqualify both parties from any benefits or surprises. Valid referrals may receive special recognition and prizes.
+                By providing a referral, I hereby confirm that the referred individual is a  member of Cambridge Institute of Technology, including students, faculty, or staff. I acknowledge that any inaccurate or false referrals will result in the disqualification of both the referring and referred parties from all associated recognitions, benefits, and prizes. Valid referrals will be duly considered for special recognition and exclusive rewards.
                 </p>
               </div>
               <motion.button

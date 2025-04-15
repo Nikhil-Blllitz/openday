@@ -97,7 +97,7 @@ export default function Footer() {
                   viewport={{ once: true }}
                 >
                   <FaPhone className="text-xl mt-1" />
-                  <span className="font-['OSK'] tracking-wide text-gray-800">+91 7676270355 </span>
+                  <span className="font-['OSK'] tracking-wide text-gray-800">+91 7676270355, +91 6360146030 </span>
                 </motion.li>
                 <motion.li
                   className="flex items-start space-x-3"

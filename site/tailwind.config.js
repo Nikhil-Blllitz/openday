@@ -14,6 +14,7 @@ module.exports = {
                 third: "third 4s linear infinite",
                 fourth: "fourth 4s linear infinite",
                 fifth: "fifth 4s linear infinite",
+                'pulse-glow': 'pulse-glow 2.5s ease-in-out infinite',
             },
             keyframes: {
                 blob: {
