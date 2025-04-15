@@ -86,6 +86,57 @@ const Reason = () => {
         </div>
       </div>
 
+
+{/* Inauguration Highlight Section */}
+<div className="max-w-4xl mx-auto flex flex-col items-center gap-6 px-6 py-20">
+
+<div className="relative inline-flex justify-center items-center px-3 sm:px-5 md:px-8 py-2 rounded-full bg-white/20 backdrop-blur-md border-2 border-green-500 text-green-700 font-['BS'] text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-lg font-bold uppercase tracking-wide shadow-lg animate-pulse-glow hover:scale-105 transition-all duration-300 mx-auto w-auto max-w-[95%]">
+  <span className="text-center truncate sm:whitespace-normal">
+    Grand Inauguration by{" "}
+    <br className="sm:hidden" />
+    AICTE Chairman
+  </span>
+</div>
+
+
+  {/* Photo */}
+  <div className="w-full">
+    <Image
+      src="/reasons_page/chairman.webp"
+      alt="Prof. TG Sitharam"
+      width={1000}
+      height={700}
+      className="w-full h-auto object-cover rounded-2xl shadow-lg"
+    />
+  </div>
+
+  {/* Name */}
+
+  <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-green-700 font-['BS'] text-center leading-normal whitespace-nowrap overflow-hidden">
+  TG Sitharam
+</h3>
+
+  {/* Designation */}
+  <p className="text-2xl md:text-3xl text-green-600 font-['BS'] font-bold text-center tracking-wide uppercase">
+    Chairman, AICTE — Govt. of India
+  </p>
+
+  {/* Description */}
+  <p className="text-gray-600 font-['OSK'] text-base md:text-lg leading-relaxed tracking-wide text-center max-w-3xl">
+    Cambrian Open House 2025 is honored to be inaugurated by 
+    <span className="font-semibold text-green-600"> Prof. (Dr.) T G Sitharam</span>, 
+    Chairman of the All India Council for Technical Education (AICTE), Government of India.
+    His esteemed presence elevates the event&apos;s national significance — celebrating creativity, leadership, and the boundless potential of India&apos;s next generation of innovators.
+  </p>
+
+  {/* Callout */}
+  <p className="text-green-600 font-semibold text-lg md:text-xl font-['BS'] text-center">
+    Be there to witness this historic moment!
+  </p>
+
+</div>
+
+
       {/* WHO CAN JOIN Section */}
       <div className="w-full relative mt-16">
         <h2 className="max-sm:text-[5vw] text-4xl md:text-5xl font-bold text-center mb-6">
